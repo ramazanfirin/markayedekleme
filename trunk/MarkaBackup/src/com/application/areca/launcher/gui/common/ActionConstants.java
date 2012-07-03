@@ -68,6 +68,12 @@ public interface ActionConstants {
     public static final String CMD_DEL_TARGET = "del target";
     public static final String CMD_DUPLICATE_TARGET = "duplicate target";
     public static final String CMD_EDIT_XML = "edit xml";
+    public static final String CMD_TARGET_PROPERTIES = "target properties";
+    public static final String CMD_TARGET_PHYSICAL_VIEW = "physical view";
+    public static final String CMD_TARGET_LOGICAL_VIEW = "logical view";
+    public static final String CMD_TARGET_HISTORY_VIEW = "history view";
+    public static final String CMD_TARGET_INDICATOR_VIEW = "indicator view";
+    public static final String CMD_TARGET_SEARCH_VIEW = "search view";
     
     public static final String CMD_NEW_GROUP = "new group";
     public static final String CMD_DEL_GROUP = "del group";    
@@ -85,4 +91,6 @@ public interface ActionConstants {
     public static final String ACTION_CLEAR_LOG = "clear log";
     
     public static final String CANCEL_ACTION_KEY = "CANCEL_ACTION_KEY";
+    
+    
 }

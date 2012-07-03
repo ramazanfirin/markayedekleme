@@ -1,6 +1,7 @@
 package com.application.areca.launcher.gui.menus;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Shell;
@@ -109,9 +110,23 @@ extends AppActionReferenceHolder {
         add(AC_CHECK_ARCHIVES, menu);
         addSeparator(menu);
         add(AC_VIEW_MANIFEST, menu);  
-
+        menu.getItems();
         return menu;
     }
+    
+//    public static Menu buildActionContextMenu(Composite parent) {
+//        Menu menu = new Menu(parent, SWT.POP_UP);
+//        
+//        add(AC_MERGE, menu);
+//        add(AC_DELETE_ARCHIVES, menu);
+//        addSeparator(menu);
+//        add(AC_RECOVER, menu);
+//        add(AC_CHECK_ARCHIVES, menu);
+//        addSeparator(menu);
+//        add(AC_VIEW_MANIFEST, menu);  
+//
+//        return menu;
+//    }
     
     public static Menu buildGroupContextMenu(Shell parent) {
         Menu menu = new Menu(parent, SWT.POP_UP);
@@ -149,6 +164,25 @@ extends AppActionReferenceHolder {
         Menu mnAssist = buildSubMenu("menu.assist", menu);
         add(AC_BUILD_BATCH, mnAssist);
         add(AC_BUILD_STRATEGY, mnAssist);
+        
+        //ramazan
+        addSeparator(menu);
+        add(AC_TARGET_PROPERTIES, menu);
+        
+        addSeparator(menu);
+        add(AC_TARGET_PHYSICAL_VIEW, menu);
+        
+        addSeparator(menu);
+        add(AC_TARGET_LOGICAL_VIEW, menu);
+        
+        addSeparator(menu);
+        add(AC_TARGET_HISTORY_VIEW, menu);
+        
+        addSeparator(menu);
+        add(AC_TARGET_INDICATOR_VIEW, menu);
+        
+        addSeparator(menu);
+        add(AC_TARGET_SEARCH_VIEW, menu);
 
         return menu;
     }
@@ -188,7 +222,7 @@ extends AppActionReferenceHolder {
         addSeparator(menu);
         add(AC_VIEW, menu);
         add(AC_VIEW_TEXT, menu);
-        
+        menu.getItems();
         return menu;
     }
     

@@ -64,6 +64,7 @@ import com.application.areca.launcher.gui.common.CTabFolderManager;
 import com.application.areca.launcher.gui.common.SecuredRunner;
 import com.application.areca.launcher.gui.composites.GUIInformationChannel;
 import com.application.areca.launcher.gui.composites.LogComposite;
+import com.application.areca.launcher.gui.composites.ProgressComposite;
 import com.application.areca.launcher.gui.menus.AppActionReferenceHolder;
 import com.application.areca.launcher.gui.menus.MenuBuilder;
 import com.application.areca.launcher.gui.wizards.BackupShortcutWizardWindow;
@@ -162,7 +163,9 @@ public class Application implements ActionConstants, Window.IExceptionHandler, A
 
 	private Workspace workspace;
 	private MainWindow mainWindow;
+	private ProgressViewWindow progressViewWindow;
 
+	
 	private WorkspaceItem currentObject; // Objet en cours de selection; il peut
 											// s'agir d'un workspace, groupe ou
 											// target
@@ -193,10 +196,12 @@ public class Application implements ActionConstants, Window.IExceptionHandler, A
 	}
 
 	public void show(String workspacePath) {
-		mainWindow = new MainWindow();
+		//mainWindow = new MainWindow();
+		mainWindow = new MainWindowMarka();
 		mainWindow.setWorkspacePath(workspacePath);
 		display = Display.getCurrent();
 		clipboard = new Clipboard(display);
+		//progressViewWindow = new ProgressViewWindow(new ProgressComposite(parent));
 
 		CURSOR_WAIT = new Cursor(display, SWT.CURSOR_WAIT);
 		AppActionReferenceHolder.refresh();
@@ -400,7 +405,46 @@ public class Application implements ActionConstants, Window.IExceptionHandler, A
 						"error.duplicatetarget.message",
 						new Object[] { e1.getMessage() }), e1);
 			}
-		} else if (command.equals(CMD_EDIT_XML)) {
+		} 
+		 else if (command.equals(CMD_TARGET_PROPERTIES)) {
+				// SHOW PROPERTIES
+			 PropertiesWindow propertiesWindow = new PropertiesWindow();
+				showDialog(propertiesWindow);
+			}
+		
+		 else if (command.equals(CMD_TARGET_PHYSICAL_VIEW)) {
+				// SHOW PROPERTIES
+			PhysicalViewWindow physicalViewWindow = new PhysicalViewWindow();
+				showDialog(physicalViewWindow);
+			}
+		
+		 else if (command.equals(CMD_TARGET_LOGICAL_VIEW)) {
+				// SHOW PROPERTIES
+			LogicalViewWindow logicalViewWindow = new LogicalViewWindow();
+				showDialog(logicalViewWindow);
+			}
+		
+		 else if (command.equals(CMD_TARGET_HISTORY_VIEW)) {
+				// SHOW PROPERTIES
+			HistoryViewWindow historyViewWindow = new HistoryViewWindow();
+				showDialog(historyViewWindow);
+			}
+		
+		 else if (command.equals(CMD_TARGET_INDICATOR_VIEW)) {
+				// SHOW PROPERTIES
+			 IndicatorViewWindow indicatorViewWindow = new IndicatorViewWindow();
+				showDialog(indicatorViewWindow);
+			}
+		
+		 else if (command.equals(CMD_TARGET_SEARCH_VIEW)) {
+				// SHOW PROPERTIES
+			
+				
+				SearchViewWindow searchViewWindow = new SearchViewWindow();
+				showDialog(searchViewWindow);
+			}
+		
+		else if (command.equals(CMD_EDIT_XML)) {
 			// EDIT XML CONFIGURATION
 			showEditTargetXML(this.getCurrentTarget());
 		} else if (command.equals(CMD_SUPPORT)) {
@@ -1799,7 +1843,9 @@ public class Application implements ActionConstants, Window.IExceptionHandler, A
 		public ProcessRunner(AbstractTarget target) {
 			this.rTarget = target;
 			channel = new GUIInformationChannel(rTarget, mainWindow.getProgressContainer().getMainPane());
+			//channel = new GUIInformationChannel(rTarget, mainWindow.getProgressViewWindow().getProgressContainer().getMainPane());
 			mainWindow.focusOnProgress();
+			mainWindow.getProgressContainer();
 		}
 
 		public GUIInformationChannel getChannel() {
