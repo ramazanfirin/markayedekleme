@@ -154,7 +154,8 @@ public class AppAction implements SelectionListener {
     }
     
     private void refreshMenuItem(MenuItem item) {
-        item.setEnabled(enabled);
+        if(!item.isDisposed())
+    	 item.setEnabled(enabled);
     }
     
     private void refreshToolItem(ToolItem item) {
@@ -167,6 +168,12 @@ public class AppAction implements SelectionListener {
             MenuItem item = (MenuItem)iter.next();
             refreshMenuItem(item);
         }
+//        String temp="";
+//        for (int i = 0; i < menuItems.size(); i++) {
+//			MenuItem item3 = (MenuItem)menuItems.get(i);
+//			temp=temp+","+item3.getText();
+//		}
+       // System.out.println(label+"="+temp);
         
         iter = toolItems.iterator();
         while (iter.hasNext()) {
@@ -184,7 +191,7 @@ public class AppAction implements SelectionListener {
         if (accel != -1) {
             item.setAccelerator(accel);
         }
-        
+        //System.out.println(label+"="+item.getText());
         refreshMenuItem(item);
         this.menuItems.add(item);
     }

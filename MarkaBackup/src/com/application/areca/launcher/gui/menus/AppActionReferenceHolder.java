@@ -53,6 +53,12 @@ public class AppActionReferenceHolder implements ActionConstants{
     public static AppAction AC_EDIT_TARGET = new AppAction("app.edittargetaction", ArecaImages.ICO_TARGET_EDIT, ArecaImages.ICO_TARGET_EDIT_B, CMD_EDIT_TARGET);
     public static AppAction AC_DEL_TARGET =  new AppAction("app.deletetargetaction", CMD_DEL_TARGET);
     public static AppAction AC_DUP_TARGET = new AppAction("app.duplicatetargetaction", CMD_DUPLICATE_TARGET);
+    public static AppAction AC_TARGET_PROPERTIES= new AppAction("app.propertiestargetaction", CMD_TARGET_PROPERTIES);
+    public static AppAction AC_TARGET_PHYSICAL_VIEW= new AppAction("app.physicaltargetaction", CMD_TARGET_PHYSICAL_VIEW);
+    public static AppAction AC_TARGET_LOGICAL_VIEW= new AppAction("app.logicaltargetaction", CMD_TARGET_LOGICAL_VIEW);
+    public static AppAction AC_TARGET_HISTORY_VIEW= new AppAction("app.historytargetaction", CMD_TARGET_HISTORY_VIEW);
+    public static AppAction AC_TARGET_INDICATOR_VIEW= new AppAction("app.indicatortargetaction", CMD_TARGET_INDICATOR_VIEW);
+    public static AppAction AC_TARGET_SEARCH_VIEW= new AppAction("app.searchtargetaction", CMD_TARGET_SEARCH_VIEW);
     public static AppAction AC_SEARCH = new AppAction("app.searchaction", ArecaImages.ICO_FIND, CMD_SEARCH);
 
     public static AppAction AC_HISTORY = new AppAction("app.historyaction", ArecaImages.ICO_HISTORY, CMD_HISTORY);
@@ -92,7 +98,10 @@ public class AppActionReferenceHolder implements ActionConstants{
     public static void refresh() {
         SecuredRunner.execute(Application.getInstance().getDisplay(), new Runnable() {
             public void run() {
-                Application application = Application.getInstance();
+            	
+            	
+            	
+            	Application application = Application.getInstance();
                 String cmd = ApplicationPreferences.getEditionCommand();
 
                 if (application.getCurrentObject() == null || Workspace.class.isAssignableFrom(application.getCurrentObject().getClass())) {

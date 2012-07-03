@@ -65,10 +65,11 @@ This file is part of Areca.
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
  */
-public class MainWindow extends AbstractWindow {
+public class MainWindowMarka extends MainWindow {
     private TargetTreeComposite pnlTree;
     private PropertiesComposite pnlProperties;
     private CTabFolder tabs;
+    private CTabFolder tabs2;
     private SashForm leftSash;
     private SashForm mainSash;
     private ProgressComposite progressContainer;
@@ -79,14 +80,15 @@ public class MainWindow extends AbstractWindow {
     
     private static final int TAB_PHYSICAL = 0;
     private static final int TAB_LOGICAL = 1;
-    private static final int TAB_PROGRESS = 6;
+    private static final int TAB_PROGRESS = 0;
     
     private ProgressViewWindow progressViewWindow;
+    private SashForm progressShash;
 
     /**
      * @param display
      */
-    public MainWindow() {
+    public MainWindowMarka() {
         super();
     }
 
@@ -138,25 +140,30 @@ public class MainWindow extends AbstractWindow {
         
         // PROPERTIES
         pnlProperties = new PropertiesComposite(leftSash);
-
-        leftSash.setWeights(new int[] {70, 30});
+        
+        tabs = new CTabFolder(leftSash, SWT.BORDER);
+        //tabs2.setSimple(Application.SIMPLE_MAINTABS);
+        //progressShash = new ProgressComposite(leftSash);
+        
+        
+        leftSash.setWeights(new int[] {60, 20,20});
 
         // TABS
-        tabs = new CTabFolder(mainSash, SWT.BORDER);
-        tabs.setSimple(Application.SIMPLE_MAINTABS);
+        tabs2 = new CTabFolder(mainSash, SWT.BORDER);
+        tabs2.setSimple(Application.SIMPLE_MAINTABS);
 
         progressContainer = new ProgressComposite(tabs);
-        progressViewWindow = new ProgressViewWindow(null);
-        //progressViewWindow.setProgressContainer(progressContainer);
+        //progressViewWindow = new ProgressViewWindow(progressContainer);
+       
         
-        addFolderItem(RM.getLabel("mainpanel.physical.label"), ArecaImages.ICO_REF_TARGET, new PhysicalViewComposite(tabs));
-        this.logicalView = new LogicalViewComposite(tabs);
-        addFolderItem(RM.getLabel("mainpanel.logical.label"), ArecaImages.ICO_REF_TARGET, this.logicalView);
-        addFolderItem(RM.getLabel("mainpanel.history.label"), ArecaImages.ICO_HISTORY, new HistoryComposite(tabs));
-        addFolderItem(RM.getLabel("mainpanel.indicators.label"), ArecaImages.ICO_TARGET_NEW, new IndicatorsComposite(tabs));
-        this.searchView = new SearchComposite(tabs);
-        addFolderItem(RM.getLabel("mainpanel.search.label"), ArecaImages.ICO_FIND, searchView);
-        addFolderItem(RM.getLabel("mainpanel.log.label"), ArecaImages.ICO_TAB_LOG, new LogComposite(tabs));
+        //addFolderItem(RM.getLabel("mainpanel.physical.label"), ArecaImages.ICO_REF_TARGET, new PhysicalViewComposite(tabs));
+        //this.logicalView = new LogicalViewComposite(tabs);
+        //addFolderItem(RM.getLabel("mainpanel.logical.label"), ArecaImages.ICO_REF_TARGET, this.logicalView);
+        //addFolderItem(RM.getLabel("mainpanel.history.label"), ArecaImages.ICO_HISTORY, new HistoryComposite(tabs));
+       // addFolderItem(RM.getLabel("mainpanel.indicators.label"), ArecaImages.ICO_TARGET_NEW, new IndicatorsComposite(tabs));
+        //this.searchView = new SearchComposite(tabs);
+        //addFolderItem(RM.getLabel("mainpanel.search.label"), ArecaImages.ICO_FIND, searchView);
+        //addFolderItem(RM.getLabel("mainpanel.log.label"), ArecaImages.ICO_TAB_LOG, new LogComposite(tabs));
         addFolderItem(RM.getLabel("mainpanel.progress.label"), ArecaImages.ICO_CHANNEL, progressContainer);
 
         int selectedTab = ApplicationPreferences.isDisplayLogicalViewOnStartup() ? TAB_LOGICAL : TAB_PHYSICAL;
@@ -180,14 +187,13 @@ public class MainWindow extends AbstractWindow {
 
     public void focusOnProgress() {
     	System.out.println("focusOnProgewss");
-        int tab = this.application.getFolderMonitor().getCurrentSelection();
+    	int tab = this.application.getFolderMonitor().getCurrentSelection();
         if (tab != TAB_PROGRESS) {
             this.returnTabIndex = tab;
         }
         this.tabs.setSelection(TAB_PROGRESS);
         this.application.getFolderMonitor().handleSelection(this.tabs.getItem(TAB_PROGRESS));
-        //progressViewWindow.sh
-        this.application.showDialog(progressViewWindow,false);
+        //this.application.showDialog(progressViewWindow,false);
     }
     
     public void focusOnLogicalView(TraceEntry entry) {
@@ -273,7 +279,7 @@ public class MainWindow extends AbstractWindow {
             mainSash.setWeights(new int[] {pos, 100-pos});
     
             pos = LocalPreferences.instance().getInt("mainframe.leftsplitpos", 70);
-            leftSash.setWeights(new int[] {pos, 100-pos});
+            leftSash.setWeights(new int[] {pos, 70-pos,30});
         } catch (Throwable e) {
             Logger.defaultLogger().error("Error loading user preferences.", e);
         }
