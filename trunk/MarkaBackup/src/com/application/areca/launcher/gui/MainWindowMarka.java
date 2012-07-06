@@ -9,6 +9,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
@@ -70,7 +71,7 @@ public class MainWindowMarka extends MainWindow {
     private PropertiesComposite pnlProperties;
     private CTabFolder tabs;
     private CTabFolder tabs2;
-    private SashForm leftSash;
+    private SashForm rightSash;
     private SashForm mainSash;
     private ProgressComposite progressContainer;
     private int returnTabIndex = 0;
@@ -128,31 +129,48 @@ public class MainWindowMarka extends MainWindow {
         	ToolBarBuilder.buildMainToolBar(composite);
         }
 
+        // TABS
+        
+        
         // MAIN SASH
         mainSash = new SashForm(composite, SWT.HORIZONTAL);
         mainSash.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
+        
+        //tabs2 = new CTabFolder(mainSash, SWT.BORDER);
+        //tabs2.setSimple(Application.SIMPLE_MAINTABS);
+        
+        Composite button1 = new Composite(mainSash,SWT.NONE);
+        button1.setBackground(Colors.C_BLUE);
+        //Button button2 = new Button(mainSash,SWT.NONE);
+        
+     // LEFT SASH
+       // rightSash = new SashForm(mainSash, SWT.VERTICAL);
+        
         // LEFT SASH
-        leftSash = new SashForm(mainSash, SWT.VERTICAL);
-
-        // TREE
-        pnlTree = new TargetTreeComposite(leftSash);
+        rightSash = new SashForm(mainSash, SWT.VERTICAL);
+        
+        pnlTree = new TargetTreeComposite(rightSash);
+        tabs = new CTabFolder(rightSash, SWT.BORDER);
+        rightSash.setWeights(new int[] {60, 40});
         
         // PROPERTIES
-        pnlProperties = new PropertiesComposite(leftSash);
+        //pnlProperties = new PropertiesComposite(leftSash);
+        //pnlProperties.setVisible(false);
         
-        tabs = new CTabFolder(leftSash, SWT.BORDER);
+       
         //tabs2.setSimple(Application.SIMPLE_MAINTABS);
         //progressShash = new ProgressComposite(leftSash);
         
         
-        leftSash.setWeights(new int[] {60, 20,20});
+       
 
         // TABS
-        tabs2 = new CTabFolder(mainSash, SWT.BORDER);
-        tabs2.setSimple(Application.SIMPLE_MAINTABS);
+      // tabs2 = new CTabFolder(mainSash, SWT.BORDER);
+      // tabs2.setSimple(Application.SIMPLE_MAINTABS);
 
         progressContainer = new ProgressComposite(tabs);
+        
         //progressViewWindow = new ProgressViewWindow(progressContainer);
        
         
@@ -170,7 +188,7 @@ public class MainWindowMarka extends MainWindow {
         tabs.setSelection(selectedTab);
         application.getFolderMonitor().handleSelection(tabs.getItem(selectedTab));
         
-        mainSash.setWeights(new int[] {30, 70});
+        mainSash.setWeights(new int[] {10, 90});
 
         // Force colors loading
         Color c = Colors.C_BLACK;
@@ -238,7 +256,7 @@ public class MainWindowMarka extends MainWindow {
     }
     
     public void refreshProperties() {
-        pnlProperties.refresh();
+        //pnlProperties.refresh();
     }
 
     public String getTitle() {
@@ -276,10 +294,10 @@ public class MainWindowMarka extends MainWindow {
     private void readPreferences() {
         try {
             int pos = LocalPreferences.instance().getInt("mainframe.mainsplitpos", 30);
-            mainSash.setWeights(new int[] {pos, 100-pos});
+            //mainSash.setWeights(new int[] {pos, 100-pos});
     
             pos = LocalPreferences.instance().getInt("mainframe.leftsplitpos", 70);
-            leftSash.setWeights(new int[] {pos, 70-pos,30});
+            rightSash.setWeights(new int[] {pos, 100-pos});
         } catch (Throwable e) {
             Logger.defaultLogger().error("Error loading user preferences.", e);
         }
@@ -297,7 +315,7 @@ public class MainWindowMarka extends MainWindow {
     
     
             LocalPreferences.instance().set("mainframe.mainsplitpos", normalizeWeights(mainSash.getWeights()));
-            LocalPreferences.instance().set("mainframe.leftsplitpos", normalizeWeights(leftSash.getWeights())); 
+            LocalPreferences.instance().set("mainframe.leftsplitpos", normalizeWeights(rightSash.getWeights())); 
     
             LocalPreferences.instance().save();
         } catch (Throwable e) {
@@ -315,10 +333,11 @@ public class MainWindowMarka extends MainWindow {
         Display.getCurrent().dispose();
     }
 
+    
     public boolean close() {
         return close(false);
     }
-
+   
     public boolean close(boolean force) {
         if (force) {
         	Logger.defaultLogger().info("Closing Areca's main window ...");

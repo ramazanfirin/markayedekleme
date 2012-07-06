@@ -1,6 +1,5 @@
 package com.application.areca.launcher.gui;
 
-import java.awt.event.KeyAdapter;
 import java.io.File;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -8,6 +7,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -16,6 +16,8 @@ import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.CTabFolder;
+import org.eclipse.swt.custom.CTabItem;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DragSource;
 import org.eclipse.swt.dnd.DragSourceAdapter;
@@ -32,6 +34,7 @@ import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -45,6 +48,7 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.ProgressBar;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
@@ -54,7 +58,6 @@ import org.eclipse.swt.widgets.TreeColumn;
 import org.eclipse.swt.widgets.TreeItem;
 
 import com.application.areca.AbstractTarget;
-import com.application.areca.ApplicationException;
 import com.application.areca.ArecaConfiguration;
 import com.application.areca.ResourceManager;
 import com.application.areca.Utils;
@@ -75,9 +78,11 @@ import com.application.areca.impl.policy.EncryptionPolicy;
 import com.application.areca.impl.policy.FileSystemPolicy;
 import com.application.areca.launcher.gui.common.AbstractWindow;
 import com.application.areca.launcher.gui.common.ApplicationPreferences;
+import com.application.areca.launcher.gui.common.ArecaImages;
 import com.application.areca.launcher.gui.common.Colors;
 import com.application.areca.launcher.gui.common.FileComparator;
 import com.application.areca.launcher.gui.common.ListPane;
+import com.application.areca.launcher.gui.common.ListPaneElement;
 import com.application.areca.launcher.gui.common.LocalPreferences;
 import com.application.areca.launcher.gui.common.SavePanel;
 import com.application.areca.launcher.gui.composites.ProcessorsTable;
@@ -97,7 +102,6 @@ import com.myJava.util.PasswordQualityEvaluator;
 import com.myJava.util.Util;
 import com.myJava.util.history.History;
 import com.myJava.util.log.Logger;
-import com.myJava.util.taskmonitor.TaskCancelledException;
 
 /**
  * <BR>
@@ -221,28 +225,46 @@ extends AbstractWindow {
 	protected Button btnModifySource;
 
 	protected boolean hasDisplayedTransactionWarning = false;
+	
+	private CTabFolder tabsFolder;
+	ListPane tabs;
 
 	public TargetEditionWindow(AbstractTarget target) {
 		super();
 		this.target = target;
+		
+		
+		
 	}
 
 	protected Control createContents(Composite parent) {
 		application.enableWaitCursor();
+		//this.setShellStyle(SWT.APPLICATION_MODAL ) ; 
+		
 		Composite ret = new Composite(parent, SWT.NONE);
+		
 		try {
 			GridLayout layout = new GridLayout();
-			layout.numColumns = 1;
+			layout.numColumns = 2;
+			
 			ret.setLayout(layout);
 
-			ListPane tabs = new ListPane(ret, SWT.NONE, false);
+			tabs = new ListPane(ret, SWT.NONE, false);
+			//tabs.getMenu().setVisible(false);
+			//tabs.
+			tabs.getMenu().setSize(0, 0);
 			GridData dt1 = new GridData();
-			dt1.grabExcessHorizontalSpace = true;
-			dt1.grabExcessVerticalSpace = true;
+			//dt1.grabExcessHorizontalSpace = true;
+			//dt1.grabExcessVerticalSpace = true;
 			dt1.horizontalAlignment = SWT.FILL;
 			dt1.verticalAlignment = SWT.FILL;
+			//dt1.minimumWidth=300;
 			tabs.setLayoutData(dt1);
-
+			
+			
+			tabsFolder = new CTabFolder(ret, SWT.BORDER);
+			tabsFolder.setSimple(Application.SIMPLE_MAINTABS);
+			
 			initGeneralTab(initTab(tabs, RM.getLabel("targetedition.maingroup.title")));
 			initSourcesTab(initTab(tabs, RM.getLabel("targetedition.sourcesgroup.title")));
 			initCompressionTab(initTab(tabs, RM.getLabel("targetedition.compression.label")));
@@ -253,10 +275,31 @@ extends AbstractWindow {
 			initTransactionTab(initTab(tabs, RM.getLabel("targetedition.transactions.label")));
 			initDescriptionTab(initTab(tabs, RM.getLabel("targetedition.descriptiongroup.title")));
 
+			
+			
+			
+			prepareTabsFolder(RM.getLabel("targetedition.maingroup.title"));
+			prepareTabsFolder(RM.getLabel("targetedition.sourcesgroup.title"));
+			prepareTabsFolder(RM.getLabel("targetedition.compression.label"));
+			prepareTabsFolder(RM.getLabel("targetedition.advancedgroup.title"));
+			prepareTabsFolder(RM.getLabel("targetedition.filtersgroup.title"));
+			prepareTabsFolder(RM.getLabel("targetedition.preprocessing.title"));
+			prepareTabsFolder(RM.getLabel("targetedition.postprocessing.title"));
+			prepareTabsFolder(RM.getLabel("targetedition.transactions.label"));
+			prepareTabsFolder(RM.getLabel("targetedition.descriptiongroup.title"));
+			
+			
+			
+			tabsFolder.setSelection(0);
+			//tabsFolder.setLayout(dt1);
+			
+			Button buttonTmp= new Button(ret, SWT.NONE);
+			buttonTmp.setVisible(true);
+			
 			SavePanel pnlSave = new SavePanel(this);
 			Composite save = pnlSave.buildComposite(ret);
 			GridData dt2 = new GridData();
-			dt2.grabExcessHorizontalSpace = true;
+			//dt2.grabExcessHorizontalSpace = true;
 			dt2.horizontalAlignment = SWT.FILL;
 			save.setLayoutData(dt2);
 			btnSave = pnlSave.getBtnSave();
@@ -265,6 +308,13 @@ extends AbstractWindow {
 			ret.pack(true);
 			initValues();
 
+			tabs.clearMenu();
+			//tabs.getMenu().setSize(10,10);
+			Point size =tabs.getMenu().computeSize(300,300);
+			tabs.getMenu().setSize(size);
+			Color blue = getShell().getDisplay().getSystemColor(SWT.COLOR_BLUE);
+			tabs.getMenu().setBackground(blue);
+			
 			ret.addKeyListener(new org.eclipse.swt.events.KeyAdapter() {
 				public void keyPressed(KeyEvent event) {
 					if ((event.stateMask & SWT.CTRL) != 0 && (event.stateMask & SWT.ALT) != 0 && event.keyCode == 100) {
@@ -297,9 +347,41 @@ extends AbstractWindow {
 		}
 		return ret;
 	}
+	
+	  protected void configureShell(Shell shell) {
+		    super.configureShell(shell);
 
+//		    shell = new Shell(SWT.CLOSE | SWT.TITLE | SWT.BORDER | 
+//		    		SWT.APPLICATION_MODAL | SWT.MIN ) ; 
+//		    shell.setText("Address Book");
+//		    shell.setSize(600, 400);
+		  }
+
+
+	public void prepareTabsFolder(String name){
+		CTabItem itm = new CTabItem(tabsFolder, SWT.NONE);
+		Composite tab  = getListPaneElement(name).getComposite(); 
+	    tab.setParent(tabsFolder);
+	    tab.setVisible(true);
+	    itm.setControl(tab);
+	    itm.setText(name);
+		itm.setImage(ArecaImages.ICO_CHANNEL);
+		
+	}
+	
+	public ListPaneElement getListPaneElement(String name){
+		List list = tabs.getElements();
+		for (int i = 0; i < list.size(); i++) {
+			ListPaneElement element = (ListPaneElement)list.get(i);
+			if(element.getKey().equals(name))
+				return element;
+		}
+		return null;
+	}
+	
 	private Composite initTab(ListPane tabs, String title) {
 		Composite itm = tabs.addElement(title, title);
+		//itm.setVisible(false);
 		return itm;
 	}
 
