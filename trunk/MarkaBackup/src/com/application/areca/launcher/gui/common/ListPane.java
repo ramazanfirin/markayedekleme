@@ -63,6 +63,7 @@ public class ListPane {
         menu = new org.eclipse.swt.widgets.List(parent, SWT.BORDER);
         menu.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true));
         
+        
         panes = new Composite(parent, SWT.NONE);
         panes.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
         RowLayout lyt = new RowLayout();
@@ -156,4 +157,24 @@ public class ListPane {
         
         return content;
     }
+
+	public List getElements() {
+		return elements;
+	}
+
+	public void setElements(List elements) {
+		this.elements = elements;
+	}
+
+	public org.eclipse.swt.widgets.List getMenu() {
+		return menu;
+	}
+
+	public void setMenu(org.eclipse.swt.widgets.List menu) {
+		this.menu = menu;
+	}
+	
+	public void clearMenu(){
+		this.menu.removeAll();
+	}
 }
