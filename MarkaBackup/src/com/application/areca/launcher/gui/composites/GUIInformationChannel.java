@@ -7,6 +7,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Link;
@@ -75,6 +76,11 @@ implements UserInformationChannel, Colors, Listener {
 
 	public GUIInformationChannel(AbstractTarget target, Composite parent) {
 		super(parent, SWT.BORDER);
+		Control[] children = parent.getChildren();   //remove all list
+		for (int i=0; i<children.length; i++) {      //
+			if((GUIInformationChannel)children[i]!=this) //
+			((GUIInformationChannel)children[i]).removeIfPossible(); //
+		}
 		this.parent = parent;
 		this.target = target;
 		this.setLayout(new FillLayout());

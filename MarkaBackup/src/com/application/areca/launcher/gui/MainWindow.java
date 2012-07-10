@@ -310,7 +310,7 @@ public class MainWindow extends AbstractWindow {
     }
 
     public boolean close() {
-        return close(false);
+        return super.close();
     }
 
     public boolean close(boolean force) {
