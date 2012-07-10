@@ -17,6 +17,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Tree;
@@ -68,6 +69,9 @@ implements MouseListener, Listener {
 	protected Combo txtPath;
 	protected Button btnWsp;
 	protected int width;
+	
+	protected Label workSpaceLabel;
+	protected Label workSpaceValue;
 
     public AbstractTargetTreeComposite(Composite parent, boolean multi, boolean addPath) {
         super(parent, SWT.NONE);
@@ -84,30 +88,44 @@ implements MouseListener, Listener {
         }
         
         if (addPath) {
-            txtPath = new Combo(this, SWT.DROP_DOWN);
-            txtPath.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-            txtPath.setToolTipText(ResourceManager.instance().getLabel("mainpanel.wspath.tt"));
-            txtPath.addKeyListener(new KeyListener() {
-				public void keyReleased(KeyEvent arg0) {
-					if (arg0.character == '\r') {
-						Application.getInstance().openWorkspace(txtPath.getText());
-					}
-				}
-				
-				public void keyPressed(KeyEvent arg0) {
-				}
-			});
-            txtPath.addListener(SWT.Selection, new Listener() {
-				public void handleEvent(Event arg0) {
-					Application.getInstance().openWorkspace(txtPath.getText());
-				}
-			});
-            
-            btnWsp = new Button(this, SWT.PUSH);
-            btnWsp.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false));
-            btnWsp.setText(ResourceManager.instance().getLabel("common.browseaction.label"));
-            btnWsp.setToolTipText(AppActionReferenceHolder.AC_OPEN.getToolTip());
-            btnWsp.addSelectionListener(AppActionReferenceHolder.AC_OPEN);
+//          txtPath = new Combo(this, SWT.DROP_DOWN);
+//          txtPath.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+//          txtPath.setToolTipText(ResourceManager.instance().getLabel("mainpanel.wspath.tt"));
+//          txtPath.addKeyListener(new KeyListener() {
+//				public void keyReleased(KeyEvent arg0) {
+//					if (arg0.character == '\r') {
+//						Application.getInstance().openWorkspace(txtPath.getText());
+//					}
+//				}
+//				
+//				public void keyPressed(KeyEvent arg0) {
+//				}
+//			});
+//          txtPath.addListener(SWT.Selection, new Listener() {
+//				public void handleEvent(Event arg0) {
+//					Application.getInstance().openWorkspace(txtPath.getText());
+//				}
+//			});
+//          
+          
+          //txtPath.setVisible(false);
+          workSpaceLabel = new Label(this, SWT.NONE);
+          workSpaceLabel.setToolTipText(ResourceManager.instance().getLabel("mainpanel.wspath.tt"));
+          workSpaceLabel.setText(ResourceManager.instance().getLabel("common.workspace.label"));
+          workSpaceLabel.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false));
+          
+          //btnWsp = new Button(this, SWT.PUSH);
+          //btnWsp.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false));
+          //btnWsp.setText(ResourceManager.instance().getLabel("common.browseaction.label"));
+          //btnWsp.setToolTipText(AppActionReferenceHolder.AC_OPEN.getToolTip());
+          //btnWsp.addSelectionListener(AppActionReferenceHolder.AC_OPEN);
+          
+          //btnWsp.setVisible(false);
+          workSpaceValue = new Label(this, SWT.NONE);
+          workSpaceValue.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false));
+          //workSpaceValue.setText( Application.getInstance().getMainWindow().get);
+          //workSpaceValue.setText(ResourceManager.instance().getLabel("common.browseaction.label"));
+          workSpaceValue.setToolTipText(AppActionReferenceHolder.AC_OPEN.getToolTip());
         }
         
         viewer = new TreeViewer(this, style);
@@ -128,6 +146,8 @@ implements MouseListener, Listener {
 	        }
 	        txtPath.setText(Application.getInstance().getWorkspace().getPath());
     	}
+    	if(workSpaceValue!=null)
+    		workSpaceValue.setText(Application.getInstance().getWorkspace().getPath());
     }
     
     protected abstract Workspace getWorkspace();

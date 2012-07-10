@@ -50,40 +50,40 @@ extends AppActionReferenceHolder {
         add(AC_BACKUP_WS, mnWorkspace);
         add(AC_IMPORT_GROUP, mnWorkspace);
         addSeparator(mnWorkspace);
-        add(AC_PREFERENCES, mnWorkspace);
-        addSeparator(mnWorkspace);
+        //add(AC_PREFERENCES, mnWorkspace);
+        //addSeparator(mnWorkspace);
         add(AC_EXIT, mnWorkspace);
 
         // EDIT
-        Menu mnEdit = buildSubMenu("menu.edit", menu);
-        add(AC_NEW_GROUP, mnEdit);
-        //add(AC_EDIT_GROUP, mnEdit);
-        add(AC_DEL_GROUP, mnEdit);
-        addSeparator(mnEdit);
-        add(AC_NEW_TARGET, mnEdit);
-        add(AC_EDIT_TARGET, mnEdit);
-        add(AC_DEL_TARGET, mnEdit);
-        addSeparator(mnEdit);
-        add(AC_DUP_TARGET, mnEdit);
-        addSeparator(mnEdit);
+//        Menu mnEdit = buildSubMenu("menu.edit", menu);
+//        add(AC_NEW_GROUP, mnEdit);
+//        //add(AC_EDIT_GROUP, mnEdit);
+//        add(AC_DEL_GROUP, mnEdit);
+//        addSeparator(mnEdit);
+//        add(AC_NEW_TARGET, mnEdit);
+//        add(AC_EDIT_TARGET, mnEdit);
+//        add(AC_DEL_TARGET, mnEdit);
+//        addSeparator(mnEdit);
+//        add(AC_DUP_TARGET, mnEdit);
+//        addSeparator(mnEdit);
         
-        // ASSISTANTS
-        Menu mnAssist = buildSubMenu("menu.assist", mnEdit);
-        add(AC_BUILD_BATCH, mnAssist);
-        add(AC_BUILD_STRATEGY, mnAssist);
+//        // ASSISTANTS
+//        Menu mnAssist = buildSubMenu("menu.assist", mnEdit);
+//        add(AC_BUILD_BATCH, mnAssist);
+//        add(AC_BUILD_STRATEGY, mnAssist);
         
-        // ACTION
-        Menu mnRun = buildSubMenu("menu.run", menu);
-        add(AC_SIMULATE, mnRun);
-        add(AC_BACKUP, mnRun);
-        addSeparator(mnRun);
-        add(AC_MERGE, mnRun);
-        add(AC_DELETE_ARCHIVES, mnRun);
-        addSeparator(mnRun);
-        add(AC_RECOVER, mnRun);
-        add(AC_CHECK_ARCHIVES, mnRun);
-        addSeparator(mnRun);
-        add(AC_BACKUP_ALL, mnRun);
+//        // ACTION
+//        Menu mnRun = buildSubMenu("menu.run", menu);
+//        add(AC_SIMULATE, mnRun);
+//        add(AC_BACKUP, mnRun);
+//        addSeparator(mnRun);
+//        add(AC_MERGE, mnRun);
+//        add(AC_DELETE_ARCHIVES, mnRun);
+//        addSeparator(mnRun);
+//        add(AC_RECOVER, mnRun);
+//        add(AC_CHECK_ARCHIVES, mnRun);
+//        addSeparator(mnRun);
+//        add(AC_BACKUP_ALL, mnRun);
         
         // HELP
         Menu mnHelp = buildSubMenu("menu.help", menu);

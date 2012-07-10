@@ -312,8 +312,12 @@ public class Application implements ActionConstants, Window.IExceptionHandler, A
 			showDialog(about);
 		} else if (command.equals(CMD_HELP)) {
 			// HELP
-			showWebPage(HELP_ROOT
-					+ VersionInfos.getLastVersion().getVersionId());
+			//showWebPage(HELP_ROOT
+					//+ VersionInfos.getLastVersion().getVersionId());
+			
+			DecrytionFileWindow decrytionFileWindow = new DecrytionFileWindow();
+			showDialog(decrytionFileWindow);;
+			
 		} else if (command.equals(CMD_TUTORIAL)) {
 			// TUTORIAL
 			showWebPage(TUTORIAL_ROOT
@@ -488,8 +492,8 @@ public class Application implements ActionConstants, Window.IExceptionHandler, A
 			showDialog(frm);
 		} else if (command.equals(CMD_PREFERENCES)) {
 			// PREFERENCES
-			PreferencesWindow frm = new PreferencesWindow();
-			showDialog(frm);
+			//PreferencesWindow frm = new PreferencesWindow();
+			//sshowDialog(frm);
 		} else if (command.equals(ACTION_CLEAR_LOG)) {
 			clearLog();
 		} else if (command.equals(CMD_BACKUP_WORKSPACE)) {
@@ -1452,6 +1456,8 @@ public class Application implements ActionConstants, Window.IExceptionHandler, A
 		rn.launch();
 	}
 
+	
+	
 	public void showBackupWindow(Manifest manifest, WorkspaceItem scope,
 			boolean disableCheck) {
 		BackupWindow frm = new BackupWindow(manifest, scope, disableCheck);

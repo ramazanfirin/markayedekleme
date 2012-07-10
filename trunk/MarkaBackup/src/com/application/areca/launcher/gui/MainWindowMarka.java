@@ -125,9 +125,9 @@ public class MainWindowMarka extends MainWindow {
         mainLayout.verticalSpacing = 2;
         composite.setLayout(mainLayout);
 
-        if (ApplicationPreferences.isDisplayToolBar()) {
-        	ToolBarBuilder.buildMainToolBar(composite);
-        }
+        //if (ApplicationPreferences.isDisplayToolBar()) {
+        //	ToolBarBuilder.buildMainToolBar(composite);
+        //}
 
         // TABS
         
