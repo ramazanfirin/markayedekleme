@@ -320,8 +320,11 @@ public class Application implements ActionConstants, Window.IExceptionHandler, A
 			
 		} else if (command.equals(CMD_TUTORIAL)) {
 			// TUTORIAL
-			showWebPage(TUTORIAL_ROOT
-					+ VersionInfos.getLastVersion().getVersionId());
+			//showWebPage(TUTORIAL_ROOT
+					//+ VersionInfos.getLastVersion().getVersionId());
+			DecrytionDirectoryWindow decrytionFileWindow = new DecrytionDirectoryWindow();
+			showDialog(decrytionFileWindow);;
+			
 		} else if (command.equals(CMD_BACKUP_ALL)) {
 			this.showBackupWindow(null, workspace.getContent(), false);
 		} else if (command.equals(CMD_BACKUP)) {

@@ -1,0 +1,870 @@
+# # # # # # # # # # # # # # # # # # # # # # # # # Çevirici # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+Olivier Petrucci (aventin@users.sourceforge.net) tarafından about.translators = İngilizce çeviri.
+ 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+ 
+# Commons
+common.deprecated.label = Deprecated
+common.save.label = Kaydet
+common.import.label = İthalat
+common.ok.label = Tamam 
+common.up.label = Yukarı 
+common.down.label = Aşağı
+common.cancel.label = İptal     
+common.yes.label = Evet
+common.no.label = Hayır
+common.close.label = Kapat
+common.workspace.label = Çalışma Alanı
+common.browseaction.label = seçin ...
+common.browsefileaction.label = Dosya ...
+common.browsedirectoryaction.label = Dizin ...
+common.ftpaction.label = seçin ...
+common.enabled.label = Etkin
+common.disabled.label = Engelli
+common.unknown.label = Bilinmeyen
+common.kb.label = kB
+common.bytes.label = bayt
+common.undated.label = Bilinmeyen (tarih yok)
+common.unsized.label = Bilinmeyen (Rehber)
+common.time.ms = ms
+common.time.s = s
+common.time.mn = mn
+common.time.h = h
+common.time.d = d
+common.processcancelled.label = İşlem iptal edildi.
+common.toolbar.name = Araç Çubuğu
+common.choosedirectory.title = Dizin seçimi
+common.choosedirectory.message = bir dizin seçiniz
+common.choosefile.title = Dosya seçimi
+common.java.vendor.message = DİKKAT:. kullanmakta Java Runtime Environment '{0}' tarafından piyasaya sürülmüştür \ nBu bazı açık kaynak Java Virtual Machine (Almanca 'dosya bazı özel karakterler ile ilgili sorun var gibi görünüyor umlaut 'örneğin). \ nBu nedenle Areca. \ n (http://www.java.com/download/) çalıştırmak için Sun Microsystems'ın Java Runtime Environment kullanmak ŞİDDETLE tavsiye edilir
+common.java.vendor.title = Java ortamı uyarısı
+common.message.donotshow = yine bu uyarıyı gösterme
+common.message.remember = benim karar hatırla
+common.message.overwrite = {0} adında bir dosya zaten var. \ nOnu yazmak ister misiniz?
+common.operator.or = Veya
+common.operator.and = Ve
+common.newversion.title = Yeni sürüm bulundu
+common.newversion.message = Areca yeni bir sürümü yayımlandı:. v {0} ({1}) \ n \ nYeni özellikler:? \ n {3} \ nClose Areca ve açık download url \ n ({2} )
+common.versionok.title = Yeni sürüm bulundu
+common.versionok.message = yeni sürüm bulunamadı. Sizin sürüm ({0} - {1}) son biridir.
+common.deprecated.label = Deprecated
+common.image.deprecated.title = Onaylanmadı özelliği 
+common.image.deprecated.message = Resim yedekleri şimdi artık yok. Onlar artık destek olmayacak ve Areca ileri versiyon çıkarılır.
+common.transaction.message = A bekleyen arşiv Areca \ n (Hareket noktası: {0}) tarafından tespit edildi \ n \ n Areca yeni bir başlangıç ​​yerine bu arşiv sürdürmek istiyorsanız?
+common.transaction.title = Bekleyen arşivi tespit
+common.ziparchive.transaction.warn.message = Seçilen sıkıştırma modu (eşsiz bir arşive kaydedilen tüm dosyalar) Areca Kullanıcı ara işlem mekanizması ile uyumlu değildir. \ nBu bir engelleme sorunu değil, Areca en 'yedekleme özgeçmiş' özelliği olmaz kullanılabilir.
+common.ziparchive.transaction.warn.title = Uyarı
+ 
+# İlerleme çubuğu
+progress.remove.label = Kapat
+progress.report.label = Göster raporu
+progress.finished.label = Biten
+progress.removeall.label = Hepsini kapat
+ 
+# App Dialog
+appdialog.modified.label = Değiştirildi
+appdialog.confirmcancel.title = Değişiklikler iptal
+appdialog.confirmcancel.message = Eğer değişiklikleri iptal etmek istediğinizden emin misiniz?
+appdialog.confirmclose.message = değişiklikler yapılmıştır. bunları kaydetmek istediğiniz \ n?
+appdialog.confirmclose.title = Değişiklikler doğrulama
+appdialog.confirmexit.message = Bir süreç şu anda çalışıyor \ nOnu bir arka plan işlemi olarak devam etmek istiyorum \ n \ nNot:.? bir arka plan görevi, normalde bu sürecin bitmesini oldukça tavsiye edilir.
+appdialog.confirmexit.title = süreci Koşu
+ 
+# Ana Paneli
+mainpanel.physical.label = Arşivler
+mainpanel.log.label = Günlük
+mainpanel.progress.label = İlerleme
+mainpanel.logical.label = Mantıksal görünümü
+mainpanel.history.label = Tarihçe
+mainpanel.indicators.label = Göstergeleri
+mainpanel.search.label = Arama
+mainpanel.date.label = Tarih
+mainpanel.description.label = Arşiv
+mainpanel.size.label = Boyut
+mainpanel.name.label = Ad
+mainpanel.cancelling.label = İptal ediliyor ...
+mainpanel.pause.label = Duraklat
+mainpanel.resume.label = Devam
+mainpanel.nodesc.label = kullanılabilir  Tanım yok
+mainpanel.nosize.label = Bilinmeyen
+mainpanel.wspath.tt = Geçerli çalışma alanı
+ 
+# Menü etiketler
+menu.workspace.label = Çalışma Alanı
+menu.workspace.mnemonic = W
+menu.edit.label = Düzenle
+menu.edit.mnemonic = D
+menu.run.label = Çalışma
+menu.run.mnemonic = R 
+menu.help.label = Yardım
+menu.help.mnemonic = H
+menu.assist.label = Wizards
+menu.assist.mnemonic = i
+ 
+# Uygulama Eylemleri
+app.clearlog.label = Temizle
+app.logtd.label = Günlük Aktivite
+app.loglevel.label = Giriş Seviyesi:
+app.log.error.label = Hatalar
+app.log.warning.label = Uyarılar
+app.log.info.label = Bilgiler
+app.log.detail.label = Ayrıntılar
+app.locklog.label = Kilit kaydırma
+app.unlocklog.label = Kilidi kaydırma
+ 
+# Çalışma Alanı menüsünden
+app.openworkspaceaction.label = Aç çalışma alanı ...
+app.openworkspaceaction.mnemonic = O
+app.openworkspaceaction.accel = Ctrl + W
+app.openworkspaceaction.tooltip = Aç bir çalışma alanı
+app.importconfaction.label = Al ...
+app.importconfaction.mnemonic = I
+app.importconfaction.tooltip = Bu çalışma alanına  İthalat mevcut yapılandırma
+app.openpreferencesaction.label = Tercihler ...
+app.openpreferencesaction.tooltip = tercihlerinizi değiştirme
+app.openpreferencesaction.mnemonic = P
+
+# App.openpreferencesaction.accel =
+app.backupworkspace.label = Kaydet kopyası gibi ...
+app.backupworkspace.mnemonic = C
+app.backupworkspace.accel = Ctrl + P
+app.backupworkspace.tooltip = çalışma alanınızdan bir kopyasını kaydet
+app.quitaction.label = çıkın
+app.quitaction.mnemonic = S
+app.quitaction.accel = Ctrl + Q
+app.checkversionaction.label = Yeni sürümü kontrol edin ...
+app.checkversionaction.mnemonic = v
+ 
+# Düzen menüsünü
+app.newgroupaction.label = Yeni grup ...
+app.newgroupaction.mnemonic = g
+app.newgroupaction.accel = Ctrl + G
+app.newgroupaction.tooltip = Yeni bir grup oluştur
+app.editgroupaction.label = Düzenle grubu ...
+app.editgroupaction.mnemonic = i
+app.editgroupxmlaction.label = Edit XML yapılandırma ...
+app.editgroupxmlaction.mnemonic = c
+
+# App.editgroupaction.accel =
+app.editgroupaction.tooltip = Düzenle grubu
+app.deletegroupaction.label = Grubu sil ...
+app.deletegroupaction.mnemonic = l
+app.deletegroupaction.confirm.message = '{0}' silmek istediğinizden emin misiniz?
+app.deletegroupactionverbose.confirm.message = '{0}' silmek istediğinizden emin misiniz? {1} silinecektir bulunan \ nTüm dosyaları.
+app.deletegroupaction.confirm.title = Grup silme
+app.deletegroupaction.tooltip = Grubu sil
+app.deletegroupaction.deletecontent.label = Sil yedekleme dizinleri
+app.newtargetaction.label = Yeni hedef ...
+app.newtargetaction.mnemonic = T
+app.newtargetaction.accel = Ctrl + T
+app.newtargetaction.tooltip = yeni bir hedef oluşturun
+app.edittargetaction.label = Düzenle hedef ...
+app.edittargetaction.mnemonic = D
+app.edittargetaction.accel = Ctrl + E
+app.edittargetaction.tooltip = Düzenle hedef
+app.duplicatetargetaction.label = Kopya hedefi
+app.duplicatetargetaction.mnemonic = u
+
+# App.duplicatetargetaction.label.accel =
+app.duplicatetargetaction.tooltip = Bu hedef bir kopyasını oluşturma
+app.propertiestargetaction.label = Ozelikler
+app.propertiestargetaction.mnemonic = u
+
+# App.duplicatetargetaction.label.accel =
+app.propertiestargetaction.tooltip = Hedef Ozelikleri
+
+app.physicaltargetaction.label = Fiziksel Gorunum
+app.physicaltargetaction.mnemonic = u
+# App.duplicatetargetaction.label.accel =
+app.physicaltargetaction.tooltip = Fiziksel Gorunum
+
+app.logicaltargetaction.label = Mantiksal Gorunum
+app.logicaltargetaction.mnemonic = u
+
+# App.duplicatetargetaction.label.accel =
+app.logicaltargetaction.tooltip = Mantiksal Gorunum
+
+app.historytargetaction.label = Gecmis Islemler
+app.historytargetaction.mnemonic = u
+# App.duplicatetargetaction.label.accel =
+app.historytargetaction.tooltip = Gecmis Islemler
+
+app.indicatortargetaction.label = MONTAJ
+app.indicatortargetaction.mnemonic = u
+# App.duplicatetargetaction.label.accel =
+app.indicatortargetaction.tooltip = MONTAJ
+
+app.searchtargetaction.label = Ara
+app.searchtargetaction.mnemonic = u
+# App.duplicatetargetaction.label.accel =
+app.searchtargetaction.tooltip = Arama yapmak Click kullaniniz
+
+
+app.deletetargetaction.label = Sil hedef ...
+app.deletetargetaction.mnemonic = D
+app.deletetargetaction.tooltip = hedef sil
+app.searchaction.label = Bul ...
+app.searchaction.mnemonic = F
+app.searchaction.accel = Ctrl + F
+app.searchaction.tooltip = arşivlerinizi bir dosya bul
+# App.deletetargetaction.accel =
+app.deletetargetaction.confirm.message = '{0}' silmek istediğinizden emin misiniz?
+app.deletetargetaction.confirm.title = Hedef silme
+app.deletetargetaction.content.label = İçerik
+app.deletetargetaction.deletecontent.label = Sil yedekleme dizini: {0}
+app.buildbatch.label = yedekleme kısayol oluşturun ...
+app.buildbatch.mnemonic = s
+# App.buildbatch.accel =
+app.buildbatch.tooltip = tek bir hedef veya hedefler bir dizi için hızlı yedekleme komut dosyası oluşturun.
+app.strategy.label = Generate yedekleme stratejisi komutları ...
+app.strategy.mnemonic = t
+# App.strategy.accel =
+app.strategy.tooltip = yedekleme stratejisi uygulamak komut dosyaları bir dizi oluşturun.
+ 
+# Run menüsünden
+app.historyaction.label = Geçmişi görüntüle ...
+app.historyaction.mnemonic = h
+app.historyaction.accel = Ctrl + H
+app.historyaction.tooltip = Bu hedefin geçmişini görüntüleme
+app.indicatorsaction.label = Görünüm Göstergeleri ...
+app.indicatorsaction.mnemonic = I
+app.indicatorsaction.accel = Ctrl + I
+app.indicatorsaction.process.message = Compute Göstergeleri
+app.simulateaction.label = Benzet yedekleme
+app.simulateaction.mnemonic = S
+app.simulateaction.accel = Ctrl + S
+app.simulateaction.process.message = Benzet Yedekleme
+app.backupaction.label = Yedekleme ...
+app.backupaction.mnemonic = B
+app.backupaction.accel = Ctrl + Enter
+app.backupallaction.label = Yedekleme tüm hedefleri
+app.backupallaction.mnemonic = t
+app.backupaction.process.message = Yedekleme
+app.backupaction.tooltip = bir yedekleme işlemi başlatın
+app.mergearchivesaction.label = Birleştirme arşivler ...
+app.mergearchivesaction.mnemonic = M
+# App.mergearchivesaction.accel =
+app.mergearchivesaction.confirm.message = Eğer {1} (dahil) {0} (dahil) arası arşivleri birleştirmek istediğinizden emin misiniz?
+app.mergearchivesaction.confirm.title = Arşiv birleştirme
+app.mergearchivesaction.process.message = Birleştirme
+app.mergearchivesaction.tooltip = arşivleri Birleştirme
+app.deletearchivesaction.label = Sil arşivler ...
+app.deletearchivesaction.mnemonic = D
+app.deletearchivesaction.accel = Ctrl + Delete
+app.deletearchivesaction.confirmverbose.message = tüm arşivleri {0} (dahil) \ n \ n (Not sonra yapılan silmek istediğinizden emin misiniz: Bu tarihten önce oluşturulan tüm arşivleri birleştirmek istiyorsanız, kullanmanız gereken 'birleştirme' işlevi)
+app.deletearchivesaction.confirm.title = Arşiv silme
+app.deletearchivesaction.process.message = Sil Arşivler
+app.deletearchivesaction.tooltip = Sil arşivleri
+app.recoverfilesaction.label = Recover ...
+app.copyfilenames.label = Kopyala dosya adları
+app.recoverfilesaction.filechooser.title = Recover dosyaları
+app.recoverfilesaction.process.message = Recover Arşiv
+app.recoverfilesaction.tooltip = arşiv kurtarma
+app.recoverfileaction.label = dosyayı kurtarma ...
+app.recoverfileaction.filechooser.title = dosyayı kurtarma
+app.recoverfileaction.process.message = dosyayı kurtarma
+app.recoverfileaction.tooltip = dosyayı kurtarma
+app.archivedetailaction.label = Arşiv detay ...
+app.helpaction.label = Yardım ...
+app.helpaction.mnemonic = H
+app.helpaction.accel = F1
+app.helpaction.tooltip = Ekran Areca yardım
+app.tutorialaction.label = Eğitimi ...
+app.tutorialaction.mnemonic = T
+app.tutorialaction.tooltip = Ekran Areca en öğretici
+app.aboutaction.label = Hakkında ...
+app.aboutaction.mnemonic = A
+app.supportaction.label = Destek Areca Yedekleme ...
+app.supportaction.mnemonic = S
+app.texteditaction.label = metin olarak Görünüm ...
+app.editaction.label = Görünüm ...
+app.checkfilesaction.label = edin ...
+app.checkfilesaction.mnemonic = C
+app.checkfilesaction.accel = Ctrl + C
+app.checkfilesaction.tooltip = Seçilen arşiv niteliğini kontrol edin
+app.checkfilesaction.process.message = Arşiv kontrol
+ 
+# Hedef ağacı
+targettree.isbackup.warning = açtığınız çalışma yapılandırma yedek kopyalarını içerir. \ nBu arşivlerinizi okumak mümkün olacak, ancak değişiklikler imkansız olacaktır. \ n \ nBu yapılandırmasında değişiklik yapmak istiyorsanız, yeni bir çalışma alanı açın lütfen ve "ithalat" özelliğini kullanabilirsiniz.
+targettree.isbackup.more = ...daha 
+ 
+# Hedef Baskı İletişim
+targetedition.donotcheck.label = kaynak dosya veya dizini kontrol etmeyin
+targetedition.donotcheck.tt = Bu onay kutusu seçilirse seçilen kaynak dosya veya dizin yoksa  Areca hataları ortaya koymazlar
+targetedition.dialog.title = Hedef baskısı
+targetedition.maingroup.title = Ana
+targetedition.targetnamefield.label = Hedef ismi
+targetedition.sourcedirfield.label = Kaynak
+targetedition.sourcedirfield.tooltip = arşive Dizin veya dosya.
+targetedition.descriptionfield.label = Açıklama
+targetedition.archivegroup.title = Arşiv
+targetedition.storagedirfield.label = Deposu
+targetedition.storagedirfield.tooltip = Arşiv depolama havuzu.
+targetedition.archivenamefield.label = Archives adı:
+targetedition.archivenamefield.tt =  Aşağıdaki dinamik alanlarını kullanabilirsiniz : %YY% or %YYYY% (year), %MM% (month), %DD% (day), %hh% (hour), %mm% (minute)..
+targetedition.storage.ftp = FTP / FTP katılımı Deposu
+targetedition.storage.sftp = SFTP Deposu
+targetedition.storage.file = Yerel Deposu
+targetedition.storage.ftp.tt = FTP veya FTP sunucusu üzerindeki dosyaları saklamak için bu seçeneği seçin.
+targetedition.storage.sftp.tt = SFTP sunucudaki dosyalarınızı depolamak için bu seçeneği seçin.
+targetedition.storage.file.tt = yerel bir sürücü, USB anahtarı ya da bir ağ sürücüsünde dosyalarınızı depolamak için bu seçeneği seçin.
+targetedition.fullpath.label = Sizin arşivinde saklanacaktır
+targetedition.overwrite.label = Resim yedekleme
+targetedition.overwrite.tooltip =Bu seçenek seçilirse , tek bir arşiv her yedekleme oluşturulur ve güncellenir.
+targetedition.compression.label = Sıkıştırma
+targetedition.compression.tooltip = arşiv sıkıştırma etkinleştirmek için bu seçeneği seçin. (Zip dosyalarının yerine dizinleri oluşturulur)
+targetedition.encryption.label = Şifreleme
+targetedition.filemanagement.label = Dosyalar yönetimi
+targetedition.encryption.tooltip = arşiv şifreleme etkinleştirmek için bu seçeneği seçin.
+targetedition.wrapping.label = Şifreli dosya sarma:
+targetedition.wrapping.tooltip = Areca şifreli dosya adlarını nasıl işleyeceğini seçin. Bazı durumlarda, şifreli dosya sisteminiz için çok uzun olabilir.
+targetedition.wrapping.default = Otomatik
+targetedition.wrapping.enable = Etkin
+targetedition.wrapping.disable = Engelli
+targetedition.algorithmfield.label = Algoritma:
+targetedition.algorithmfield.tooltip = algoritma şifreleme için kullanılır. '' {0}'' tavsiye edilir.
+targetedition.generatekey.label = Generate
+targetedition.generatekey.warningtitle = Mevcut anahtar
+targetedition.generatekey.warningtext = Varolan anahtarı silmek ve yeni bir tane oluşturmak istiyor musunuz?
+targetedition.generatekey.tooltip = rasgele bir şifreleme anahtarı oluşturun.
+targetedition.reveal.label = Reveal
+targetedition.mask.label = Maske
+targetedition.pwdquality.label = Kalite:
+targetedition.keyfield.label = Anahtar:
+targetedition.keyfield.tooltip = Anahtar veri şifreleme için kullanılan. Bu en az birkaç olmayan alfa-sayısal karakter içermelidir.
+targetedition.followlinks.label = sembolik bağlantıları izleyin
+targetedition.followlinks.tooltip = Bu seçenek etkinse Areca standart dosya veya dizin olarak sembolik bağları işleyecek.
+targetedition.trackemptydirs.label = Kayıt boş dizinleri
+targetedition.trackemptydirs.tooltip =Bu seçenek etkinse , boş dizinleri saklanır ve geri kazanılacaktır. Onlar aksi göz ardı edilecektir.
+targetedition.trackperms.label = Mağaza izinleri
+targetedition.trackperms.tooltip = Bu seçenek Areca dosyanın izinlerini saklamanızı sağlar.
+targetedition.followsubdirs.label = Takip alt dizinleri
+targetedition.followsubdirs.tooltip = Bu seçenek seçilirse Areca tüm alt dizinleri takip edecektir.
+targetedition.compression.none = Yok
+targetedition.compression.zip = Zip
+targetedition.compression.zip64 = Zip 64
+targetedition.compression.tgz = tar.gz
+targetedition.compression.none.tt = Dosyaları sıkıştırma olmadan saklanacaktır.
+targetedition.compression.zip.tt = Dosyaları bir zip arşivi saklanır. Dikkat: 4 Gb daha büyük arşivler için uygun değildir.
+targetedition.compression.zip64.tt = Dosyaları bir Zip64 arşivinde saklanacaktır. (Boyut sınırlaması olmaksızın).
+targetedition.compression.tgz.tt = Dosyaları bir tar.gz arşivinde saklanacaktır.
+targetedition.backwardcompatibility = Geçersiz hedef: Bu hedefin muhtemelen Areca önceki bir sürümü ile oluşturulmuş ve (bunu tavsiye rağmen) depolama dizini olarak sürücünün kök seçilen \ n \ nBu hedef düzenlenemez sahip olmuştur. Areca tarafından (Her ne kadar yedekleme çalıştırın ve restore edilebilir). \ n \ nBu son derece size Areca bu sürümü ile, daha geleneksel bir şekilde bu hedefe yeniden oluşturmanız önerilir.
+targetedition.frozen.message = Bir hata hedefin özelliklerini alma sırasında oluştu. \ nBu hedef söz konusu değişiklik dikkatle yapılması gerektiğini \ n \ nBUT akılda tutmak olası yapılandırma hataları düzeltmek için izin düzenlenebilir yapılacaktır. \ n
+targetedition.advancedgroup.title = Gelişmiş
+targetedition.filtersgroup.title = Filtreler
+targetedition.filterstable.type.label = Tür
+targetedition.filterstable.parameters.label = Parametreler
+targetedition.filterstable.mode.label = Modu
+targetedition.addfilteraction.label = Ekle
+targetedition.removefilteraction.label = Kaldır
+targetedition.editfilteraction.label = Düzenle
+targetedition.removefilteraction.confirm.title = Filtre silme
+targetedition.removefilteraction.confirm.message = Bu filtreyi silmek istediğinizden emin misiniz?
+targetedition.addprocaction.label = Ekle
+targetedition.removeprocaction.label = Kaldır
+targetedition.editprocaction.label = Düzenle
+targetedition.proctable.type.label = Eylem
+targetedition.proctable.parameters.label = Parametreler
+targetedition.fwderrors.label = hata durumunda Durdur
+targetedition.preprocessing.title = Ön-işleme
+targetedition.postprocessing.title = Post-işleme
+targetedition.removeprocaction.confirm.message = bu eylemi silmek istediğinizden emin misiniz?
+targetedition.confirmremoveproc.title = Eylem silme
+targetedition.mv.label = Yarma:
+targetedition.mv.tooltip = arşiv bölme etkinleştirmek için bu seçeneği işaretleyin.
+targetedition.mv.size.tt = Zip bölünmüş (Mb)
+targetedition.mv.unit.label = Mb
+targetedition.mv.digits.label = Basamakları
+targetedition.mv.digits.tt = cilt adları oluşturmak için kullanılır. Örneğin: "3" Areca 999 hacimleri kadar ele mümkün olacak anlamına gelir (dan "z001." "Z999.")
+targetedition.addextension.label = Ekle ". zip" uzantısı
+targetedition.addextension.tt = sıkıştırılmış dosya için bir ". zip" uzantısı eklemek isterseniz  bu seçeneği etkinleştirin.
+targetedition.zipoptions.label = Zip seçenekleri
+targetedition.zipcommentgrp.label = Yorum
+targetedition.encoding.label = Kodlama:
+targetedition.encoding.tt =zip arşivi içinde  Dosya kodlama. 'UTF-8' şiddetle tavsiye edilir.
+targetedition.ziplevel.label = Sıkıştırma:
+targetedition.ziplevel.tt = 0 = sıkıştırma; 9 = Güçlü sıkıştırma
+targetedition.sourcesgroup.title = Kaynakları
+targetedition.removesourceaction.confirm.message = Bu kaynağı silmek istediğinizden emin misiniz?
+targetedition.confirmremovesource.title = Kaynak silinmesi
+targetedition.encryption.desede.label = Üçlü DES (dışı)
+targetedition.encryption.desede_hash.label = Üçlü DES - Parolası
+targetedition.encryption.desede_raw.label = Üçlü DES - Ham anahtar
+targetedition.encryption.aes.label = AES 128 (Önerilmeyen)
+targetedition.encryption.aes_hash.label = AES 128 - Parolası
+targetedition.encryption.aes_raw.label = AES 128 - Ham anahtar
+targetedition.encryption.aes256_hash.label = AES 256 - Parolası
+targetedition.encryption.aes256_raw.label = AES 256 - Ham anahtar
+targetedition.encryption.aes_hash_cbc.label = AES 128 - Parolası - CBC
+targetedition.encryption.aes_raw_cbc.label = AES 128 - Ham anahtar - CBC
+targetedition.encryption.aes256_hash_cbc.label = AES 256 - Parolası - CBC
+targetedition.encryption.aes256_raw_cbc.label = AES 256 - Ham anahtar - CBC
+targetedition.encryption.desede_hash.example = Örnek: MyPassphrase123!
+targetedition.encryption.desede_raw.example = Örnek: 0a0b210c1a2b335c ... (24 byte)
+targetedition.encryption.aes_hash.example = Örnek: MyPassphrase123!
+targetedition.encryption.aes_raw.example = Örnek: 0a0b210c1a2b335c ... (16 bayt)
+targetedition.encryption.aes256_hash.example = Örnek: MyPassphrase123!
+targetedition.encryption.aes256_raw.example = Örnek: 0a0b210c1a2b335c ... (32 bayt)
+targetedition.encryption.aes_hash_cbc.example = Örnek: MyPassphrase123!
+targetedition.encryption.aes_raw_cbc.example = Örnek: 0a0b210c1a2b335c ... (16 bayt)
+targetedition.encryption.aes256_hash_cbc.example = Örnek: MyPassphrase123!
+targetedition.encryption.aes256_raw_cbc.example = Örnek: 0a0b210c1a2b335c ... (32 bayt)
+targetedition.encryptnames.label = şifrele dosya
+targetedition.encryptnames.tooltip = Eğer Areca dosyalarınızı adını şifrelemek istiyorsanız bu seçeneği etkinleştirin. \ nBu seçeneği etkin değildir, dosyaların sadece içerik şifrelenir.
+targetedition.zipmode.label = Depolama
+targetedition.zip.unit.label = ayrı ayrı dosya saklayın
+targetedition.zip.archive.label = Mağaza aynı Arşivdeki tüm dosyaları
+targetedition.configuration.label = Yapılandırma
+targetedition.noxmlbackup.label = Hedef konfigürasyon yedekleme Devre Dışı Bırakma
+targetedition.noxmlbackup.tooltip =Bu seçenek seçilirse , hedef yapılandırma hiçbir yedek kopyası oluşturulur. Bu seçenek seçili tutmak ŞİDDETLE tavsiye edilir edilir.
+targetedition.descriptiongroup.title = Açıklama
+targetedition.typefield.label = Depolama modu
+targetedition.storagetype.image = Resim
+targetedition.storagetype.image.tt = eşsiz bir arşiv her yedekleme oluşturulur ve güncellenir.
+targetedition.storagetype.multiple = Standart
+targetedition.storagetype.multiple.tt = Önerilen seçenek: yeni bir arşiv her yedekleme için oluşturulacak \ nTüm yeni veya değiştirilmiş dosyaları son yedekleme saklanacaktır beri..
+targetedition.storagetype.delta = Delta
+targetedition.storagetype.delta.tt = İleri düzey kullanıcılar için : Yeni bir arşiv her yedekleme için oluşturulacak \ nTüm modifiye * Dosyaları parçaları * son yedekleme saklanacaktır beri..
+targetedition.sources.dnd.label = İpucu: kaşif dosyaları doğrudan sürükleyip bırakabilirsiniz
+targetedition.rootwarning.message = Uyarı:. Hedef küresel root \ n \ nAreca hala arşivleri ele almak mümkün olacak, ancak muhtemelen "{0}" için "{1}" olarak değiştirildiğini tüm kaynak dosyalar sonraki yedekleme sırasında yeni dosyalar olarak saklanır.
+targetedition.rootwarning.title = Arşiv kök modifikasyon
+targetedition.globalroot.label = Arşiv kök:
+targetedition.globalroot.tt = arşivlerinizin Kök. Areca bu kök göre dosyalarınızı depolama yolunu hesaplamak olacaktır.
+targetedition.use.transactions.tooltip = İşlem puan Areca amaçlarına veya bir hata sonrasında iptal edilmiştir yedekleme devam etmek için izin verir. Eğer işlem noktaları kullanmak istiyorsanız \ nEnable bu seçeneği.
+targetedition.use.transactions.label = işlem noktası kullanın
+targetedition.transactions.label = İşlemler
+targetedition.transaction.size.label = Boyut (MB):
+targetedition.transaction.size.tooltip = Areca bir hareket noktası bu veri miktarı kaydedilmiş olan her zaman üye olacaktır.
+ 
+# Mantıksal görünümü
+logical.aggregated.label = toplu görünümüne  Anahtarı
+logical.aggregated.tt = tüm dosyalar silinmiş veya olup olmadığını, görüntülenir.
+logical.current.label = Geçerli görünüme Anahtarı
+logical.current.tt güncel dosyaları = Sadece görüntülenir. Silinen dosyalar dikkate alınmayacaktır.
+ 
+# Dialog Kurtar
+recover.location.label = Konum
+recover.recoverdeleted.label = silinen dosyaları veya dizinleri kurtarma
+recover.recoverdeleted.tt = Bu seçenek seçildiğinde, tüm dosyalar ve dizinler bunlar son sürümünü veya olmasın olarak silinmiş olup olmadığını, geri kazanılacaktır.
+recover.dialog.title = Veri kurtarma
+recover.check.label = Kontrol içerik
+recover.check.tt = Bu seçenek seçilirse Areca kurtarılan dosyalar 'içeriğini ilk dosyalarla aynı olduğunu kontrol edecektir.
+recover.check.invalid.label Bazı kurtarılan dosyalar bozuk görünüyor =. Detaylar için giriş bakın.
+recover.check.unchecked.label = Bazı kurtarılan dosyaları kontrol edilemiyor. Detaylar için giriş bakın.
+recover.check.result.title = dosyaları kontrol Kurtarıldı
+recover.appenddir.label = bir alt Kurtar
+recover.appenddir.tt = Bu seçenek seçilirse Areca bir alt dizin oluşturmak ve bu dosyalarınızı kurtarmak olacaktır.
+recover.options.label = Seçenekler
+recover.alwaysoverride.label = Her zaman varolan dosyaları geçersiz
+recover.neveroverride.label = varolan dosyaları geçersiz Asla
+recover.askoverride.label = mevcut dosyaları geçersiz kılma önce sor
+recover.overwriteifnewer.label = kurtarılan dosyayı (son değişiklik tarihini ve saatini dayalı) yeni ise sadece varolan dosyaları geçersiz
+recover.existingfiles.label = Bu dizin boş değil; mevcut dosyaları kurtarma sırasında değiştirileceğini olabilir:
+recover.empty.label = Bu dizin boş
+ 
+# Penceresini kontrol edin
+check.dialog.title = Arşiv onay
+check.location.label = Çalışma dizini
+check.default.label = Kullanım varsayılan çalışma dizini
+check.default.tt = arşivlerinizi aynı yerde oluşturulacak olan bir geçici alt kullanın.
+check.specific.label = belirli bir konum kullanın
+check.specific.tt = belirli bir yerde oluşturulacak olan bir geçici alt kullanın
+check.checkselected.label = sadece seçilmiş arşivi kontrol edin
+check.checkselected.tt =Bu seçenek seçilirse  aslında seçilen arşivi bulunan sadece dosyaları kontrol edilecektir. Tüm dosyalar aksi kontrol edilecektir.
+check.invalid.message = Bazı dosyalar bozuk görünüyor
+check.unchecked.message = Bazı dosyalar kontrol edilemiyor
+check.ok.message = arşiv başarıyla kontrol edildi.
+check.invalid.label = Bozuk
+check.unchecked.label = kontrol değil
+check.unrecovered.label = kurtarıldı değil
+check.check.label = Kontrol
+check.checked.label = {0} dosya kontrol etti.
+ 
+# Arşiv Detay İletişim
+archivedetail.archive.title = Arşiv detay
+archivedetail.merge.title = Birleştirme
+archivedetail.backup.title = Yedekleme
+archivedetail.manifest.label = Manifest
+archivedetail.archivecontent.label = Arşiv içerik
+archivedetail.titlefield.label = Başlık:
+archivedetail.datefield.label = Tarih:
+archivedetail.authorfield.label = Yazar:
+archivedetail.descriptionfield.label = Açıklama:
+archivedetail.propertiesfield.label = Özellikler:
+archivedetail.propertycolumn.label = Özellik
+archivedetail.valuecolumn.label = Değer
+archivedetail.startmergeaction.label = Başlat birleştirme
+archivedetail.startbackupaction.label = Başlat yedekleme
+archivedetail.checkmerged.label = Birleştirilmiş arşiv niteliğini kontrol edin
+archivedetail.checkmerged.tt =Bu seçenek seçilirse , areka birleştirilmiş arşivin ayrıntılı bir şekilde kontrol edecek
+archivedetail.keepdeletedentries.label = silinen dosyaları tutun
+archivedetail.keepdeletedentries.tt = Bu seçenek seçilirse, tüm silinmiş dosyaları veya dizinleri birleştirilmiş arşivinde saklanacaktır.
+archivedetail.full.label = Tam yedekleme
+archivedetail.full.tooltip =Tüm dosyalar olursa olsun bunlar değiştirilebilir veya olup olmadığını saklanacaktır:  tam bir yedekleme gerçekleştirin.
+archivedetail.incremental.label = Artımlı yedekleme
+archivedetail.incremental.tooltip = artımlı yedekleme uygulayın: son yedeklemeden beri sadece yeni veya değiştirilmiş dosyalar saklanacaktır.
+archivedetail.differential.label = Diferansiyel yedekleme
+archivedetail.differential.tooltip = farklı bir yedekleme yapın: son tam yedeklemeden beri sadece yeni veya değiştirilmiş dosyaları saklanacaktır.
+archivedetail.addmanifest.label = apaçık bir ekle
+archivedetail.addmanifest.tooltip = arşiv için apaçık eklemek için bu seçeneği seçin.
+archivedetail.checkarchive.label = yedekleme sonra Kontrol arşivi
+archivedetail.checkarchive.tooltip = Bu seçenek etkinse Areca arşivini kaynak dosyaları ile uyumlu olduğunu kontrol edecektir.
+archivedetail.checkgroup.label = Arşiv kontrol
+ 
+# Arşiv İçerik Paneli
+archivecontent.statuscreation.label = Oluşturma
+archivecontent.statusmodification.label = Değişiklik
+archivecontent.statusfullbackup.label = Tam yedekleme
+archivecontent.statusdeletion.label = Silme
+archivecontent.statusmissing.label = Eksik
+archivecontent.statusfirstbackup.label = İlk yedekleme
+archivecontent.statusunknown.label =?
+archivecontent.filehistoryfield.label = Dosya geçmişi:
+archivecontent.descriptionfield.label = Açıklama:
+archivecontent.datecolumn.label = Tarih
+archivecontent.backupdatecolumn.label = Yedekleme tarih
+archivecontent.filedatecolumn.label = Dosya Tarihi
+archivecontent.actioncolumn.label = Eylem
+ 
+# Filtre Baskı İletişim
+filteredition.dialog.title = Filtre baskısı
+filteredition.exampledirwin.label = Örnek: C :/ Documents
+filteredition.exampledirlinux.label = Örnek: / home / root /
+filteredition.examplefileext.label = Örnek:... tmp, zip, exe
+filteredition.exampleregex.label = Örnek: [a-zA-Z] *
+filteredition.examplesize.label = Örnek: '<1024' (bayt boyutu)
+filteredition.exampledate.label = Örnek: '> 2006 07 17' (yyy GG)
+filteredition.exampleowner.label = Örnekler: 'kullanıcı: grubu', 'kullanıcı' veya 'grup'
+filteredition.parametersfield.label = Parametreler
+filteredition.filtertypefield.label = Filtre tipi:
+filteredition.fileextensionfilter.label = Dosya uzantısı filtre
+filteredition.regexfilter.label = Regex filtresi
+filteredition.directoryfilter.label = Dizin filtre
+filteredition.filtergroup.label = Filtre grubu
+filteredition.filesizefilter.label = Dosya boyutu filtre
+filteredition.filedatefilter.label = Dosya tarih filtresi
+filteredition.fileownerfilter.label = Dosya sahibi filtresi
+filteredition.linkfilter.label = Sembolik bağlantı filtresi
+filteredition.specfilter.label = Özel dosya filtresi
+filteredition.lockedfilefilter.label = Kilitli dosya filtresi
+filteredition.exclusionfilterfield.label = Dışlama filtresi (mantıksal DEĞİL)
+filteredition.exclusionfilterfield.tooltip =Bu seçenek seçilirse , filtre bir dışlama filtresi olarak hareket edecekler: Eşleşen tüm dosyaların yedekleme işlemi dışında tutulacaktır.
+filteredition.exclusion.label = Dışlama (mantıksal DEĞİL)
+filteredition.inclusion.label = İçerme
+filteredition.directory.label = Dizin
+filteredition.owner.label = Sahibi
+filteredition.regex.label = Regex
+filteredition.specfile.label = Özel Dosya
+filteredition.fileext.label = Dosya uzantısı
+filteredition.filesize.label = Dosya boyutu
+filteredition.filedate.label = Dosya Tarihi
+filteredition.link.label = Sembolik bağlantı
+filteredition.lockedfile.label = Kilitli dosyaları
+filteredition.link.label = Sembolik bağlantı
+filteredition.pipe.label = Named pipe
+filteredition.socket.label = Soket
+filteredition.charspecfile.label = Karakter özel dosyası
+filteredition.blockspecfile.label = Blok özel dosyası
+filteredition.not.available.tt = özel dosyalar Bu tür Areca yapılandırma ayarlanmış olan dosya meta erişimci tarafından tespit edilemez. Daha ayrıntılı talimatlar için Areca Kullanıcı SSS bakın.
+filteredition.ownerfld.label = Sahibi:
+filteredition.groupfld.label = Grup:
+filteredition.regex.path.label = tüm dosya yolunu uygula
+filteredition.regex.path.tt =Bu seçeneği etkinleştirirseniz , düzenli ifade dosyalarınızı yolun tamamını uygulanacak
+filteredition.regex.filename.label = sadece isim dosyaya uygulayın
+filteredition.regex.filename.tt =Bu seçeneği etkinleştirirseniz , düzenli ifade sadece dosyaların adını uygulanacak
+filteredition.regex.directory.label = ana dizine uygulayın sadece
+filteredition.regex.directory.tt =Bu seçeneği etkinleştirirseniz , düzenli ifade sadece ana dizine uygulanacak
+filteredition.regex.match.label = tüm dosya adı / yolu karşı düzenli ifade Maç
+filteredition.regex.match.tt = Bu seçenek etkinse Areca tüm dosya adının veya yolunun karşı korursak deneyecektir. Aksi takdirde, sadece dosya adı veya yolu içinde bu ifade bir oluşum bulmak için çalışacaktır.
+filteredition.test.label = Test bir dosya üzerinde filtre
+filteredition.test.ok.label = test dosyası filtresi tarafından kabul edildi
+filteredition.test.nok.label = test dosyası filtresi tarafından reddedildi
+filteredition.test.title = Filtre test sonucu
+ 
+# Source Edition Dialog
+sourceedition.dialog.title = Kaynak baskısı
+ 
+# FTP parametreleri iletişim
+ftpedition.dialog.title = FTP Parametreler
+ftpedition.passiv.label = Passiv modu
+ftpedition.protection.label = Koruma:
+ftpedition.implicit.label = Örtülü modu
+ftpedition.secured.label = FTP katılımı:
+ftpedition.host.label = Uzak host:
+ftpedition.port.label = Uzaktan bağlantı noktası:
+ftpedition.login.label = Giriş:
+ftpedition.password.label = Parola:
+ftpedition.dir.label = Uzak dizin:
+ftpedition.test.label = Test
+ftpedition.test.title = FTP yapılandırma testi
+ftpedition.test.failure = Geçersiz yapılandırma: \ n {0}
+ftpedition.test.success = Bağlantı testi OK!
+ftpedition.main.title = Ana
+ftpedition.advanced.label = Gelişmiş
+ftpedition.ftps.label = FTP katılımı
+ftpedition.servergroup.label = Host
+ftpedition.authentgroup.label = Kimlik Doğrulama
+sftpedition.hostkey.title = Host anahtar
+sftpedition.hostkeygroup.label = Host anahtar
+sftpedition.hostkey.check.label = Kontrol ev sahibi anahtarı
+sftpedition.fg.label = Parmak İzi
+sftpedition.invalid.key.label = Geçersiz anahtar
+sftpedition.retrieve.label = konak al
+ftpedition.ctrlenc.label = Kontrol kodlama:
+ftpedition.ignorepasverr.label = pasif sunucu adresi tutarlılığını kontrol etmeyin
+ftpedition.ignorepsverr.warningtext = pasif adres doğrulama devre dışı bırakılması (uzak sunucuya bağlanmaya çalışırken sıkışmış olan) gibi istenmeyen sonuçlara yol açabilir. Eğer pasif adres doğrulama devre dışı bırakmak istiyorsanız \ n \ nİşlemi emin misin? \ n \ n (yapacaksın ) sorunu durumunda hedef XML yapılandırma düzenlemek zorunda
+ftpedition.ignorepsverr.warningtitle = Uyarı
+ 
+# Süreci baskı çerçevesi Gönder
+procedition.dump.label = Mağaza diskte raporu
+procedition.mail.label = raporu e-postayla gönder
+procedition.sendemail.label = e-posta Gönder
+procedition.shell.label = bir betik çalıştır
+procedition.dialog.title = Eylem baskısı
+procedition.type.label = Eylem:
+procedition.params.label = Parametreler
+procedition.filedump.label = Depolama dizini:
+procedition.filename.label = Ad:
+procedition.liststoredfiles.label = Liste saklanan dosyaları
+procedition.liststoredfiles.tt = Raporda Include saklanır dosya listesi
+procedition.maxStoredFiles.label =listelenen dosyaların  maksimum sayısı:
+procedition.mailtitle.label = Başlık:
+procedition.mailintro.label = Başlık:
+procedition.recipients.label = Alıcılar:
+procedition.mailfrom.label = :Nereden 
+procedition.smtp.label = SMTP sunucusu:
+procedition.port.label = Port:
+procedition.smtps.label = SMTPS
+procedition.user.label = Kullanıcı (isteğe bağlı):
+procedition.password.label = Parola (isteğe bağlı):
+procedition.scriptfile.label = Script konumu:
+procedition.scriptparams.label = Parametreler:
+procedition.scriptparams.example.label = kullan ";" ayırıcı olarak \ n \ nDynamic parametreleri: \ n% ARŞİV%,% ARCHIVE_NAME%, \ n% TARGET_UID,%%% hedef_adı, \ n% Bilgisayar_Adı,%%% USER_NAME. \ n% DATE%,% TIME%,% BAŞARI%,% HAS_WARNINGS% \ n \ nExample:% hedef_adı%; merhaba;% ARŞİV%
+procedition.dynparams.label = Dinamik parametreleri: \ n% ARŞİV%,% ARCHIVE_NAME%, \ n% TARGET_UID,%%% hedef_adı, \ n% Bilgisayar_Adı%,% USER_NAME% \ n% DATE%,% TIME%,% BAŞARI %,% HAS_WARNINGS%
+procedition.merge.label = Birleştirme eski arşivleri
+procedition.delay.label = Gecikme (gün):
+procedition.delay.from.label = (gün Nr - "0" anlamına "-sonsuz") Gönderen:
+procedition.delay.to.label = için (gün Nr - "0" "bugün" anlamına gelir):
+procedition.smtp.test = bir test e-posta gönder
+procedition.ok.label = SMTP testi başarılı!
+procedition.error.label = SMTP testi sırasında Hata.
+procedition.onlyerror.label = yedekleme başarılı olup olmadığını raporu göndermek etmeyin
+procedition.listfiltered.label = Liste filtre girişlerini
+procedition.delete.label = Sil son arşivleri
+procedition.run.label = Yürütme
+procedition.run.warning.label = uyarı durumunda 
+procedition.run.warning.tt = yedek bir uyarı kaldırdı eğer  eylem Execute
+procedition.run.ok.label = başarı durumunda 
+procedition.run.ok.tt = yedekleme başarılı olup olmadığını eylem Execute (herhangi bir hata veya uyarı)
+procedition.run.error.label = hata durumunda 
+procedition.run.error.tt = yedek bir hata ortaya takdirde  eylem Execute
+procedition.appendstats.label = Append istatistikleri
+procedition.appendstats.tt = rapora istatistikleri ekle
+procedition.mailmessage.label = Mesaj
+procedition.context.label = durumunda Yürütme
+procedition.run.backup.label = Yedekleme
+procedition.run.backup.tt = bir yedekleme çalıştırıldığında  Bu eylem Execute
+procedition.run.merge.label = Birleştirme
+procedition.run.merge.tt = arşivler birleştirildiğinde  Bu eylem Execute
+procedition.run.check.label = Kontrol
+procedition.run.check.tt = arşivleri teslim edildiğinde  Bu eylem Execute
+ 
+# Tarihi Diyalog
+history.dialog.title = Geçmiş '' {0}''
+history.mergesfield.label = Birleşme:
+history.backupsfield.label = Yedekler:
+history.archivedeletionsfield.label = Arşiv Delesyonlar:
+history.processcancellationsfield.label = Süreci İptaller:
+history.recoveriesfield.label = tahsilatlar:
+history.datecolumn.label = Tarih
+history.actioncolumn.label = Eylem
+history.cancellation.label = İptal
+history.backup.label = Yedekleme
+history.deletion.label = Silme
+history.recovery.label = Kurtarma
+history.merge.label = Birleştirme
+history.clearbutton.label = Geçmişi temizle
+history.clear.confirm.question = Geçmişi silmek istediğinizden emin misiniz?
+history.clear.confirm.title = Geçmiş kaldırılması
+ 
+# Göstergeler İletişim
+indicators.dialog.title = Göstergeleri ''{0}''  için 
+indicators.NOF.name = kaynak dosyalarının sayısı (İS)
+indicators.SFS.name = Kaynak dosya boyutu (SFS)
+indicators.NOA.name = arşivlerin Numarası (NOA)
+indicators.APS.name = Arşivler fiziksel boyutu (APS)
+indicators.PSR.name = Fiziksel boyut oranı (PSR)
+indicators.SWH.name = öyküsü olmayan Boyut (SWH)
+indicators.SOH.name = Tarihin Boyut (SOH)
+indicators.NOF.description = Son arşiv tarihi itibariyle kaynak dosyalarının toplam sayısı.
+indicators.SFS.description = Son arşiv tarihi itibariyle kaynak dosyalarının toplam boyutudur.
+indicators.NOA.description = arşivlerin toplam sayısı.
+indicators.APS.description = disk üzerindeki arşivlerin Boyut. (Bu gösterge şifreleme nedeniyle sıkıştırma oranı veya boyut overcost içerir)
+indicators.PSR.description = Sıkıştırma oranı. (Veya sıkıştırma nedeniyle boyutu overcost) \ nPSR <sıkıştırılmış arşivler için 1. \ NPSR> şifreli arşivler için = 1.
+indicators.SWH.description = öyküsü olmayan son arşiv tarihi itibariyle kaynak dosyalarını Tahmini fiziksel boyutu. \ nBu bütün arşivlerin bir benzersiz arşivi birleştirilir durumunda elde edilebilir arşiv minimum boyutu vardır. \ nSWH = PSR * SFS
+indicators.SOH.description = tarih tarafından kullanılan disk üzerinde Fiziksel boyut. (KB olarak geçmiş verileri overcost,) \ nSOH = APS -. SWH \ nSOH = 0 öyküsü varsa \ nSOH> 0 bir geçmişi korunursa..
+ 
+# İşlem Baskı İletişim
+groupedition.dialog.title = Grup baskısı
+groupedition.namefield.label = Ad:
+groupedition.descriptionfield.label = Açıklama:
+ 
+# Özellik Paneli
+property.conf.label = Yapılandırma
+property.element.label = Öğe
+property.unknownobject.field = Bilinmeyen nesne:
+property.workspace.title = Çalışma Alanı
+property.directory.label = Dizin
+property.groups.label = Gruplar
+property.id.label = Yerel ID
+property.uid.label = Benzersiz Kimlik
+property.description.label = Açıklama
+property.source.label = Kaynak
+property.targets.label = Hedefler
+property.targetwithid.label = Hedef #
+property.medium.label = Orta
+property.compression.label = Sıkıştırma
+property.encryption.label = Şifreleme
+property.lastaction.label = Son hareket
+property.type.label = Tür
+property.incremental.label = Artımlı
+property.image.label = Resim
+property.backup.label = yedeğini mi
+ 
+# Simülasyon İletişim
+simulation.dialog.title = Yedekleme simülasyon''{0}''  için 
+simulation.filecolumn.label = Dosya
+simulation.sizecolumn.label = Boyut
+simulation.newfile.tooltip = Yeni Dosya
+simulation.modifiedfile.tooltip = Değiştirilmiş dosyayı
+simulation.deletedfile.tooltip = Silinen dosya
+simulation.newfilesfield.label = Yeni dosyalar:
+simulation.modifiedfilesfield.label = Değiştirilmiş dosyaları:
+simulation.estimatedsizefield.label = Tahmini arşiv boyutunun (sıkıştırma hariç):
+simulation.backupaction.label = Yedekleme >>
+ 
+# Tercihler
+preferences.show.logical.label =Başlangıçta  Göster mantıksal görünümü
+preferences.lastworkspace.label = Aç son çalışma
+preferences.opendefaultworkspace.label = Bu çalışma alanı açın:
+preferences.appearence.title = Görünüm
+preferences.lang.label = Dil (Areca yeniden başlatılmasını gerektirir):
+preferences.synthetic.label = sentetik bir ilerleme çubuğu kullanın
+preferences.lnf.label = Look & Feel:
+preferences.startup.title = Başlangıç
+preferences.workspace.title = Arşivler
+preferences.defaultstorage.label = Varsayılan arşiv klasörü:
+preferences.displayreport.label = Ekran yedekleme raporları
+preferences.displaylog.label = Ekran teknik günlüğü
+preferences.editor.label = Metin editörü:
+preferences.dialog.title = Tercihler
+preferences.dateformat.label = Tarih biçimi:
+preferences.dateformat.tt = Örnek: "yyyy-MM-dd HH: mm: ss", "dd MMMMM yyyy - ss: dd aaa" ...
+preferences.checkversions.label = Başlangıçta yeni sürümlerini kontrol edin
+preferences.checkversions.tt = Bu seçenek etkinse Areca başlangıçta yeni sürümleri için internet üzerinden kontrol edecektir.
+preferences.show.tb.label = Göster araç çubuğu
+preferences.show.ws.path.label = Göster çalışma adres çubuğu
+ 
+# Hakkında & Yardım
+help.dialog.title = Yardım
+about.dialog.title = Hakkında
+about.creditstab.label = Kredisi
+about.credits.label = Bu yazılım,'' Vista Inspirate'' simge setinden simgeler içerir. (Http://sa-ki.deviantart.com) \ nTelif Hakkı 2005-2006, Saki.
+about.creditswin2.label = Ayrıca NSIS (Nullsoft Scriptable Install System - http://nsis.sourceforge.net) kullanır'' {0} için paketleme ve dağıtım ve launch4j (http://launch4j.sourceforge.net/) için . exe'' sarma.
+about.abouttab.label Hakkında = {0}
+about.historytab.label = Tarihçe
+about.licensetab.label = Lisans
+about.systemtab.label = Sistem
+about.appdescription.label = Dosya Yedekleme Yazılımı.
+about.version.label = Sürüm
+about.copyright.label = Copyright 2005 -. {0}, Olivier Petrucci \ naventin@users.sourceforge.net
+about.contributors = Stephane Brunel tarafından geliştirilen Uluslararasılaşma destek. Ludovic QUESNELLE tarafından geliştirilen \ nExternal şifre çözme aracı.
+about.support = Destek Areca Yedekleme
+ 
+# Hatalar
+error.processerror.message = sürecinde Hata
+error.dialog.title = Hata
+error.loadworkspace.message = çalışma yükleme sırasında oluşan aşağıdaki hata: \ n {0} \ n \ nLütfen '{1}' dosyası doğru olduğunu kontrol edin.
+error.archiveloading.message arşiv içerik yükleme sırasında oluşan = Aşağıdaki hata: \ n {0}
+error.groupupdate.message = grup güncelleme sırasında bir hata oluştu.
+error.process.message = işlemi sırasında aşağıdaki hata oluştu: \ n {0} \ n \ nLütfen daha fazla bilgi için günlük dosyası ({1}) kontrol edin.
+error.updateprocess.message güncelleme işlemi sırasında oluştu aşağıdaki hata =: \ n {0}
+error.cpws.message = yedek kopya oluşturma sırasında bir hata oluştu.
+error.importgrp.message alma sırasında bir hata oluştu listesinde =.
+error.duplicatetarget.message = Hedeflenen çoğaltılması sırasında bir hata oluştu: \ n {0}.
+error.field.mandatory = Bu alan zorunludur.
+error.numeric.value.expected = sayısal bir değer bekleniyor.
+error.directory.expected = A dizin beklenmektedir.
+error.owner.or.group.expected =  "sahibi" veya "grup" alanlarında en az biri zorunludur.
+error.file.does.not.exist= Dosya veya dizin yok
+error.quotes.forbidden = Kurlar yasaktır.
+error.invalid.parameters = Geçersiz parametreler.
+error.invalid.encryption.key = Geçersiz şifreleme anahtarı.
+error.reserved.words değeri ayrılmış sözcük veya karakter içeriyor listesinde =.
+error.invalid.storage = Geçersiz saklama yeri: sizin kaynak dizinleri biri tarafından bulunur.
+error.label.prefix = Hata:
+ 
+# Rapor
+report.dialog.title = Süreci raporu
+report.processed.label = İşlenmiş dosya veya dizin:
+report.filtered.label = Filtreli dosya veya dizin:
+report.filecount.label = Filtrelenmemiş dosyaları:
+report.ignored.label = Yoksayılan dosyaları (değiştirilmemiş):
+report.saved.label = Kaydedilen dosyaları:
+report.dircount.label = Filtrelenmemiş dizinleri:
+report.duration.label = Süre:
+ 
+# Kısayol oluşturma
+shrtc.type.label = Tür
+shrtc.scope.label = Kapsam
+shrtc.location.label = Konum
+shrtc.forall.label =bütün hedefler için 
+shrtc.forselected.label =Seçili öğenin, yalnızca için
+shrtc.params.label = Parametreler
+shrtc.lbl1.first.label = Bir arşiv her
+shrtc.lbl1.label = Sonra bir arşiv her
+shrtc.lbl2.label = gün (ler) i,
+shrtc.lbl3.label = kez
+shrtc.intro.label = Aşağıdaki arşiv stratejisinin parametreleri giriniz. \ nAreca yeterli komut dosyaları oluşturur. \ n \ n
+shrtc.confirm.message = . {1} yapmanız gereken \ n \ nTüm görev zamanlayıcısı bunları planlamak \ n: Aşağıdaki dosyalar {0} yaratılmıştır
+shrtc.confirm.title = Dosya oluşturma tamamladı.
+ 
+# Kopya Çalışma Alanı
+cpws.intro.label = Her zaman sizin çalışma bir yedek kopyasını alması önerilmiştir hedefleri değiştirilir. yapılandırma dosyaları kayıp veya bozuksa \ nBu yedek kopya yararlı olacaktır.
+cpws.dialog.title = geçerli çalışma bir kopyasını oluşturma
+cpws.removeencryption.label = hassas verileri Kaldır
+cpws.location.label = Konum
+ 
+# Conf İthalat
+importconf.dialog.title = İthalat mevcut yapılandırma
+importconf.location.label = Kaynak dizin
+importconf.intro.label = Bu pencere, varolan bir yapılandırma ithalat sağlar \ nSelect bir dizin;. Areca o tarama ve ithal edilebilir ne algılar.
+ 
+# Şifreleme Veri Çerçeve Eksik
+med.dialog.title = Şifreleme Veri Eksik
+med.intro.label = şifreleme veri aşağıdaki hedef için bulunmadı: '{0}' \ Bu çalışma 'kaldır hassas veri' seçeneği açık \ n \ nLütfen bu bilgiler girmek kaydedilmiş çünkü nBu muhtemelen.. .
+med.algo.label = Şifreleme algoritması:
+med.password.label = Parola:
+ 
+# FTP veri penceresi Eksik
+mftpd.dialog.title = Eksik FTP Veri
+mftpd.password.label = Parola:
+mftpd.intro.label = FTP / SFTP hesabınızla ilgili bazı bilgiler aşağıdaki hedef XML yapılandırma alınamadı: '{0}' \ Bu çalışma 'kaldır hassas veri' seçeneği ile kaydedilmiş, çünkü nBu muhtemelen. . \ n \ nLütfen açık bu bilgileri girin.
+ 
+# ARA
+search.criteria.latest = Sadece son arşiv Arama
+search.criteria.pattern = Arama:
+search.search.label = Arama
+search.cancel.label = İptal
+search.selectall.label = Hepsini Seç
+search.clearall.label = sifresiz arama
+search.deselectall.label = kaldırın tüm
+search.dialog.title = Arşivlerde Arama
+search.result.label = Arama sonuçları:
+search.targets.label =:In 
+search.noresult.label = Sonuç yok
+search.criteria.case =  duyarlı Case
+search.criteria.regex = Düzenli ifadeler
+
+# Hedef özellikleri
+targetproperies.dialog.title = Özellikler

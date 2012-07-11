@@ -50,7 +50,7 @@ public abstract class AbstractLauncher {
             Logger.defaultLogger().error("Unexpected error", e);
             setErrorCode(ERR_UNEXPECTED);
         } finally {
-        	exit();
+        	//exit();
         }
     }
     

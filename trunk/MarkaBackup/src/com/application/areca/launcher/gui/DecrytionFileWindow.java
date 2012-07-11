@@ -70,10 +70,14 @@ extends AbstractWindow {
     
     Button btnSave;
     
-     private Application.ProcessRunner runner;
+    
+    Boolean isFolder;
+    
+    private Application.ProcessRunner runner;
 
     public DecrytionFileWindow() {
     	super();
+    	isFolder = Boolean.TRUE;
     
     }
     
@@ -105,8 +109,13 @@ extends AbstractWindow {
         buttonBrowseFile.setText(RM.getLabel("common.browseaction.label"));
         buttonBrowseFile.addListener(SWT.Selection, new Listener() {
             public void handleEvent(Event event) {
-                String path = Application.getInstance().showFileDialog(textFile.getText(), DecrytionFileWindow.this);
-                if (path != null) {
+            	String path="";
+            	if(Boolean.FALSE==isFolder)
+            		path = Application.getInstance().showFileDialog(textFile.getText(), DecrytionFileWindow.this);
+            	else
+            		path = Application.getInstance().showDirectoryDialog(textFile.getText(),DecrytionFileWindow.this);
+            	
+            	if (path != null) {
                 	textFile.setText(path);
                 }
             }
