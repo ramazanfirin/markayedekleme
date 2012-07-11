@@ -969,10 +969,10 @@ extends AbstractWindow {
 
 		lstWrapping.add(EncryptedFileSystemDriver.WRAP_DEFAULT);
 		cboWrapping.add(RM.getLabel("targetedition.wrapping." + EncryptedFileSystemDriver.WRAP_DEFAULT));
-		lstWrapping.add(EncryptedFileSystemDriver.WRAP_ENABLED);
-		cboWrapping.add(RM.getLabel("targetedition.wrapping." + EncryptedFileSystemDriver.WRAP_ENABLED));
-		lstWrapping.add(EncryptedFileSystemDriver.WRAP_DISABLED);
-		cboWrapping.add(RM.getLabel("targetedition.wrapping." + EncryptedFileSystemDriver.WRAP_DISABLED));
+		//lstWrapping.add(EncryptedFileSystemDriver.WRAP_ENABLED);
+		//cboWrapping.add(RM.getLabel("targetedition.wrapping." + EncryptedFileSystemDriver.WRAP_ENABLED));
+		//lstWrapping.add(EncryptedFileSystemDriver.WRAP_DISABLED);
+		//cboWrapping.add(RM.getLabel("targetedition.wrapping." + EncryptedFileSystemDriver.WRAP_DISABLED));
 
 		lblEncryptionAlgorithm = new Label(grpEncryption, SWT.NONE);
 		lblEncryptionAlgorithm.setText(RM.getLabel("targetedition.algorithmfield.label"));    
@@ -996,8 +996,10 @@ extends AbstractWindow {
 		for (int i=0; i<algs.length; i++) {
 			String id = algs[i];
 			EncryptionConfiguration conf = EncryptionConfiguration.getParameters(id);
-			lstEncryptionAlgorithms.add(conf);
-			cboEncryptionAlgorithm.add(conf.getFullName());
+			if(conf.getId().equals(EncryptionConfiguration.RECOMMENDED_ALGORITHM)){
+				lstEncryptionAlgorithms.add(conf);
+				cboEncryptionAlgorithm.add(conf.getFullName());
+			}
 		}
 		if (algs.length == 0) {
 			chkEncrypted.setEnabled(false);

@@ -321,13 +321,13 @@ implements SelectionListener, Refreshable {
 		Application.getInstance().setCurrentDates(first, last);
 	}
 
-	@Override
+
 	public void getFocus() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+
 	public void looseFocus() {
 		// TODO Auto-generated method stub
 		
