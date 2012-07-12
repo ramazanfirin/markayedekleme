@@ -62,6 +62,9 @@ public interface ActionConstants {
     public static final String CMD_SEARCH = "search";
     public static final String CMD_BUILD_BATCH = "build batch";
     public static final String CMD_BUILD_STRATEGY = "build strategy";
+    
+    public static final String CMD_DENCRYTION_FILE = "dencrytion file";
+    public static final String CMD_DENCRYTION_FOLDER = "dencrytion folder";
 
     public static final String CMD_NEW_TARGET = "new target";
     public static final String CMD_EDIT_TARGET = "edit target";    

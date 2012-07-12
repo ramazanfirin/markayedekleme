@@ -6,6 +6,7 @@ import org.eclipse.swt.custom.BusyIndicator;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Event;
@@ -16,12 +17,10 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 import com.application.areca.ResourceManager;
-import com.application.areca.external.CmdLineDeCipher;
 import com.application.areca.external.CmdLineDeCipherInternal;
 import com.application.areca.launcher.gui.common.AbstractWindow;
 import com.application.areca.launcher.gui.common.SavePanel;
 import com.application.areca.launcher.gui.common.SecuredRunner;
-import com.myJava.util.log.Logger;
 
 /**
  * <BR>
@@ -68,16 +67,21 @@ extends AbstractWindow {
     Text textOutputDirectory;
     Button buttonBrowseOutputDirectory;
     
+    Combo combo;
+    
     Button btnSave;
     
     
     Boolean isFolder;
     
+    String YES="EVET";
+    String NO="HAYIR";
+    
     private Application.ProcessRunner runner;
 
     public DecrytionFileWindow() {
     	super();
-    	isFolder = Boolean.TRUE;
+    	isFolder = Boolean.FALSE;
     
     }
     
@@ -127,7 +131,7 @@ extends AbstractWindow {
         labelAlgorithm.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false ));
         labelAlgorithm.setText("Algoritma");
 
-        textAlgorithm = new Text(grpLocation, SWT.BORDER);
+        textAlgorithm = new Text(grpLocation, SWT.READ_ONLY | SWT.BORDER);
         GridData mainData3 = new GridData(SWT.FILL, SWT.CENTER, true, false);
         mainData3.widthHint = computeWidth(200);
         textAlgorithm.setLayoutData(mainData3);       
@@ -147,9 +151,15 @@ extends AbstractWindow {
         textPassword.setText("ramazanfirin");
         new Label(grpLocation, SWT.NONE);
         
-        
-        
-        
+        Label labelFileNameEnc = new Label(grpLocation, SWT.NONE);
+        labelFileNameEnc.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false ));
+        labelFileNameEnc.setText("Dosya Isimleri Sifrele mi?");
+
+        combo = new Combo(grpLocation, SWT.NONE);
+        combo.add(YES);
+        combo.add(NO);
+        combo.select(0);
+        new Label(grpLocation, SWT.NONE);
         
         Label labelOutputDirectory = new Label(grpLocation, SWT.NONE);
         labelOutputDirectory.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false ));
@@ -215,7 +225,7 @@ extends AbstractWindow {
 		
         //this.runner = application.launchDecrpyt(textFile.getText(), textAlgorithm.getText(), textPassword.getText(), textOutputDirectory.getText());
         
-    	Thread updateThread = decrpyt(textFile.getText(), textAlgorithm.getText(), textPassword.getText(), textOutputDirectory.getText(),getShell());
+    	Thread updateThread = decrpyt(textFile.getText(), textAlgorithm.getText(), textPassword.getText(), textOutputDirectory.getText(),combo.getText() ,getShell());
   	  BusyIndicator.showWhile(getShell().getDisplay(), updateThread);
   	  System.out.println("update tamam");
     }
@@ -237,12 +247,14 @@ extends AbstractWindow {
 			 String _algorithm,
 			 String _password,
 			 String _destination,
+			 String _fileNameEnc,
 			 Shell _shell) {
 		
 		final String source=_source;
 		final String algorithm=_algorithm;
 		final String password=_password;
 		final String destination=_destination;
+		final String fileNameEnc=_fileNameEnc;
 		
 		final Shell shell = _shell;
 	    
@@ -256,12 +268,17 @@ extends AbstractWindow {
 	        	//Logger.defaultLogger().info("Looking for decrpyt for..." +source+" ,destination="+destination);         
 				//target.processBackup(manifest, backupScheme, disablePreCheck, checkParams, transactionPoint, context);
 			
-				String[] array=new String[4];
+				String[] array=new String[5];
 				array[0] = "-source="+source;
 				array[1] = "-algorithm="+algorithm;
 				array[2] = "-password="+password;
 				array[3] = "-destination="+destination;
-				CmdLineDeCipherInternal.main(array);
+				if(fileNameEnc.equals(NO))
+					array[4] = "-r";
+				else
+					array[4] ="";
+				
+				CmdLineDeCipherInternal.getInstance().decryt(array);
 	        	
 	        	message.append("Update tamamlandi");
 	        } catch (Exception e) {

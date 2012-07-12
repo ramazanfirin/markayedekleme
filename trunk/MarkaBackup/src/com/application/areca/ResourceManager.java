@@ -52,7 +52,8 @@ public class ResourceManager {
 
     protected ResourceManager(String domain, String deprecatedSuffix) {
         try {
-            properties = ResourceBundle.getBundle(domain, Locale.getDefault());
+           // properties = ResourceBundle.getBundle(domain, Locale.getDefault());
+            properties = ResourceBundle.getBundle(domain,  new Locale("tr", "TR"));
         } catch (MissingResourceException ex) {
         	try {
                 properties = ResourceBundle.getBundle(domain + deprecatedSuffix, Locale.getDefault());

@@ -6,6 +6,7 @@ import java.io.IOException;
 import com.application.areca.AbstractArecaLauncher;
 import com.application.areca.ApplicationException;
 import com.application.areca.impl.policy.EncryptionPolicy;
+import com.application.areca.launcher.gui.Application;
 import com.application.areca.version.VersionInfos;
 import com.myJava.commandline.BooleanCmdLineOption;
 import com.myJava.commandline.CmdLineParserException;
@@ -47,7 +48,7 @@ This file is part of Areca.
 
  */
 public class CmdLineDeCipherInternal 
-extends AbstractArecaLauncher {
+ {
     
     private static final String ARG_ALG = "algorithm";
     private static final String ARG_PASSWD = "password";
@@ -76,11 +77,12 @@ extends AbstractArecaLauncher {
 	private boolean justShow=false;
 	private String nameWrappingMode=EncryptedFileSystemDriver.WRAP_DEFAULT;
 	
-    public static void main(String[] args) {
-        CmdLineDeCipherInternal launcher = new CmdLineDeCipherInternal();
-        launcher.launch(args);
-        //launcher.exit();
-    }
+	private static CmdLineDeCipherInternal instance = new CmdLineDeCipherInternal();
+	
+	public static CmdLineDeCipherInternal getInstance() {
+		return instance;
+	}
+
     
 	public CmdLineDeCipherInternal() {
 	}
@@ -89,7 +91,7 @@ extends AbstractArecaLauncher {
 		return true;
 	}
 
-	public boolean init(String args[]) {
+	public boolean init(String args[])  throws CmdLineParserException{
 		CommandLineParser parser=new CommandLineParser();
         parser.setDescription(DESCRIPTION);
         
@@ -125,12 +127,13 @@ extends AbstractArecaLauncher {
 		} catch (CmdLineParserException e) {
 			System.out.println("Syntax error : " + e.getMessage());
 			System.out.println(parser.usage());
-			return false;
+			throw e;
+			//return false;
 		}	
 		return true;
 	}
 	
-	protected void initializeFileSystemManager() {
+	protected void initializeFileSystemManager() throws Exception{
 		EncryptionPolicy policy=new EncryptionPolicy();
 		policy.setEncrypted(true);
 		policy.setEncryptionAlgorithm(algorithm);
@@ -144,10 +147,13 @@ extends AbstractArecaLauncher {
 			FileSystemManager.getInstance().registerDriver(mnt, driver);
 		} catch (ApplicationException e) {
 			System.out.println(e);
+			throw e;
 		} catch (IOException e) {
 			System.out.println(e);
+			throw e;
 		} catch (DriverAlreadySetException e) {
 			System.out.println(e);
+			throw e;
 		}
 	}
 		
@@ -165,36 +171,36 @@ extends AbstractArecaLauncher {
 		String fileToProcess=(source!=null) ?source  : mountPoint;
 		File tg = new File(fileToProcess);
 		FileSystemIterator iterator = new FileSystemIterator(tg, false, true, true, true);
-        showLine();
+        //showLine();
 		while(iterator.hasNext()){
 			File currentFile=(File)iterator.next();
 			System.out.println(currentFile.getAbsoluteFile());
 		}
-        showLine();
+        //showLine();
 	}
 
-    protected void launchImpl(String[] args) {
-		try {
-            // Here Parse the commandLine
-            // -Alg=Algo -Sen=Sentence -Source=source -Dest=destination
-            CmdLineDeCipherInternal deCipher = new CmdLineDeCipherInternal();
 
-            if (deCipher.init(args)) {
-            	System.out.println("Source : " + deCipher.source);
-            	System.out.println("Destination : " + deCipher.targetDir);
-            	System.out.println("Algorithm : " + deCipher.algorithm);
-            	System.out.println("Passphrase : " + deCipher.encryption);
-            	System.out.println("Disable Name Decryption : " + deCipher.disableNameDecryption);
-            	System.out.println("File Name Wrapping : " + deCipher.nameWrappingMode);
-            	deCipher.initializeFileSystemManager();
-            	deCipher.process();
+	
+    public void decryt(String[] args) throws Exception{
+		try {
+            if (init(args)) 
+            {
+            	System.out.println("Source : " + source);
+            	System.out.println("Destination : " + targetDir);
+            	System.out.println("Algorithm : " + algorithm);
+            	System.out.println("Passphrase : " + encryption);
+            	System.out.println("Disable Name Decryption : " + disableNameDecryption);
+            	System.out.println("File Name Wrapping : " + nameWrappingMode);
+            	initializeFileSystemManager();
+            	process();
             }
         } catch (Throwable e) {
-        	setErrorCode(ERR_UNEXPECTED);
+        	//setErrorCode(ERR_UNEXPECTED);
             System.out.println("\nWARNING : An error occurred during decryption. You should check that all your arguments are valid (encryption algorithm or password, source directory, ...)");
-            showLine();
+            //showLine();
             e.printStackTrace();
-            showLine();
+            //showLine();
+            throw new Exception(e);
         }
 	}
 }
