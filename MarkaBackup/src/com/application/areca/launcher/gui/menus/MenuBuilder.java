@@ -85,6 +85,15 @@ extends AppActionReferenceHolder {
 //        addSeparator(mnRun);
 //        add(AC_BACKUP_ALL, mnRun);
         
+     // sifreleme
+        Menu mnEnc = buildSubMenu("menu.dencrytion", menu);
+        add(AC_DENCRYTION_FILE, mnEnc);
+        addSeparator(mnEnc);
+        add(AC_DENCRYTION_FOLDER, mnEnc);
+        
+        
+        
+        
         // HELP
         Menu mnHelp = buildSubMenu("menu.help", menu);
         add(AC_HELP, mnHelp);

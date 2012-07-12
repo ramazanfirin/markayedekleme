@@ -285,7 +285,7 @@ extends AbstractWindow {
 			prepareTabsFolder(RM.getLabel("targetedition.filtersgroup.title"));
 			prepareTabsFolder(RM.getLabel("targetedition.preprocessing.title"));
 			prepareTabsFolder(RM.getLabel("targetedition.postprocessing.title"));
-			prepareTabsFolder(RM.getLabel("targetedition.transactions.label"));
+			//prepareTabsFolder(RM.getLabel("targetedition.transactions.label"));
 			prepareTabsFolder(RM.getLabel("targetedition.descriptiongroup.title"));
 			
 			
@@ -835,6 +835,7 @@ extends AbstractWindow {
 		chkAddExtension.setToolTipText(RM.getLabel("targetedition.addextension.tt"));
 		monitorControl(chkAddExtension);
 		chkAddExtension.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false));
+		
 
 		// ZIP OPTIONS
 		grpZipOptions = new Group(composite, SWT.NONE);
@@ -1345,7 +1346,7 @@ extends AbstractWindow {
 
 	private void initValues() {
 		// INIT VALUES
-		if (target != null) {
+ 		if (target != null) {
 			txtTargetName.setText(target.getName());
 			txtDesc.setText(target.getComments());
 
@@ -1474,11 +1475,13 @@ extends AbstractWindow {
 			cboZipLevel.select(4);
 			rdMultiple.setSelection(true);
 			chkFollowSubDirectories.setSelection(true);
-			rdSingle.setSelection(true);
+			//rdSingle.setSelection(true);
 			selectEncoding(ZipConstants.DEFAULT_CHARSET);
 			processSelection(PLUGIN_HD, ApplicationPreferences.getDefaultArchiveStorage());
 			txtArchiveName.setText(DEFAULT_ARCHIVE_PATTERN);
 			cboWrapping.select(0);
+			chkAddExtension.setSelection(true);
+			
 
 			// Default filters
 			this.mdlFilters = new FilterGroup();

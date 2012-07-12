@@ -6,7 +6,6 @@
 <JVMSearchPath>jdkpath</JVMSearchPath>
 <JVMSearchPath>exepath</JVMSearchPath>
 <JVMSearchPath>jview</JVMSearchPath>
-<arguments></arguments>
 <classPath>..\lib\activation.jar</classPath>
 <classPath>..\lib\mail.jar</classPath>
 <classPath>..\lib\commons-net-1.4.1.jar</classPath>
@@ -20,7 +19,7 @@
 <classPath>..\lib\areca.jar</classPath>
 <classPath>..\config</classPath>
 <embeddedJar>false</embeddedJar>
-<executableName>..\areca.exe</executableName>
+<executableName>..\marka.exe</executableName>
 <iconLocation>..\icons\ico_72.png</iconLocation>
 <initialMemoryHeap>67108864</initialMemoryHeap>
 <mainClassName>com.application.areca.launcher.gui.Launcher</mainClassName>

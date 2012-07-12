@@ -7,15 +7,15 @@
 <JVMSearchPath>exepath</JVMSearchPath>
 <JVMSearchPath>jview</JVMSearchPath>
 <arguments></arguments>
-<classPath>..\Source Areca\lib\areca.jar</classPath>
-<classPath>..\Source Areca\lib\activation.jar</classPath>
-<classPath>..\Source Areca\lib\mail.jar</classPath>
-<classPath>..\Source Areca\lib\commons-net-1.4.1.jar</classPath>
-<classPath>..\Source Areca\lib\jakarta-oro-2.0.8.jar</classPath>
-<classPath>..\Source Areca\config</classPath>
-<classPath>..\Source Areca\translations</classPath>
+<classPath>..\lib\areca.jar</classPath>
+<classPath>..\lib\activation.jar</classPath>
+<classPath>..\lib\mail.jar</classPath>
+<classPath>..\lib\commons-net-1.4.1.jar</classPath>
+<classPath>..\lib\jakarta-oro-2.0.8.jar</classPath>
+<classPath>..\config</classPath>
+<classPath>..\translations</classPath>
 <embeddedJar>false</embeddedJar>
-<executableName>..\Source Areca\areca_cl.exe</executableName>
+<executableName>..\marka_cl.exe</executableName>
 <initialMemoryHeap>67108864</initialMemoryHeap>
 <mainClassName>com.application.areca.launcher.tui.Launcher</mainClassName>
 <maximumMemoryHeap>268435456</maximumMemoryHeap>

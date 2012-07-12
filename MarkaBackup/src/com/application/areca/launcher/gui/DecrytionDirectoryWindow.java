@@ -58,6 +58,7 @@ extends DecrytionFileWindow {
 
     public DecrytionDirectoryWindow() {
     	super();
+    	isFolder = Boolean.TRUE;
     
     }
     

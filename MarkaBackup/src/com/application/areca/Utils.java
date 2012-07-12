@@ -142,9 +142,9 @@ public class Utils implements ArecaFileConstants {
 	public static File buildExecutableFile() {
 		String executableName;
 		if (OSTool.isSystemWindows()) {
-			executableName = "areca_cl.exe";
+			executableName = "marka_cl.exe";
 		} else {
-			executableName = "areca_cl.sh";
+			executableName = "marka_cl.sh";
 		}
 
 		File executableDirectory;
