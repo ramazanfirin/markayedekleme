@@ -53,7 +53,7 @@ public class TransactionHeaderAdapter {
 	private static final String XML_VERSION = "version";
 	private static final String XML_TH = "transaction_point";
 	private static final String XML_DATE = "date";
-	private static final String XML_ARECA_VERSION = "areca_version";
+	private static final String XML_ARECA_VERSION = "robust_backup_version";
 	private static final String XML_SOURCES_ROOT = "sources_root";
 	
 	public static final String ENCODING = "UTF-8";

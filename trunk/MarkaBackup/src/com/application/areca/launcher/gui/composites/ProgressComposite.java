@@ -74,6 +74,7 @@ implements Refreshable {
         panel.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
 		
 		btnClear = new Button(panel, SWT.PUSH);
+		btnClear.setVisible(false);
 		btnClear.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, true, false));
 		btnClear.setText(RM.getLabel("progress.removeall.label"));
 		btnClear.addListener(SWT.Selection, new Listener() {

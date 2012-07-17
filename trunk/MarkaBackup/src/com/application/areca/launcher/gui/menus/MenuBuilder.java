@@ -95,16 +95,16 @@ extends AppActionReferenceHolder {
         
         
         // HELP
-        Menu mnHelp = buildSubMenu("menu.help", menu);
-        add(AC_HELP, mnHelp);
-        add(AC_TUTORIAL, mnHelp);
-        addSeparator(mnHelp);
-        if (SHOW_VERSION_CHECK) {
-        	add(AC_CHECK_VERSION, mnHelp);
-        }
-        add(AC_SUPPORT, mnHelp);  
-        addSeparator(mnHelp);
-        add(AC_ABOUT, mnHelp);    
+//        Menu mnHelp = buildSubMenu("menu.help", menu);
+//        add(AC_HELP, mnHelp);
+//        add(AC_TUTORIAL, mnHelp);
+//        addSeparator(mnHelp);
+//        if (SHOW_VERSION_CHECK) {
+//        	add(AC_CHECK_VERSION, mnHelp);
+//        }
+//        add(AC_SUPPORT, mnHelp);  
+//        addSeparator(mnHelp);
+//        add(AC_ABOUT, mnHelp);    
         
         return menu;
     }
@@ -156,7 +156,7 @@ extends AppActionReferenceHolder {
     public static Menu buildTargetContextMenu(Shell parent) {
         Menu menu = new Menu(parent, SWT.POP_UP);
 
-        add(AC_SIMULATE, menu);
+        //add(AC_SIMULATE, menu);
         add(AC_BACKUP, menu);     
         addSeparator(menu);
         add(AC_NEW_GROUP, menu);   
@@ -172,7 +172,7 @@ extends AppActionReferenceHolder {
         // ASSISTANTS
         Menu mnAssist = buildSubMenu("menu.assist", menu);
         add(AC_BUILD_BATCH, mnAssist);
-        add(AC_BUILD_STRATEGY, mnAssist);
+        //add(AC_BUILD_STRATEGY, mnAssist);
         
         //ramazan
         addSeparator(menu);

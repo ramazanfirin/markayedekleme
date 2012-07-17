@@ -40,7 +40,7 @@
             </classpath>
         </javac>
 
-        <jar destfile="${root}/lib/areca.jar">
+        <jar destfile="${root}/lib/robustbackup.jar">
             <fileset dir="${root}/classes"/>
             <fileset dir="${root}">
                 <include name="icons/**"/>

@@ -134,28 +134,32 @@ public class SendMailProcessorComposite extends AbstractProcessorComposite {
 
 		txtRecipients = new Text(this, SWT.BORDER);
 		txtRecipients.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 3, 1));
-
+		txtRecipients.setText("ramazan_firin@hotmail.com");
+		
 		// From
 		Label lblFrom = new Label(this, SWT.NONE);
 		lblFrom.setText(RM.getLabel("procedition.mailfrom.label"));
 
 		txtFrom = new Text(this, SWT.BORDER);
 		txtFrom.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 3, 1));
-
+		txtFrom.setText(RM.getLabel("procedition.mailfrom.value"));
+		
 		// SMTP
 		Label lblSmtp = new Label(this, SWT.NONE);
 		lblSmtp.setText(RM.getLabel("procedition.smtp.label"));
 
 		txtSmtp = new Text(this, SWT.BORDER);
 		txtSmtp.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-
+		txtSmtp.setText(RM.getLabel("procedition.smtp.value"));	
+		
 		Label lblPort = new Label(this, SWT.NONE);
 		lblPort.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, true, false));
 		lblPort.setText(RM.getLabel("procedition.port.label"));
 
 		txtPort = new Text(this, SWT.BORDER);
 		txtPort.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
-
+		txtPort.setText(RM.getLabel("procedition.port.value"));	
+		
 		// SMTPS
 		new Label(this, SWT.NONE);
 		btnSMTPS = new Button(this, SWT.CHECK);
@@ -168,7 +172,8 @@ public class SendMailProcessorComposite extends AbstractProcessorComposite {
 
 		txtUser = new Text(this, SWT.BORDER);
 		txtUser.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 3, 1));
-
+		txtUser.setText(RM.getLabel("procedition.user.value"));	
+		
 		// Password
 		Label lblPassword = new Label(this, SWT.NONE);
 		lblPassword.setText(RM.getLabel("procedition.password.label"));
@@ -176,7 +181,8 @@ public class SendMailProcessorComposite extends AbstractProcessorComposite {
 		txtPassword = new Text(this, SWT.BORDER);
 		txtPassword.setEchoChar('*');
 		txtPassword.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
-
+		txtPassword.setText(RM.getLabel("procedition.password.value"));	
+		
 		final Button btnReveal = new Button(this, SWT.PUSH);
 		btnReveal.setText(RM.getLabel("targetedition.reveal.label"));
 		btnReveal.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
@@ -258,6 +264,20 @@ public class SendMailProcessorComposite extends AbstractProcessorComposite {
 		window.monitorControl(txtTitle);
 	}
 
+	public static void main(String[] args) {
+//		try {
+//			SendReportByMailProcessor testProc = new SendReportByMailProcessor();
+//			SendMailProcessorComposite = new SendMailProcessorComposite(composite, proc, window, appendReport)
+//			initProcessor(testProc);
+//			testProc.sendMail("" + VersionInfos.APP_SHORT_NAME + " mail report test", "" + VersionInfos.APP_SHORT_NAME + " mail report test successfull !", ps, null);
+//
+//			Application.getInstance().showInformationDialog(baos.toString(), RM.getLabel("procedition.ok.label"), true);                
+//		} catch (ApplicationException e1) {
+//			Application.getInstance().showErrorDialog(e1.getMessage() + "\n\n" + baos.toString(), RM.getLabel("procedition.error.label"), true);
+//		}
+	}
+	
+	
 	public void initProcessor(Processor proc) {
 		AbstractMailSendProcessor mProc = (AbstractMailSendProcessor)proc;
 		mProc.setRecipients(txtRecipients.getText());

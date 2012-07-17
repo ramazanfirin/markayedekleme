@@ -16,11 +16,12 @@
 <classPath>..\lib\org.eclipse.jface_3.2.0.I20060605-1400.jar</classPath>
 <classPath>..\lib\swt.jar</classPath>
 <classPath>..</classPath>
-<classPath>..\lib\areca.jar</classPath>
+<classPath>..\lib\robustbackup.jar</classPath>
 <classPath>..\config</classPath>
+<currentDirectory>${EXECUTABLEPATH}</currentDirectory>
 <embeddedJar>false</embeddedJar>
-<executableName>..\marka.exe</executableName>
-<iconLocation>..\icons\ico_72.png</iconLocation>
+<executableName>..\RobustBackup.exe</executableName>
+<iconLocation>..\icons\R-icon.png</iconLocation>
 <initialMemoryHeap>67108864</initialMemoryHeap>
 <mainClassName>com.application.areca.launcher.gui.Launcher</mainClassName>
 <maximumMemoryHeap>268435456</maximumMemoryHeap>

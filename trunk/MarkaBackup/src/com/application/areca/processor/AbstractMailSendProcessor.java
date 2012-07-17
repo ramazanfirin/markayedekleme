@@ -9,6 +9,7 @@ import java.util.StringTokenizer;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
@@ -167,8 +168,8 @@ public abstract class AbstractMailSendProcessor extends AbstractProcessor {
 	public String getParametersSummary() {
 		return this.getRecipients() + " - " + this.getSmtpServer();
 	}
-
-	public void sendMail(
+	
+	public void sendMail2(
 			String subject,
 			String content,
 			PrintStream debugStream,
@@ -232,6 +233,124 @@ public abstract class AbstractMailSendProcessor extends AbstractProcessor {
 			Logger.defaultLogger().error("Error during mail processing", e);
 			throw new ApplicationException("Error during mail processing", e);
 		}
+	}
+
+	public void sendMail(
+			String subject,
+			String content,
+			PrintStream debugStream,
+			ProcessContext context
+	) throws ApplicationException {       
+		Properties props = new Properties();
+		String protocol = isSmtps() ? "smtps":"smtp";
+
+		
+		props.put("mail.smtp.host", getSmtpServerName());
+		props.put("mail.smtp.socketFactory.port", getSmtpServerPort());
+		props.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
+		props.put("mail.smtp.port",  getSmtpServerPort());
+		
+		
+		props.put("mail." + protocol + ".host", getSmtpServerName());
+		props.put("mail." + protocol + ".port", "" + getSmtpServerPort());
+
+		if (isAuthenticated()) {
+			props.put("mail." + protocol + ".auth", "true");
+		}
+
+//		Session session = Session.getInstance(props, null);
+		
+		Session session = Session.getDefaultInstance(props,
+				new javax.mail.Authenticator() {
+					protected PasswordAuthentication getPasswordAuthentication() {
+						return new PasswordAuthentication(getUser(),getPassword());
+					}
+				});
+	 
+		
+		
+		if (debugStream != null) {
+			session.setDebug(true);
+			session.setDebugOut(debugStream);
+		}
+		
+		
+		try {
+			List recp = getAddressesAsList();
+			InternetAddress[] addresses = new InternetAddress[recp.size()];
+			for (int i=0; i<addresses.length; i++) {
+				addresses[i] = new InternetAddress((String)recp.get(i));
+			} 
+			
+			InternetAddress fromAddress = (this.from == null || this.from.trim().length() == 0) ? addresses[0] : new InternetAddress(this.from);
+			
+			Message message = new MimeMessage(session);
+			message.setFrom(fromAddress);
+			message.setRecipients(Message.RecipientType.TO, addresses);
+			message.setReplyTo(new InternetAddress[] {fromAddress});
+			message.setSubject(subject);
+			message.setText(content);
+			message.setSentDate(new Date());
+			//message.setSender(fromAddress);
+			message.setSentDate(new Date());
+			if (context != null && context.getReport() != null) {
+				message.setHeader("X-" + VersionInfos.APP_SHORT_NAME + "-Target", context.getReport().getTarget().getUid());
+			}
+			message.setHeader("X-" + VersionInfos.APP_SHORT_NAME + "-Version", VersionInfos.getLastVersion().getVersionId());
+			
+			Transport.send(message);
+ 
+			System.out.println("Done");
+ 
+		} catch (MessagingException e) {
+			throw new RuntimeException(e);
+		}
+
+		/*
+		try {
+			List recp = getAddressesAsList();
+			InternetAddress[] addresses = new InternetAddress[recp.size()];
+			for (int i=0; i<addresses.length; i++) {
+				addresses[i] = new InternetAddress((String)recp.get(i));
+			}
+
+			MimeMessage msg = new MimeMessage(session);
+
+			InternetAddress fromAddress = (this.from == null || this.from.trim().length() == 0) ? addresses[0] : new InternetAddress(this.from);
+
+			msg.setFrom(fromAddress);
+			msg.setRecipients(Message.RecipientType.TO, addresses);
+			msg.setReplyTo(new InternetAddress[] {fromAddress});
+			msg.setSubject(subject);
+			msg.setText(content, OSTool.getIANAFileEncoding());
+			msg.setSentDate(new Date());
+			msg.setSender(fromAddress);
+			msg.setSentDate(new Date());
+			if (context != null && context.getReport() != null) {
+				msg.setHeader("X-" + VersionInfos.APP_SHORT_NAME + "-Target", context.getReport().getTarget().getUid());
+			}
+			msg.setHeader("X-" + VersionInfos.APP_SHORT_NAME + "-Version", VersionInfos.getLastVersion().getVersionId());
+			if (isAuthenticated()) {
+				Transport tr;
+				if (isSmtps()) {
+					tr = session.getTransport("smtps");
+				} else {
+					tr = session.getTransport("smtp");
+				}
+
+				tr.connect(getSmtpServerName(), getSmtpServerPort(), getUser(), getPassword());
+				//msg.saveChanges();	
+				//Transport.send(msg);
+				tr.sendMessage(msg, msg.getAllRecipients());
+				tr.close();
+			} else {
+				Transport.send(msg);
+			}
+		} catch (MessagingException e) {
+			Logger.defaultLogger().error("Error during mail processing", e);
+			throw new ApplicationException("Error during mail processing", e);
+		}
+		*/
 	}
 
 	protected void copyAttributes(AbstractMailSendProcessor pro) {
