@@ -44,8 +44,8 @@ public class VersionInfos {
 
 	protected static long BUILD_ID = -1;
 
-	public static String APP_NAME = "Areca Backup";
-	public static String APP_SHORT_NAME = "Marka";
+	public static String APP_NAME = "Robust Backup";
+	public static String APP_SHORT_NAME = "Robust Backup";
 	public static int[] REQUIRED_JAVA_VERSION = new int[] {1, 4, 2};
 	public static String VERSION_MSG = APP_NAME + 
 	" requires Java version " 

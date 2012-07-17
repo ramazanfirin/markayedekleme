@@ -35,7 +35,10 @@ import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.GC;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.RowLayout;
@@ -238,6 +241,7 @@ extends AbstractWindow {
 	}
 
 	protected Control createContents(Composite parent) {
+		//getShell().setBounds(0, 0, 400,400);
 		application.enableWaitCursor();
 		//this.setShellStyle(SWT.APPLICATION_MODAL ) ; 
 		
@@ -249,21 +253,24 @@ extends AbstractWindow {
 			
 			ret.setLayout(layout);
 
+			
+			
+			
+			tabsFolder = new CTabFolder(ret, SWT.BORDER);
+			tabsFolder.setSimple(Application.SIMPLE_MAINTABS);
+			
 			tabs = new ListPane(ret, SWT.NONE, false);
 			//tabs.getMenu().setVisible(false);
 			//tabs.
 			tabs.getMenu().setSize(0, 0);
 			GridData dt1 = new GridData();
-			//dt1.grabExcessHorizontalSpace = true;
-			//dt1.grabExcessVerticalSpace = true;
+			dt1.grabExcessHorizontalSpace = false;
+			dt1.grabExcessVerticalSpace = false;
 			dt1.horizontalAlignment = SWT.FILL;
 			dt1.verticalAlignment = SWT.FILL;
 			//dt1.minimumWidth=300;
 			tabs.setLayoutData(dt1);
-			
-			
-			tabsFolder = new CTabFolder(ret, SWT.BORDER);
-			tabsFolder.setSimple(Application.SIMPLE_MAINTABS);
+			tabs.getMenu().setVisible(false);
 			
 			initGeneralTab(initTab(tabs, RM.getLabel("targetedition.maingroup.title")));
 			initSourcesTab(initTab(tabs, RM.getLabel("targetedition.sourcesgroup.title")));
@@ -293,8 +300,8 @@ extends AbstractWindow {
 			tabsFolder.setSelection(0);
 			//tabsFolder.setLayout(dt1);
 			
-			Button buttonTmp= new Button(ret, SWT.NONE);
-			buttonTmp.setVisible(true);
+			//Button buttonTmp= new Button(ret, SWT.NONE);
+			//buttonTmp.setVisible(true);
 			
 			SavePanel pnlSave = new SavePanel(this);
 			Composite save = pnlSave.buildComposite(ret);
@@ -313,7 +320,17 @@ extends AbstractWindow {
 			Point size =tabs.getMenu().computeSize(300,300);
 			tabs.getMenu().setSize(size);
 			Color blue = getShell().getDisplay().getSystemColor(SWT.COLOR_BLUE);
-			tabs.getMenu().setBackground(blue);
+			//tabs.getMenu().setBackground(blue);
+			Image image = ArecaImages.LOGO;
+			//image. computeSize(linuxW, linuxH);
+            tabs.getMenu().setBackgroundImage(image);
+			//tabs.getMenu().setVisible(false); 
+			
+			Rectangle rect = tabs.getMenu().getClientArea();
+			Image newImage = new Image(getShell().getDisplay(), rect.width,rect.height);
+			GC gc = new GC(newImage); 
+			//gc.drawImage(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8)
+			//newImage.
 			
 			ret.addKeyListener(new org.eclipse.swt.events.KeyAdapter() {
 				public void keyPressed(KeyEvent event) {
@@ -525,13 +542,15 @@ extends AbstractWindow {
 		monitorControl(rdDelta);
 		rdDelta.setText(RM.getLabel("targetedition.storagetype.delta"));
 		rdDelta.setToolTipText(RM.getLabel("targetedition.storagetype.delta.tt"));
-
+		rdDelta.setVisible(false);
+		
 		//if (target != null && ((AbstractIncrementalFileSystemMedium)target.getMedium()).isOverwrite()) {
 		rdImage = new Button(grpType, SWT.RADIO);
 		monitorControl(rdImage);
 		rdImage.setText(RM.getLabel("targetedition.storagetype.image"));// + " (" + RM.getLabel("common.deprecated.label") + ")");
 		rdImage.setToolTipText(RM.getLabel("targetedition.storagetype.image.tt"));
-
+		rdImage.setVisible(false);
+		
 		//Application.getInstance().showDoNotShowAgainWindow(
 		//		RM.getLabel("common.image.deprecated.title"),
 		//		RM.getLabel("common.image.deprecated.message"), 
@@ -1475,12 +1494,12 @@ extends AbstractWindow {
 			cboZipLevel.select(4);
 			rdMultiple.setSelection(true);
 			chkFollowSubDirectories.setSelection(true);
-			//rdSingle.setSelection(true);
+			rdSingle.setSelection(true);
 			selectEncoding(ZipConstants.DEFAULT_CHARSET);
 			processSelection(PLUGIN_HD, ApplicationPreferences.getDefaultArchiveStorage());
 			txtArchiveName.setText(DEFAULT_ARCHIVE_PATTERN);
 			cboWrapping.select(0);
-			chkAddExtension.setSelection(true);
+			//chkAddExtension.setSelection(true);
 			
 
 			// Default filters

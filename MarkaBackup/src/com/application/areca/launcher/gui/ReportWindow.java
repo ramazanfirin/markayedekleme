@@ -3,6 +3,7 @@ package com.application.areca.launcher.gui;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -69,7 +70,7 @@ extends AbstractWindow {
 		ProcessReportWriter writer = null;
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		try {
-			writer = new ProcessReportWriter(new OutputStreamWriter(baos), false, false, -1);
+			writer = new ProcessReportWriter(new OutputStreamWriter(baos,"UTF8"), false, false, -1);
 			writer.writeReport(report);
 		} catch (IOException e) {
 			Logger.defaultLogger().error(e);
@@ -80,8 +81,13 @@ extends AbstractWindow {
 				Logger.defaultLogger().error(e);
 			}            
 		}
-		txtContent.setText(baos.toString());
-
+		try {
+			txtContent.setText(baos.toString("UTF-8"));
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		////txtContent.getText()
         SavePanel pnlSave = new SavePanel(RM.getLabel("common.close.label"), this);
         pnlSave.setShowCancel(false);
         pnlSave.buildComposite(composite).setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));

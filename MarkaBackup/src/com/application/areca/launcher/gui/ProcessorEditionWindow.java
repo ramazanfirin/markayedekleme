@@ -146,11 +146,13 @@ extends AbstractWindow {
         chkMerge.setText(RM.getLabel("procedition.run.merge.label"));
         chkMerge.setToolTipText(RM.getLabel("procedition.run.merge.tt"));
         this.monitorControl(chkMerge);
+        chkMerge.setVisible(false);
         
         chkCheck = new Button(pnlActionContainer, SWT.CHECK);
         chkCheck.setText(RM.getLabel("procedition.run.check.label"));
         chkCheck.setToolTipText(RM.getLabel("procedition.run.check.tt"));
         this.monitorControl(chkCheck);
+        chkCheck.setVisible(false);
         
         if (proc != null) {
         	chkOK.setSelection(proc.isRunIfOK());

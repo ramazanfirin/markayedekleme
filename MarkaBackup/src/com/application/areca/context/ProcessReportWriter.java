@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.Iterator;
 
+import com.application.areca.ResourceManager;
 import com.application.areca.Utils;
 import com.application.areca.indicator.Indicator;
 import com.application.areca.indicator.IndicatorMap;
@@ -47,7 +48,7 @@ This file is part of Areca.
  */
 public class ProcessReportWriter {
 	public static final long MAX_LISTED_FILES = 1000L;
-	
+	private static final ResourceManager RM = ResourceManager.instance();
 	private Writer writer;
 	private boolean appendStatistics;
 	private boolean appendStoredFiles;
@@ -63,9 +64,9 @@ public class ProcessReportWriter {
 	private void writeStatusItem(StatusItem itm) throws IOException {
 		String hdr = "     " + itm.getKey() + " : ";
 		if (itm.isHasErrors()) {
-			write(hdr + "Failure");
+			write(hdr + RM.getLabel("process.report.failure"));
 		} else {
-			write(hdr + "Success");
+			write(hdr + RM.getLabel("process.report.success"));
 		}
 	}
 
@@ -73,9 +74,9 @@ public class ProcessReportWriter {
 		write("" + report.getTarget().getName() + " (" + report.getTarget().getUid() + ") on " + Utils.formatDisplayDate(report.getStartDate()));
 
 		writeSeparator();
-		write("Overall Status : " + (report.hasError() ? "Failure":"Success"));
+		write(RM.getLabel("process.report.overallStatus")+" : " + (report.hasError() ? RM.getLabel("process.report.failure"):RM.getLabel("process.report.success")));
 		if (report.getStatus().size() > 0) {
-			write("Detailed Status :");
+			write(RM.getLabel("process.report.detailStatus")+" : ");
 			boolean detailedErrors = false;
 			Iterator sttIter = report.getStatus().iterator();
 			while (sttIter.hasNext()) {
@@ -94,29 +95,29 @@ public class ProcessReportWriter {
 
 		writeSeparator();
 		long dur = report.getStopMillis() - report.getStartMillis();
-		write("Duration (without post-processing) : " + Utils.formatDuration(dur));
-
+		write(RM.getLabel("process.report.duration")+" : " + Utils.formatDuration(dur));
+	
 		if (
 				(report.getStatus().hasItem(StatusList.KEY_BACKUP) || report.getStatus().hasItem(StatusList.KEY_SIMULATE) ) 
 				&& (! report.getStatus().hasError(StatusList.KEY_BACKUP))
 				&& (! report.getStatus().hasError(StatusList.KEY_SIMULATE))
 				) {
-			write("Written kbytes : " + report.getWrittenKBytes());
+			write(RM.getLabel("process.report.writtenBytes")+" : " + report.getWrittenKBytes());
 			writeSeparator();
-			write("Processed directories and files : " + report.getProcessedEntries());
-			write("Filtered directories and files : " + report.getFilteredEntries());
-			write("Unfiltered directories : " + report.getUnfilteredDirectories());
-			write("Unfiltered files : " + report.getUnfilteredFiles());
-			write("Ignored files (not modified) : " + report.getIgnoredFiles());
-			write("Saved files : " + report.getSavedFiles());
+			write(RM.getLabel("process.report.processesDirectoryAndFiles")+" : " + report.getProcessedEntries());
+			write(RM.getLabel("process.report.filteredDirectoryAndFiles")+" : " + report.getFilteredEntries());
+			write(RM.getLabel("process.report.unfilteredDirectories") +" : "+ report.getUnfilteredDirectories());
+			write(RM.getLabel("process.report.unfilteredFiles") +" : "+ report.getUnfilteredFiles());
+			write(RM.getLabel("process.report.ignoredFiles") +" : "+ report.getIgnoredFiles());
+			write(RM.getLabel("process.report.savedFiles") +" : "+ report.getSavedFiles());
 
 			if (this.appendStatistics) {
 				writeSeparator();
-				write("Archive statictics :");
+				write(RM.getLabel("process.report.archiveStatictic")+" : ");
 
 				IndicatorMap indicators = report.getIndicators();
 				if (indicators == null) {
-					write("<no statictics available>");
+					write(RM.getLabel("process.report.noStaticticsAvailable"));
 				} else {
 					Integer[] ids = indicators.getSortedIndicatorKeys();
 					for (int i=0; i<ids.length; i++) {
@@ -129,8 +130,8 @@ public class ProcessReportWriter {
 
 			if (this.appendStoredFiles) {
 				writeSeparator();
-				write("Stored files :");
-				write("[Beginning]");
+				write(RM.getLabel("process.report.storedFiles")+" : ");
+				write(RM.getLabel("process.report.storedFilesBeginning "));
 				ContentFileIterator iter = ArchiveContentAdapter.buildIterator(report.getContentFile());
 				try {
 					long count = 0;
@@ -141,9 +142,9 @@ public class ProcessReportWriter {
 						}
 						write(entry.getKey());
 					}
-					write("[End]");
+					write(RM.getLabel("process.report.storedFilesEnd")+" : ");
 					if (count != 0 && count == maxFileNumber+1) {
-						write("... (File list truncated to " + maxFileNumber + " files)");
+						write(RM.getLabel("process.report.truncated"));
 					}
 				} finally {
 					iter.close();
@@ -154,7 +155,7 @@ public class ProcessReportWriter {
 		LogMessagesContainer ctn = report.getLogMessagesContainer();
 		if (! ctn.isEmpty()) {
 			writeSeparator();
-			write("Errors and Warnings :");
+			write(RM.getLabel("process.report.errorAndWarnings")+" : ");
 			Iterator iter = ctn.iterator();
 			while (iter.hasNext()) {
 				LogMessage message = (LogMessage)iter.next();
@@ -173,7 +174,7 @@ public class ProcessReportWriter {
 		writeSeparator();
 		FileLogProcessor fileProc = (FileLogProcessor)Logger.defaultLogger().find(FileLogProcessor.class);
 		if (fileProc != null) {
-			write("See log file for more details : " + fileProc.getCurrentLogFile());
+			write(RM.getLabel("process.report.seeLogFile")+" : " + fileProc.getCurrentLogFile());
 		}
 	}
 

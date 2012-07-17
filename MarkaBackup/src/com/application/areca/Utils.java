@@ -137,14 +137,14 @@ public class Utils implements ArecaFileConstants {
 	}
 
 	/**
-	 * Build the "areca_cl" file name according to the user's system and technical configuration
+	 * Build the "RobustBackup_cl" file name according to the user's system and technical configuration
 	 */
 	public static File buildExecutableFile() {
 		String executableName;
 		if (OSTool.isSystemWindows()) {
-			executableName = "marka_cl.exe";
+			executableName = "RobustBackup_cl.exe";
 		} else {
-			executableName = "marka_cl.sh";
+			executableName = "RobustBackup_cl.sh";
 		}
 
 		File executableDirectory;
@@ -329,12 +329,12 @@ public class Utils implements ArecaFileConstants {
 		prps.put("system.total.memory", "" + OSTool.getTotalMemory());
 		prps.put("system.max.available.memory", "" + OSTool.getMaxMemory());
 		prps.put("file.encoding.iana", OSTool.getIANAFileEncoding());
-		prps.put("areca-backup.version", VersionInfos.getLastVersion().getVersionId());
-		prps.put("areca-backup.build.id", "" + VersionInfos.getBuildId());
-		prps.put("areca-backup.path.length.limited", Boolean.toString(AbstractFileSystemDriver.CHECK_PATH));
+		prps.put("robust-backup.version", VersionInfos.getLastVersion().getVersionId());
+		prps.put("robust-backup.build.id", "" + VersionInfos.getBuildId());
+		prps.put("robust-backup.path.length.limited", Boolean.toString(AbstractFileSystemDriver.CHECK_PATH));
 		prps.put("delta.lookup.success", "" + DeltaReader.SUCCESS_COUNTER);
 		prps.put("delta.lookup.failures", "" + DeltaReader.FAILURE_COUNTER);
-		prps.put("areca-backup.class.loader", ClassLoader.getSystemClassLoader().getClass().getName());
+		prps.put("robust-backup.class.loader", ClassLoader.getSystemClassLoader().getClass().getName());
 		prps.put("system.available.processors", "" + Runtime.getRuntime().availableProcessors());
 
 		FileLogProcessor proc = (FileLogProcessor)Logger.defaultLogger().find(FileLogProcessor.class);
@@ -357,10 +357,10 @@ public class Utils implements ArecaFileConstants {
 			}
 			plugins += plugin.getFullName();
 		}
-		prps.put("areca-backup.plugins", plugins);
+		prps.put("robust-backup.plugins", plugins);
 
 		// Translations
-		prps.put("areca-backup.available.translations", Utils.getTranslationsAsString());        
+		prps.put("robust-backup.available.translations", Utils.getTranslationsAsString());        
 
 		// Encodings
 		StringBuffer css = new StringBuffer();

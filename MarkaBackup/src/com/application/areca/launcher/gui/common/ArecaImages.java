@@ -1,8 +1,11 @@
 package com.application.areca.launcher.gui.common;
 
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 import java.net.URL;
 
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.widgets.Display;
 
 import com.myJava.util.log.Logger;
@@ -100,6 +103,8 @@ public class ArecaImages {
     public static Image ICO_TAB_LOG_WARN = loadImage("log_warn.png");
     public static Image ICO_TAB_LOG_ERR = loadImage("log_err.png");
     
+    //logo
+    public static Image LOGO = loadImage("robustBackup.jpg");
     
     private static Image loadImage(String strUrl) {
         try {
@@ -107,7 +112,21 @@ public class ArecaImages {
             return new Image(Display.getCurrent(), url.openStream()); 
         } catch (Exception e) {
             Logger.defaultLogger().error(e);
+            
             return null;
         }
     }
+//    
+//    public static ImageData convertAWTImageToSWT(Image image,int w,int h) {
+//    	       if (image == null) {
+//    	           throw new IllegalArgumentException("Null 'image' argument.");
+//    	        }
+//    	      
+//    	       BufferedImage bi = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
+//    	        Graphics g = bi.getGraphics();
+//    	        g.drawImage(image, 0, 0, null);
+//    	       g.dispose();
+//    	       return convertToSWT(bi);
+//    	  }
+    
 }

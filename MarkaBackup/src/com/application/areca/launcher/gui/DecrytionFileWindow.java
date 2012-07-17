@@ -1,8 +1,13 @@
 package com.application.areca.launcher.gui;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.InputStreamReader;
+
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.BusyIndicator;
+import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -19,6 +24,7 @@ import org.eclipse.swt.widgets.Text;
 import com.application.areca.ResourceManager;
 import com.application.areca.external.CmdLineDeCipherInternal;
 import com.application.areca.launcher.gui.common.AbstractWindow;
+import com.application.areca.launcher.gui.common.Colors;
 import com.application.areca.launcher.gui.common.SavePanel;
 import com.application.areca.launcher.gui.common.SecuredRunner;
 
@@ -76,6 +82,9 @@ extends AbstractWindow {
     
     String YES="EVET";
     String NO="HAYIR";
+    
+    StyledText txtLog;
+    Text txtMessage;
     
     private Application.ProcessRunner runner;
 
@@ -185,12 +194,38 @@ extends AbstractWindow {
         });
         buttonBrowseOutputDirectory.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
         
-        SavePanel pnlSave = new SavePanel(RM.getLabel("check.check.label"), this);
+        SavePanel pnlSave = new SavePanel(RM.getLabel("common.save.label"), this);
         pnlSave.setShowCancel(false);
         pnlSave.buildComposite(composite).setLayoutData(new GridData(SWT.FILL, SWT.NONE, true, false));        
         btnSave = pnlSave.getBtnSave();
         
-       
+        
+//        final Group grpLocation2 = new Group(composite, SWT.NONE);
+//        grpLocation2.setLayoutData(new GridData(SWT.FILL, SWT.TOP, false, true));
+//        GridLayout grpLayout2 = new GridLayout(3, false);
+//        grpLayout.verticalSpacing = 0;
+//        grpLocation2.setLayout(grpLayout2);
+//        grpLocation.setText(RM.getLabel("check.location.label"));
+        
+//        txtLog = new StyledText(grpLocation2, SWT.BORDER | SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
+//		//txtLog.setForeground(Colors.C_GREY);
+//        txtLog.append("deneme");
+//        txtLog.setSize(200,300);
+        
+        
+//        txtMessage = new Text(grpLocation2, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL | SWT.WRAP);
+//		GridData dt = new GridData(SWT.FILL, SWT.FILL, true, true, 3, 1);
+//		dt.heightHint = AbstractWindow.computeHeight(250);
+//		dt.widthHint = AbstractWindow.computeWidth(200);
+//		txtMessage.setLayoutData(dt);
+        
+//        GridData dt1 = new GridData();
+//		dt1.grabExcessHorizontalSpace = true;
+//		dt1.grabExcessVerticalSpace = true;
+//		dt1.horizontalAlignment = SWT.FILL;
+//		dt1.verticalAlignment = SWT.FILL;
+//		txtLog.setLayoutData(dt1);
+        
         composite.pack();
         return composite;
     }
@@ -225,7 +260,7 @@ extends AbstractWindow {
 		
         //this.runner = application.launchDecrpyt(textFile.getText(), textAlgorithm.getText(), textPassword.getText(), textOutputDirectory.getText());
         
-    	Thread updateThread = decrpyt(textFile.getText(), textAlgorithm.getText(), textPassword.getText(), textOutputDirectory.getText(),combo.getText() ,getShell());
+    	Thread updateThread = decrpyt(textFile.getText(), textAlgorithm.getText(), textPassword.getText(), textOutputDirectory.getText(),combo.getText() ,txtMessage,getShell());
   	  BusyIndicator.showWhile(getShell().getDisplay(), updateThread);
   	  System.out.println("update tamam");
     }
@@ -235,7 +270,10 @@ extends AbstractWindow {
     }
 
 	public boolean close() {
+		this.hasBeenUpdated=false;
 		boolean closed = super.close();
+		
+		//boolean closed = false;
 		if (closed && runner != null && runner.getChannel() != null && runner.getChannel().isRunning() && runner.getChannel().getTaskMonitor() != null) {
 			// Cancel the current task
 			runner.getChannel().getTaskMonitor().setCancelRequested();
@@ -248,6 +286,7 @@ extends AbstractWindow {
 			 String _password,
 			 String _destination,
 			 String _fileNameEnc,
+			 Text _txtLog,
 			 Shell _shell) {
 		
 		final String source=_source;
@@ -255,7 +294,8 @@ extends AbstractWindow {
 		final String password=_password;
 		final String destination=_destination;
 		final String fileNameEnc=_fileNameEnc;
-		
+		final Text txtLog=_txtLog;
+		;
 		final Shell shell = _shell;
 	    
 	    
@@ -267,7 +307,8 @@ extends AbstractWindow {
 	        	
 	        	//Logger.defaultLogger().info("Looking for decrpyt for..." +source+" ,destination="+destination);         
 				//target.processBackup(manifest, backupScheme, disablePreCheck, checkParams, transactionPoint, context);
-			
+	        	String dir = System.getProperty("user.dir");
+	        	
 				String[] array=new String[5];
 				array[0] = "-source="+source;
 				array[1] = "-algorithm="+algorithm;
@@ -278,20 +319,62 @@ extends AbstractWindow {
 				else
 					array[4] ="";
 				
+				String queryString = "-source="+source +" "+"-algorithm="+algorithm+" "+"-password="+password+" "+"-destination="+destination;
+				if(fileNameEnc.equals(NO))
+					queryString = queryString+" -r";
+				
+				
 				CmdLineDeCipherInternal.getInstance().decryt(array);
-	        	
-	        	message.append("Update tamamlandi");
+				
+				
+	
+		     
+				
+				
+	        	message.append("Sifre acma islemi tamamladi.\nDosyanin kaydedildigi yer = "+destination);
 	        } catch (Exception e) {
 	          // TODO Auto-generated catch block
 	          e.printStackTrace();
-	          message.append("hata olustu");
+	          message.append("hata: "+e.getMessage());
 	        }
 
 	        shell.getDisplay().asyncExec(new Runnable() {
 	          public void run() {
-	        	  MessageDialog.openWarning(shell, "Warning", message+"---");
-	              shell.close();
-	          }
+	        	 try{
+//	        		 String dir = System.getProperty("user.dir"); 
+//	        		
+//	        		 File url=new File(dir, "decrypt.exe");
+//	        		 MessageDialog.openWarning(shell, "Warning", url.getAbsolutePath());
+//	        		 Process p = Runtime.getRuntime().exec(url.getAbsolutePath());
+//					
+//					
+//					BufferedReader bri = new BufferedReader
+//			        (new InputStreamReader(p.getInputStream()));
+//			      BufferedReader bre = new BufferedReader
+//			        (new InputStreamReader(p.getErrorStream()));
+//	        	  
+//	        	  
+//	        	  
+//	        	  String line;
+//	        	  //MessageDialog.openWarning(shell, "Warning", message+"---");
+//	    	      while ((line = bri.readLine()) != null) {
+//	  		        txtLog.append(line+"\n");
+//	  		      }
+//	  		      bri.close();
+//	  		      while ((line = bre.readLine()) != null) {
+//	  		    	  txtLog.append(line+"\n");
+//	  		      }
+//	  		      
+//	  		    bre.close();
+//			      p.waitFor();
+	        		 
+	        		 MessageDialog.openWarning(shell, "Warning",message.toString());
+	        	 }catch(Exception e){
+	        		 MessageDialog.openWarning(shell, "Warning", e.getMessage());
+	        	 }
+	        	 
+	        	 
+	        	 }
 	        });
 	      }
 	    };

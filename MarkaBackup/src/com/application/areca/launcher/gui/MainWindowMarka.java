@@ -14,6 +14,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 
@@ -118,11 +119,11 @@ public class MainWindowMarka extends MainWindow {
     protected Control createContents(Composite parent) {
         Composite composite = new Composite(parent, SWT.NONE);
 
-        GridLayout mainLayout = new GridLayout(1, false);
-        mainLayout.marginHeight = 0;        
+        GridLayout mainLayout = new GridLayout();
         mainLayout.marginTop = 0;
         mainLayout.marginBottom = 5;
         mainLayout.verticalSpacing = 2;
+        mainLayout.numColumns=2;
         composite.setLayout(mainLayout);
 
         //if (ApplicationPreferences.isDisplayToolBar()) {
@@ -130,6 +131,20 @@ public class MainWindowMarka extends MainWindow {
         //}
 
         // TABS
+        
+        Label icon = new Label(composite, SWT.NONE);
+        //icon.setBackgroundImage(ArecaImages.LOGO);
+        //icon.setImage(ArecaImages.LOGO);
+        
+        GridData dt1 = new GridData();
+		dt1.grabExcessHorizontalSpace = false;
+		dt1.grabExcessVerticalSpace = true;
+		dt1.horizontalAlignment = SWT.CENTER;
+		dt1.verticalAlignment = SWT.TOP;
+		//dt1.minimumHeight=600;
+        //dt1.
+		icon.setLayoutData(dt1);
+
         
         
         // MAIN SASH
@@ -142,6 +157,7 @@ public class MainWindowMarka extends MainWindow {
         
         Composite button1 = new Composite(mainSash,SWT.NONE);
         button1.setBackground(Colors.C_BLUE);
+        button1.setVisible(false);
         //Button button2 = new Button(mainSash,SWT.NONE);
         
      // LEFT SASH

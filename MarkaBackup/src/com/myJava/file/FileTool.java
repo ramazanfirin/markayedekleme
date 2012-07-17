@@ -126,8 +126,10 @@ public class FileTool {
 		if (files == null) {
 			if (FileSystemManager.exists(sourceDirectory)) {
 				Logger.defaultLogger().warn(FileSystemManager.getDisplayPath(sourceDirectory) + " : Directory exists but no children.");
+				throw new IOException(": Directory exists but no children.");
 			} else {
 				Logger.defaultLogger().warn(FileSystemManager.getDisplayPath(sourceDirectory) + " : Directory doesn't exist.");
+				throw new IOException(": Dizin mevcut degil.");
 			}
 		} else {
 			if (comparator != null) {
@@ -139,6 +141,36 @@ public class FileTool {
 		}
 	}
 
+	public void copyDirectoryContentWithException(
+			File sourceDirectory, 
+			File targetDirectory, 
+			CopyPolicy policy, 
+			Comparator comparator,
+			TaskMonitor monitor, 
+			OutputStreamListener listener
+	) throws Exception, TaskCancelledException {
+		this.createDir(targetDirectory);
+
+		File[] files = FileSystemManager.listFiles(sourceDirectory);
+		if (files == null) {
+			if (FileSystemManager.exists(sourceDirectory)) {
+				Logger.defaultLogger().warn(FileSystemManager.getDisplayPath(sourceDirectory) + " : Directory exists but no children.");
+				throw new Exception(": Directory exists but no children.");
+			} else {
+				Logger.defaultLogger().warn(FileSystemManager.getDisplayPath(sourceDirectory) + " : Directory doesn't exist.");
+				throw new Exception(":Directory doesn't exist");
+			}
+		} else {
+			if (comparator != null) {
+				Arrays.sort(files, comparator);
+			}
+			for (int i = 0; i < files.length; i++) {
+				this.copy(files[i], targetDirectory, policy, comparator, monitor, listener);
+			}
+		}
+	}
+	
+	
 	/**
 	 * Copy the file to the parent target directory, with the short name passed
 	 * as argument.

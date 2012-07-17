@@ -60,15 +60,16 @@ public class ProcessorRepository {
     
     public static List getProcessors(boolean preProcess) {
         ArrayList list = new ArrayList();
-        list.add(K_SHELL);
+        //list.add(K_SHELL);
 
         if (preProcess) {  
             list.add(K_DELETE);  
             list.add(K_EMAIL);  
         } else {
-            list.add(K_MERGE);
-            list.add(K_DUMP);
-            list.add(K_MAIL_REPORT);
+            //list.add(K_MERGE);
+        	list.add(K_MAIL_REPORT);
+        	list.add(K_DUMP);
+            
         }
         return list;
     }

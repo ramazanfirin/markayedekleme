@@ -105,7 +105,7 @@ implements TargetActions, IndicatorTypes {
 	/**
 	 * Name used for target configuration backup
 	 */
-	protected static final String TARGET_BACKUP_FILE_PREFIX = "/areca_config_backup";
+	protected static final String TARGET_BACKUP_FILE_PREFIX = "/robustbackup_config_backup";
 
 	/**
 	 * File processing tool

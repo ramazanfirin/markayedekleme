@@ -96,23 +96,34 @@ extends AbstractWindow {
 		diffOk = types.isSupported(AbstractTarget.BACKUP_SCHEME_DIFFERENTIAL);        
 		fullOk = types.isSupported(AbstractTarget.BACKUP_SCHEME_FULL);
 
-		radIncremental = new Button(composite, SWT.RADIO);
-		radIncremental.setText(RM.getLabel("archivedetail.incremental.label"));
-		radIncremental.setToolTipText(RM.getLabel("archivedetail.incremental.tooltip"));
-		radIncremental.setSelection(incrOk);
-		radIncremental.setEnabled(incrOk);
+		Group grpArchiveType = new Group(composite, SWT.NONE);
+		grpArchiveType.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+		grpArchiveType.setLayout(new GridLayout(2, false));
+		grpArchiveType.setText(RM.getLabel("archivedetail.checkgroup.label"));
+		
+		
 
-		radDifferential = new Button(composite, SWT.RADIO);
-		radDifferential.setText(RM.getLabel("archivedetail.differential.label"));
-		radDifferential.setToolTipText(RM.getLabel("archivedetail.differential.tooltip"));
-		radDifferential.setEnabled(diffOk);
-
-		radFull = new Button(composite, SWT.RADIO);
+		radFull = new Button(grpArchiveType, SWT.RADIO);
 		radFull.setText(RM.getLabel("archivedetail.full.label"));
 		radFull.setToolTipText(RM.getLabel("archivedetail.full.tooltip"));
 		radFull.setEnabled(fullOk);
 		radFull.setSelection(fullOk && (! incrOk));
+		radFull.setSelection(true);
 
+		radIncremental = new Button(grpArchiveType, SWT.RADIO);
+		radIncremental.setText(RM.getLabel("archivedetail.incremental.label"));
+		radIncremental.setToolTipText(RM.getLabel("archivedetail.incremental.tooltip"));
+		radIncremental.setSelection(incrOk);
+		radIncremental.setEnabled(incrOk);
+		radIncremental.setVisible(false);
+
+		radDifferential = new Button(grpArchiveType, SWT.RADIO);
+		radDifferential.setText(RM.getLabel("archivedetail.differential.label"));
+		radDifferential.setToolTipText(RM.getLabel("archivedetail.differential.tooltip"));
+		radDifferential.setEnabled(diffOk);
+		radDifferential.setVisible(false);
+		
+		
 		new Label(composite, SWT.NONE);
 
 		Group grpCheckArchive = new Group(composite, SWT.NONE);

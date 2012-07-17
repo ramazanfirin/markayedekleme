@@ -128,13 +128,13 @@ public class SendReportByMailProcessor extends AbstractMailSendProcessor {
 		ProcessReportWriter writer = null;
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		try {
-			writer = new ProcessReportWriter(new OutputStreamWriter(baos), appendStatistics, appendStoredFiles, maxStoredFiles);
+			writer = new ProcessReportWriter(new OutputStreamWriter(baos,"UTF8"), appendStatistics, appendStoredFiles, maxStoredFiles);
 			writer.writeReport(report);
 		} finally {
 			writer.close();            
 		}
 
-		return baos.toString();
+		return baos.toString("UTF-8");
 	}
 
 	public Duplicable duplicate() {
