@@ -213,7 +213,7 @@ public abstract class AbstractMailSendProcessor extends AbstractProcessor {
 			if (context != null && context.getReport() != null) {
 				msg.setHeader("X-" + VersionInfos.APP_SHORT_NAME + "-Target", context.getReport().getTarget().getUid());
 			}
-			msg.setHeader("X-" + VersionInfos.APP_SHORT_NAME + "-Version", VersionInfos.getLastVersion().getVersionId());
+			//msg.setHeader("X-" + VersionInfos.APP_SHORT_NAME + "-Version", VersionInfos.getLastVersion().getVersionId());
 			if (isAuthenticated()) {
 				Transport tr;
 				if (isSmtps()) {
@@ -246,9 +246,9 @@ public abstract class AbstractMailSendProcessor extends AbstractProcessor {
 
 		
 		props.put("mail.smtp.host", getSmtpServerName());
-		props.put("mail.smtp.socketFactory.port", getSmtpServerPort());
+		props.put("mail.smtp.socketFactory.port", ""+getSmtpServerPort());
 		props.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
-		props.put("mail.smtp.port",  getSmtpServerPort());
+		props.put("mail.smtp.port",  ""+getSmtpServerPort());
 		
 		
 		props.put("mail." + protocol + ".host", getSmtpServerName());
@@ -283,6 +283,7 @@ public abstract class AbstractMailSendProcessor extends AbstractProcessor {
 			} 
 			
 			InternetAddress fromAddress = (this.from == null || this.from.trim().length() == 0) ? addresses[0] : new InternetAddress(this.from);
+			String encodingOptions = "text/html; charset=UTF-8";
 			
 			Message message = new MimeMessage(session);
 			message.setFrom(fromAddress);
@@ -290,13 +291,15 @@ public abstract class AbstractMailSendProcessor extends AbstractProcessor {
 			message.setReplyTo(new InternetAddress[] {fromAddress});
 			message.setSubject(subject);
 			message.setText(content);
+			//message.setContent(content, "UTF8");
 			message.setSentDate(new Date());
 			//message.setSender(fromAddress);
 			message.setSentDate(new Date());
 			if (context != null && context.getReport() != null) {
 				message.setHeader("X-" + VersionInfos.APP_SHORT_NAME + "-Target", context.getReport().getTarget().getUid());
 			}
-			message.setHeader("X-" + VersionInfos.APP_SHORT_NAME + "-Version", VersionInfos.getLastVersion().getVersionId());
+			//message.setHeader("X-" + VersionInfos.APP_SHORT_NAME + "-Version", VersionInfos.getLastVersion().getVersionId());
+			//message.setHeader("Content-Type", encodingOptions);
 			
 			Transport.send(message);
  

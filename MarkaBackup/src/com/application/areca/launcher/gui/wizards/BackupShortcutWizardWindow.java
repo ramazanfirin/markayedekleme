@@ -112,18 +112,22 @@ extends AbstractWindow {
         grpType.setLayout(new GridLayout(1, false));
         grpType.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         
+        radFull = new Button(grpType, SWT.RADIO);
+        radFull.setText(RM.getLabel("archivedetail.full.label"));
+        radFull.setToolTipText(RM.getLabel("archivedetail.full.tooltip"));
+        radFull.setSelection(true);
+        
         radIncremental = new Button(grpType, SWT.RADIO);
         radIncremental.setText(RM.getLabel("archivedetail.incremental.label"));
         radIncremental.setToolTipText(RM.getLabel("archivedetail.incremental.tooltip"));
         radIncremental.setSelection(true);
+        radIncremental.setVisible(false);
         
         radDifferential = new Button(grpType, SWT.RADIO);
         radDifferential.setText(RM.getLabel("archivedetail.differential.label"));
         radDifferential.setToolTipText(RM.getLabel("archivedetail.differential.tooltip"));
+        radDifferential.setVisible(false);
         
-        radFull = new Button(grpType, SWT.RADIO);
-        radFull.setText(RM.getLabel("archivedetail.full.label"));
-        radFull.setToolTipText(RM.getLabel("archivedetail.full.tooltip"));
         
         Group grpScope = new Group(composite, SWT.NONE);
         grpScope.setText(RM.getLabel("shrtc.scope.label"));

@@ -62,9 +62,9 @@ implements FileSystemPolicy {
     static {
     	String prefix;
         if (OSTool.isSystemWindows()) {
-        	prefix = "C:\\areca_rmt";
+        	prefix = "C:\\robustbackup_rmt";
         } else {
-        	prefix = "/areca_rmt";
+        	prefix = "/robustbackup_rmt";
         }
         
         String tg = prefix;

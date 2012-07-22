@@ -116,7 +116,7 @@ extends AbstractWindow {
         mainData2.widthHint = computeWidth(200);
         textFile.setLayoutData(mainData2);       
         monitorControl(textFile);
-        textFile.setText("D:/backup_deneme/yedek/790396242/321b3a446dd86ade628911f0589d2882");
+        //textFile.setText("D:/backup_deneme/yedek/790396242/321b3a446dd86ade628911f0589d2882");
         
         buttonBrowseFile = new Button(grpLocation, SWT.PUSH);
         buttonBrowseFile.setText(RM.getLabel("common.browseaction.label"));
@@ -157,7 +157,7 @@ extends AbstractWindow {
         mainData4.widthHint = computeWidth(200);
         textPassword.setLayoutData(mainData4);       
         monitorControl(textPassword);
-        textPassword.setText("ramazanfirin");
+        //textPassword.setText("ramazanfirin");
         new Label(grpLocation, SWT.NONE);
         
         Label labelFileNameEnc = new Label(grpLocation, SWT.NONE);
@@ -178,7 +178,7 @@ extends AbstractWindow {
         GridData mainData5 = new GridData(SWT.FILL, SWT.CENTER, true, false);
         mainData5.widthHint = computeWidth(200);
         textOutputDirectory.setLayoutData(mainData2);       
-        textOutputDirectory.setText("c:/areca_yedek/3");
+        //textOutputDirectory.setText("c:/areca_yedek/3");
         monitorControl(textOutputDirectory);
         
         

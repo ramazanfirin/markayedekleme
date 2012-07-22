@@ -112,12 +112,12 @@ extends AppActionReferenceHolder {
     public static Menu buildActionContextMenu(Shell parent) {
         Menu menu = new Menu(parent, SWT.POP_UP);
         
-        add(AC_MERGE, menu);
-        add(AC_DELETE_ARCHIVES, menu);
-        addSeparator(menu);
-        add(AC_RECOVER, menu);
-        add(AC_CHECK_ARCHIVES, menu);
-        addSeparator(menu);
+//        add(AC_MERGE, menu);
+//        add(AC_DELETE_ARCHIVES, menu);
+//        addSeparator(menu);
+//        add(AC_RECOVER, menu);
+//        add(AC_CHECK_ARCHIVES, menu);
+//        addSeparator(menu);
         add(AC_VIEW_MANIFEST, menu);  
         menu.getItems();
         return menu;
@@ -181,14 +181,14 @@ extends AppActionReferenceHolder {
         addSeparator(menu);
         add(AC_TARGET_PHYSICAL_VIEW, menu);
         
-        addSeparator(menu);
-        add(AC_TARGET_LOGICAL_VIEW, menu);
+        ///addSeparator(menu);
+        //add(AC_TARGET_LOGICAL_VIEW, menu);
         
         addSeparator(menu);
         add(AC_TARGET_HISTORY_VIEW, menu);
         
-        addSeparator(menu);
-        add(AC_TARGET_INDICATOR_VIEW, menu);
+        //addSeparator(menu);
+        //add(AC_TARGET_INDICATOR_VIEW, menu);
         
         addSeparator(menu);
         add(AC_TARGET_SEARCH_VIEW, menu);

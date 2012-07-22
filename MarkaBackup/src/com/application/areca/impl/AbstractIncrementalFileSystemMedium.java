@@ -264,8 +264,8 @@ implements TargetActions {
 			
 			// Store readme
 			String readmePrefix = "readme.txt";
-			String readme = "This zip file contains debugging informations that can be used to diagnose issues encountered with Areca Backup.";
-			readme += "\nIt has been generated on " + CalendarUtils.getFullDateToString(new GregorianCalendar()) + " with Areca-Backup v" + VersionInfos.getLastVersion().getVersionId() + " for target #" + getTarget().getUid() + " (" + getTarget().getName() + ").";
+			String readme = "This zip file contains debugging informations that can be used to diagnose issues encountered with Robust Backup.";
+			readme += "\nIt has been generated on " + CalendarUtils.getFullDateToString(new GregorianCalendar()) + " with Robust-Backup v" + VersionInfos.getLastVersion().getVersionId() + " for target #" + getTarget().getUid() + " (" + getTarget().getName() + ").";
 			readme += "\n\nIt contains : ";
 			readme += "\n- 'properties.txt' : The properties of your Java environment and your user preferences";
 			readme += "\n- 'history' : The history of operations performed on your archives (merges, backups, recoveries, ...)";
@@ -444,7 +444,7 @@ implements TargetActions {
 			ThreadMonitor.getInstance().remove(this.getTarget().getUid());
 		}
 
-		this.target.secureUpdateCurrentTask("Committing backup ...", context);
+		this.target.secureUpdateCurrentTask("Yedekleme dosyalari gönderiliyor ...", context);
 		try {  
 			// Close the trace file
 			context.getTraceAdapter().close();
@@ -513,7 +513,7 @@ implements TargetActions {
 			File transactionDir = new File(getDataDirectory(context.getCurrentArchiveFile()), ArecaFileConstants.TRANSACTION_FILE);
 			FileTool.getInstance().delete(transactionDir);
 
-			this.target.secureUpdateCurrentTask("Commit completed.", context);
+			this.target.secureUpdateCurrentTask("Yedekleme tamamlandi.", context);
 		} catch (Exception e) {
 			Logger.defaultLogger().error(e);
 			if (e instanceof ApplicationException) {
