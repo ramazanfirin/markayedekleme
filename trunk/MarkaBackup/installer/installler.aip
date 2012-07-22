@@ -7,11 +7,11 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="ALLUSERS" Value="1"/>
     <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
-    <ROW Property="ARPPRODUCTICON" Value="Repackager.exe" Type="8"/>
-    <ROW Property="Manufacturer" Value="Marka Bilgisayar" ValueLocId="*"/>
+    <ROW Property="ARPPRODUCTICON" Value="RobustBackup.exe" Type="8"/>
+    <ROW Property="Manufacturer" Value="RobustBackupTool Company" ValueLocId="*"/>
     <ROW Property="ProductCode" Value="1033:{3A2628A8-C286-4B84-8C8E-D00DEA827956} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
-    <ROW Property="ProductName" Value="Marka Yedekleme Programı" ValueLocId="*"/>
+    <ROW Property="ProductName" Value="RobustBackupTool - Excellent Backup" ValueLocId="*"/>
     <ROW Property="ProductVersion" Value="1.0.0" Type="32"/>
     <ROW Property="REBOOT" MultiBuildValue="DefaultBuild:ReallySuppress"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
@@ -22,42 +22,39 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
     <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
     <ROW Directory="DesktopFolder" Directory_Parent="TARGETDIR" DefaultDir="Deskto~1|DesktopFolder" IsPseudoRoot="1"/>
-    <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
-    <ROW Directory="StartMenuFolder" Directory_Parent="TARGETDIR" DefaultDir="StartM~1|StartMenuFolder" IsPseudoRoot="1"/>
+    <ROW Directory="Originals_Dir" Directory_Parent="big_Dir" DefaultDir="Origin~1|Originals"/>
+    <ROW Directory="ProgramMenuFolder" Directory_Parent="TARGETDIR" DefaultDir="Progra~1|ProgramMenuFolder" IsPseudoRoot="1"/>
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
     <ROW Directory="big_Dir" Directory_Parent="icons_Dir" DefaultDir="big"/>
     <ROW Directory="config_Dir" Directory_Parent="APPDIR" DefaultDir="config"/>
-    <ROW Directory="help_Dir" Directory_Parent="APPDIR" DefaultDir="help"/>
     <ROW Directory="icons_Dir" Directory_Parent="APPDIR" DefaultDir="icons"/>
-    <ROW Directory="jni_Dir" Directory_Parent="APPDIR" DefaultDir="jni"/>
     <ROW Directory="lib_Dir" Directory_Parent="APPDIR" DefaultDir="lib"/>
+    <ROW Directory="tools_Dir" Directory_Parent="APPDIR" DefaultDir="tools"/>
     <ROW Directory="translations_Dir" Directory_Parent="APPDIR" DefaultDir="transl~1|translations"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
-    <ROW Component="ADVANCED_ENCRYPTION_HOWTO" ComponentId="{56159704-8BE0-4AB3-8E82-CC4211BD8605}" Directory_="help_Dir" Attributes="0" KeyPath="ADVANCED_ENCRYPTION_HOWTO" Type="0"/>
     <ROW Component="ProductInformation" ComponentId="{D906BE94-44D0-44DD-86B4-7E8C5919CB22}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
-    <ROW Component="README" ComponentId="{5F74A728-1700-41A9-9956-11166F7AE51D}" Directory_="translations_Dir" Attributes="0" KeyPath="README_1" Type="0"/>
-    <ROW Component="SHORTCUTDIR" ComponentId="{39CA9185-2176-4BF2-AF87-2B7161955B5B}" Directory_="SHORTCUTDIR" Attributes="0"/>
-    <ROW Component="activation.jar" ComponentId="{5994EEEC-DA2B-4A7F-B5EF-4B5394083B71}" Directory_="lib_Dir" Attributes="0" KeyPath="activation.jar" Type="0"/>
-    <ROW Component="areca.exe" ComponentId="{1E956DF0-1CBF-4A81-ABD1-39DA90C48052}" Directory_="APPDIR" Attributes="0" KeyPath="areca.exe"/>
-    <ROW Component="binary.png" ComponentId="{D33276BD-37AB-4D50-B930-B7BE6E64353A}" Directory_="icons_Dir" Attributes="0" KeyPath="binary.png" Type="0"/>
-    <ROW Component="com_myJava_file_metadata_posix_jni_wrapp" ComponentId="{4BE5B16E-BA0B-4865-9862-29979972A3C1}" Directory_="jni_Dir" Attributes="0" KeyPath="com_myJava_file_metadata_posix_jni_wrapper_FileAccessWrapper.c" Type="0"/>
-    <ROW Component="configure.png" ComponentId="{B7FDAF23-F68E-434E-98E2-86E153E7A232}" Directory_="big_Dir" Attributes="0" KeyPath="configure.png" Type="0"/>
-    <ROW Component="fwk.properties" ComponentId="{4556CB24-00A2-48BF-884C-582732C82C45}" Directory_="config_Dir" Attributes="0" KeyPath="fwk.properties" Type="0"/>
+    <ROW Component="README" ComponentId="{B1910229-BBD5-4A74-91A1-0DFDF5AA4489}" Directory_="translations_Dir" Attributes="0" KeyPath="README" Type="0"/>
+    <ROW Component="RobustBackup.exe" ComponentId="{AC6E3493-B924-4E89-808A-7813EC607B69}" Directory_="APPDIR" Attributes="0" KeyPath="RobustBackup.exe"/>
+    <ROW Component="RobustBackup_cl.exe" ComponentId="{F8A394CA-B269-45CB-AB48-0575A9B549CB}" Directory_="APPDIR" Attributes="0" KeyPath="RobustBackup_cl.exe"/>
+    <ROW Component="activation.jar" ComponentId="{355B81C7-56A9-4A31-A6FE-74CFEEE4BC48}" Directory_="lib_Dir" Attributes="0" KeyPath="activation.jar" Type="0"/>
+    <ROW Component="binary.png" ComponentId="{4BCB9EC7-53F1-4D41-BE35-26EDC1B4AD46}" Directory_="icons_Dir" Attributes="0" KeyPath="binary.png" Type="0"/>
+    <ROW Component="configure.png" ComponentId="{5F9DB8DF-26C6-4026-B224-74594E45768A}" Directory_="big_Dir" Attributes="0" KeyPath="configure.png" Type="0"/>
+    <ROW Component="decrypt.exe" ComponentId="{C58EF461-EB7F-4598-ABD7-0155F95B05CE}" Directory_="tools_Dir" Attributes="0" KeyPath="decrypt.exe"/>
+    <ROW Component="fwk.properties" ComponentId="{77073B8C-E791-4FF7-95FB-01EE9A4CBE33}" Directory_="config_Dir" Attributes="0" KeyPath="fwk.properties" Type="0"/>
+    <ROW Component="robustBackup.jpg" ComponentId="{8E596807-F564-40B5-BA3D-3EDC9AFB53F1}" Directory_="Originals_Dir" Attributes="0" KeyPath="robustBackup.jpg" Type="0"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
-    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="ADVANCED_ENCRYPTION_HOWTO ProductInformation README SHORTCUTDIR activation.jar areca.exe binary.png com_myJava_file_metadata_posix_jni_wrapp configure.png fwk.properties"/>
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="ProductInformation README RobustBackup.exe RobustBackup_cl.exe activation.jar binary.png configure.png decrypt.exe fwk.properties robustBackup.jpg"/>
     <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
-    <ROW File="ADVANCED_ENCRYPTION_HOWTO" Component_="ADVANCED_ENCRYPTION_HOWTO" FileName="ADVANC~1|ADVANCED_ENCRYPTION_HOWTO" Attributes="0" SourcePath="..\help\ADVANCED_ENCRYPTION_HOWTO" SelfReg="false" NextFile="configure.png"/>
-    <ROW File="README" Component_="com_myJava_file_metadata_posix_jni_wrapp" FileName="README" Attributes="0" SourcePath="..\jni\README" SelfReg="false" NextFile="activation.jar"/>
-    <ROW File="README_1" Component_="README" FileName="README" Attributes="0" SourcePath="..\translations\README" SelfReg="false" NextFile="resources_cs.properties"/>
-    <ROW File="activation.jar" Component_="activation.jar" FileName="activa~1.jar|activation.jar" Attributes="0" SourcePath="..\lib\activation.jar" SelfReg="false" NextFile="areca.jar"/>
-    <ROW File="areca.exe" Component_="areca.exe" FileName="areca.exe" Attributes="0" SourcePath="..\areca.exe" SelfReg="false" NextFile="fwk.properties"/>
-    <ROW File="areca.jar" Component_="activation.jar" FileName="areca.jar" Attributes="0" SourcePath="..\lib\areca.jar" SelfReg="false" NextFile="commonsnet1.4.1.jar"/>
+    <ROW File="README" Component_="README" FileName="README" Attributes="0" SourcePath="..\translations\README" SelfReg="false" NextFile="resources_cs.properties"/>
+    <ROW File="Ricon.png" Component_="binary.png" FileName="R-icon.png" Attributes="0" SourcePath="..\icons\R-icon.png" SelfReg="false" NextFile="run.png"/>
+    <ROW File="RobustBackup.exe" Component_="RobustBackup.exe" FileName="Robust~2.exe|RobustBackup.exe" Attributes="0" SourcePath="..\RobustBackup.exe" SelfReg="false"/>
+    <ROW File="RobustBackup_cl.exe" Component_="RobustBackup_cl.exe" FileName="Robust~1.exe|RobustBackup_cl.exe" Attributes="0" SourcePath="..\RobustBackup_cl.exe" SelfReg="false" NextFile="RobustBackup.exe"/>
+    <ROW File="activation.jar" Component_="activation.jar" FileName="activa~1.jar|activation.jar" Attributes="0" SourcePath="..\lib\activation.jar" SelfReg="false" NextFile="commonsnet1.4.1.jar"/>
     <ROW File="binary.png" Component_="binary.png" FileName="binary.png" Attributes="0" SourcePath="..\icons\binary.png" SelfReg="false" NextFile="configure.png_1"/>
-    <ROW File="com_myJava_file_metadata_posix_jni_wrapper_FileAccessWrapper.c" Component_="com_myJava_file_metadata_posix_jni_wrapp" FileName="com_my~1.c|com_myJava_file_metadata_posix_jni_wrapper_FileAccessWrapper.c" Attributes="0" SourcePath="..\jni\com_myJava_file_metadata_posix_jni_wrapper_FileAccessWrapper.c" SelfReg="false" NextFile="README"/>
     <ROW File="commonsnet1.4.1.jar" Component_="activation.jar" FileName="common~1.jar|commons-net-1.4.1.jar" Attributes="0" SourcePath="..\lib\commons-net-1.4.1.jar" SelfReg="false" NextFile="jakartaoro2.0.8.jar"/>
     <ROW File="configure.png" Component_="configure.png" FileName="config~1.png|configure.png" Attributes="0" SourcePath="..\icons\big\configure.png" SelfReg="false" NextFile="db_add.png"/>
     <ROW File="configure.png_1" Component_="binary.png" FileName="config~1.png|configure.png" Attributes="0" SourcePath="..\icons\configure.png" SelfReg="false" NextFile="database.png"/>
@@ -72,6 +69,7 @@
     <ROW File="db_status.png_1" Component_="binary.png" FileName="db_sta~1.png|db_status.png" Attributes="0" SourcePath="..\icons\db_status.png" SelfReg="false" NextFile="db_update.png_1"/>
     <ROW File="db_update.png" Component_="configure.png" FileName="db_upd~1.png|db_update.png" Attributes="0" SourcePath="..\icons\big\db_update.png" SelfReg="false" NextFile="desktop.png"/>
     <ROW File="db_update.png_1" Component_="binary.png" FileName="db_upd~1.png|db_update.png" Attributes="0" SourcePath="..\icons\db_update.png" SelfReg="false" NextFile="delete.png"/>
+    <ROW File="decrypt.exe" Component_="decrypt.exe" FileName="decrypt.exe" Attributes="0" SourcePath="..\tools\decrypt.exe" SelfReg="false" NextFile="README"/>
     <ROW File="delete.png" Component_="binary.png" FileName="delete.png" Attributes="0" SourcePath="..\icons\delete.png" SelfReg="false" NextFile="desktop.png_1"/>
     <ROW File="desktop.png" Component_="configure.png" FileName="desktop.png" Attributes="0" SourcePath="..\icons\big\desktop.png" SelfReg="false" NextFile="edit.png"/>
     <ROW File="desktop.png_1" Component_="binary.png" FileName="desktop.png" Attributes="0" SourcePath="..\icons\desktop.png" SelfReg="false" NextFile="edit.png_1"/>
@@ -84,8 +82,8 @@
     <ROW File="folder_blue.png" Component_="binary.png" FileName="folder~1.png|folder_blue.png" Attributes="0" SourcePath="..\icons\folder_blue.png" SelfReg="false" NextFile="folder_green.png"/>
     <ROW File="folder_green.png" Component_="binary.png" FileName="folder~2.png|folder_green.png" Attributes="0" SourcePath="..\icons\folder_green.png" SelfReg="false" NextFile="folder_red.png"/>
     <ROW File="folder_red.png" Component_="binary.png" FileName="folder~3.png|folder_red.png" Attributes="0" SourcePath="..\icons\folder_red.png" SelfReg="false" NextFile="help.png_1"/>
-    <ROW File="fwk.properties" Component_="fwk.properties" FileName="fwk~1.pro|fwk.properties" Attributes="0" SourcePath="..\config\fwk.properties" SelfReg="false" NextFile="ADVANCED_ENCRYPTION_HOWTO"/>
-    <ROW File="help.png" Component_="configure.png" FileName="help.png" Attributes="0" SourcePath="..\icons\big\help.png" SelfReg="false" NextFile="binary.png"/>
+    <ROW File="fwk.properties" Component_="fwk.properties" FileName="fwk~1.pro|fwk.properties" Attributes="0" SourcePath="..\config\fwk.properties" SelfReg="false" NextFile="configure.png"/>
+    <ROW File="help.png" Component_="configure.png" FileName="help.png" Attributes="0" SourcePath="..\icons\big\help.png" SelfReg="false" NextFile="robustBackup.jpg"/>
     <ROW File="help.png_1" Component_="binary.png" FileName="help.png" Attributes="0" SourcePath="..\icons\help.png" SelfReg="false" NextFile="ico_16.png"/>
     <ROW File="ico_16.png" Component_="binary.png" FileName="ico_16.png" Attributes="0" SourcePath="..\icons\ico_16.png" SelfReg="false" NextFile="ico_72.png"/>
     <ROW File="ico_72.png" Component_="binary.png" FileName="ico_72.png" Attributes="0" SourcePath="..\icons\ico_72.png" SelfReg="false" NextFile="karm.png"/>
@@ -99,8 +97,8 @@
     <ROW File="mail.jar" Component_="activation.jar" FileName="mail.jar" Attributes="0" SourcePath="..\lib\mail.jar" SelfReg="false" NextFile="org.eclipse.core.commands_3.2.0.I200606051400.jar"/>
     <ROW File="org.eclipse.core.commands_3.2.0.I200606051400.jar" Component_="activation.jar" FileName="orgecl~1.jar|org.eclipse.core.commands_3.2.0.I20060605-1400.jar" Attributes="0" SourcePath="..\lib\org.eclipse.core.commands_3.2.0.I20060605-1400.jar" SelfReg="false" NextFile="org.eclipse.equinox.common_3.2.0.v20060603.jar"/>
     <ROW File="org.eclipse.equinox.common_3.2.0.v20060603.jar" Component_="activation.jar" FileName="orgecl~2.jar|org.eclipse.equinox.common_3.2.0.v20060603.jar" Attributes="0" SourcePath="..\lib\org.eclipse.equinox.common_3.2.0.v20060603.jar" SelfReg="false" NextFile="org.eclipse.jface_3.2.0.I200606051400.jar"/>
-    <ROW File="org.eclipse.jface_3.2.0.I200606051400.jar" Component_="activation.jar" FileName="orgecl~3.jar|org.eclipse.jface_3.2.0.I20060605-1400.jar" Attributes="0" SourcePath="..\lib\org.eclipse.jface_3.2.0.I20060605-1400.jar" SelfReg="false" NextFile="swt.jar"/>
-    <ROW File="pipe.png" Component_="binary.png" FileName="pipe.png" Attributes="0" SourcePath="..\icons\pipe.png" SelfReg="false" NextFile="run.png"/>
+    <ROW File="org.eclipse.jface_3.2.0.I200606051400.jar" Component_="activation.jar" FileName="orgecl~3.jar|org.eclipse.jface_3.2.0.I20060605-1400.jar" Attributes="0" SourcePath="..\lib\org.eclipse.jface_3.2.0.I20060605-1400.jar" SelfReg="false" NextFile="robustbackup.jar"/>
+    <ROW File="pipe.png" Component_="binary.png" FileName="pipe.png" Attributes="0" SourcePath="..\icons\pipe.png" SelfReg="false" NextFile="Ricon.png"/>
     <ROW File="resources_cs.properties" Component_="README" FileName="resour~1.pro|resources_cs.properties" Attributes="0" SourcePath="..\translations\resources_cs.properties" SelfReg="false" NextFile="resources_de.properties"/>
     <ROW File="resources_d_cn.properties" Component_="README" FileName="resour~3.pro|resources_d_cn.properties" Attributes="0" SourcePath="..\translations\resources_d_cn.properties" SelfReg="false" NextFile="resources_d_da.properties"/>
     <ROW File="resources_d_da.properties" Component_="README" FileName="resour~4.pro|resources_d_da.properties" Attributes="0" SourcePath="..\translations\resources_d_da.properties" SelfReg="false" NextFile="resources_d_ja.properties"/>
@@ -117,13 +115,15 @@
     <ROW File="resources_hu.properties" Component_="README" FileName="resou~14.pro|resources_hu.properties" Attributes="0" SourcePath="..\translations\resources_hu.properties" SelfReg="false" NextFile="resources_it.properties"/>
     <ROW File="resources_it.properties" Component_="README" FileName="resou~15.pro|resources_it.properties" Attributes="0" SourcePath="..\translations\resources_it.properties" SelfReg="false" NextFile="resources_tr.properties"/>
     <ROW File="resources_tr.properties" Component_="README" FileName="resou~16.pro|resources_tr.properties" Attributes="0" SourcePath="..\translations\resources_tr.properties" SelfReg="false" NextFile="resources_tr.yedek"/>
-    <ROW File="resources_tr.yedek" Component_="README" FileName="resour~1.yed|resources_tr.yedek" Attributes="0" SourcePath="..\translations\resources_tr.yedek" SelfReg="false"/>
+    <ROW File="resources_tr.yedek" Component_="README" FileName="resour~1.yed|resources_tr.yedek" Attributes="0" SourcePath="..\translations\resources_tr.yedek" SelfReg="false" NextFile="RobustBackup_cl.exe"/>
+    <ROW File="robustBackup.jpg" Component_="robustBackup.jpg" FileName="robust~1.jpg|robustBackup.jpg" Attributes="0" SourcePath="..\icons\big\Originals\robustBackup.jpg" SelfReg="false" NextFile="binary.png"/>
+    <ROW File="robustbackup.jar" Component_="activation.jar" FileName="robust~1.jar|robustbackup.jar" Attributes="0" SourcePath="..\lib\robustbackup.jar" SelfReg="false" NextFile="swt.jar"/>
     <ROW File="run.png" Component_="binary.png" FileName="run.png" Attributes="0" SourcePath="..\icons\run.png" SelfReg="false" NextFile="void.png"/>
-    <ROW File="swt.jar" Component_="activation.jar" FileName="swt.jar" Attributes="0" SourcePath="..\lib\swt.jar" SelfReg="false" NextFile="README_1"/>
-    <ROW File="void.png" Component_="binary.png" FileName="void.png" Attributes="0" SourcePath="..\icons\void.png" SelfReg="false" NextFile="com_myJava_file_metadata_posix_jni_wrapper_FileAccessWrapper.c"/>
+    <ROW File="swt.jar" Component_="activation.jar" FileName="swt.jar" Attributes="0" SourcePath="..\lib\swt.jar" SelfReg="false" NextFile="decrypt.exe"/>
+    <ROW File="void.png" Component_="binary.png" FileName="void.png" Attributes="0" SourcePath="..\icons\void.png" SelfReg="false" NextFile="activation.jar"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
-    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" Languages="en" InstallationType="4" UseLargeSchema="true"/>
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFileName="RobustBackupTools_v1.0" Languages="en" InstallationType="4" UseLargeSchema="true"/>
     <ATTRIBUTE name="CurrentBuild" value="DefaultBuild"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
@@ -174,9 +174,6 @@
     <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="203"/>
     <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
   </COMPONENT>
-  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
-    <ROW Directory_="SHORTCUTDIR" Component_="SHORTCUTDIR"/>
-  </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
     <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
     <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
@@ -186,12 +183,12 @@
     <ROW Action="AI_ResolveLocalizedCredentials" Type="1" Source="aicustact.dll" Target="GetLocalizedCredentials"/>
     <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
     <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
-    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[ProgramFilesFolder]\[ProductName]"/>
     <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
     <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
-    <ROW Name="Repackager.exe" SourcePath="C:\Program Files (x86)\Caphyon\Advanced Installer 9.3\bin\x86\Repackager.exe" Index="0"/>
+    <ROW Name="RobustBackup.exe" SourcePath="..\RobustBackup.exe" Index="0"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
     <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
@@ -214,9 +211,8 @@
     <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
-    <ROW Shortcut="MarkaYedek" Directory_="SHORTCUTDIR" Name="MarkaY~1|Marka Yedek" Component_="areca.exe" Target="[#areca.exe]" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
-    <ROW Shortcut="MarkaYedek_1" Directory_="DesktopFolder" Name="MarkaY~1|Marka Yedek" Component_="areca.exe" Target="[#areca.exe]" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
-    <ROW Shortcut="MarkaYedek_2" Directory_="StartMenuFolder" Name="MarkaY~1|Marka Yedek" Component_="areca.exe" Target="[#areca.exe]" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+    <ROW Shortcut="RobustBackup.exe" Directory_="ProgramMenuFolder" Name="Robust~1.exe|RobustBackup.exe" Component_="RobustBackup.exe" Target="[#RobustBackup.exe]" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+    <ROW Shortcut="ShortcuttoRobustBackup.exe" Directory_="DesktopFolder" Name="Robust~1.exe|RobustBackup.exe" Component_="RobustBackup.exe" Target="[#RobustBackup.exe]" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
     <ATTRIBUTE name="UsedTheme" value="classic"/>

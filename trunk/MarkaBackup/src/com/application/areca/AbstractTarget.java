@@ -336,7 +336,7 @@ implements HistoryEntryTypes, Duplicable, TargetActions {
 				runPreProcessors(Processor.ACTION_BACKUP, 0.1, transactionPoint == null, context);
 
 				try {
-					context.getInfoChannel().print("Backup in progress ...");
+					context.getInfoChannel().print("Yedekleme devam ediyor ...");
 					context.getTaskMonitor().checkTaskState();
 
 					// Start the backup

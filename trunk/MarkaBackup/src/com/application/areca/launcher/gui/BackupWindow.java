@@ -99,7 +99,7 @@ extends AbstractWindow {
 		Group grpArchiveType = new Group(composite, SWT.NONE);
 		grpArchiveType.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 		grpArchiveType.setLayout(new GridLayout(2, false));
-		grpArchiveType.setText(RM.getLabel("archivedetail.checkgroup.label"));
+		grpArchiveType.setText("Yedekleme Tipi");
 		
 		
 

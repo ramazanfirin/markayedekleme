@@ -43,8 +43,8 @@ public class ArecaImages {
     private static final String B_PREFIX = showSmallIcons ? "" : "big/";
 
     // General
-    public static Image ICO_SMALL = loadImage("ico_16.png");
-    public static Image ICO_BIG = loadImage("ico_72.png");
+    public static Image ICO_SMALL = loadImage("R-icon.png");
+    public static Image ICO_BIG = loadImage("R-icon.png");
     public static Image ICO_VOID = loadImage("void.png");
     public static Image ICO_CHANNEL = loadImage("run.png");
     

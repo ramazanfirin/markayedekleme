@@ -389,9 +389,8 @@ implements MouseListener, Listener {
 
 	public void mouseDown(MouseEvent e) {
 		try {
-			showMenu(e, logicalView ? Application.getInstance()
-					.getArchiveContextMenuLogical() : Application.getInstance()
-					.getArchiveContextMenu());
+			showMenu(e, logicalView ? Application.getInstance().getArchiveContextMenuLogical() 
+					                : Application.getInstance().getArchiveContextMenu());
 		} catch (RuntimeException e1) {
 			Application.getInstance().handleException(e1);
 			throw e1;

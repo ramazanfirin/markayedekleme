@@ -29,9 +29,9 @@ This file is part of Areca.
 
  */
 public interface ArecaFileConstants {
-	public static final String USER_ROOT_DIRECTORY = ".marka";
+	public static final String USER_ROOT_DIRECTORY = ".robustbackup";
 	public static final String USER_PREFERENCES_PATH = USER_ROOT_DIRECTORY + "/preferences.properties";
-	public static final String USER_PREFERENCES_PATH_DEPRECATED = ".marka";
+	public static final String USER_PREFERENCES_PATH_DEPRECATED = ".robustBackup";
 	public static final String USER_DEFAULT_WORKSPACE = USER_ROOT_DIRECTORY + "/workspace";
 	public static final String DEPRECATED_LOG_SUBDIRECTORY_NAME = "log";
 	public static final String LOG_SUBDIRECTORY_NAME = ".log";
