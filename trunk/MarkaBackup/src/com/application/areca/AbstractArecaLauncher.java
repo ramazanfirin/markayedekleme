@@ -1,9 +1,11 @@
 package com.application.areca;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 
+import com.application.areca.launcher.gui.serialnumbercontrol.SerialNumberWindow;
 import com.application.areca.version.VersionInfos;
 import com.myJava.configuration.FrameworkConfiguration;
 import com.myJava.system.AbstractLauncher;
@@ -113,5 +115,23 @@ extends AbstractLauncher {
     		System.out.println("parameters such as -jinitialheap or -jmaxheap should not be usefull anymore and will be ignored. If you wish to pass memory parameters to areca, please refer to online documentation on how to proceed.");
     	}
     	return (String[])ret.toArray(new String[ret.size()]);
+    }
+    protected boolean checkSerialNumber() throws Exception{
+  	
+    	String serialNumber = Utils.getSerialNumber();
+        System.out.println("serialNumber="+serialNumber);
+          	
+        if(!Utils.checkSerialNumber(serialNumber)){
+    		SerialNumberWindow dialog = new SerialNumberWindow(serialNumber);
+    		dialog.run();
+    	}
+    	
+        serialNumber = Utils.getSerialNumber();
+    	if(!Utils.isSerialNumberExpired(serialNumber)){
+    		return true;
+    	}else
+    		return false;
+    		
+    	
     }
 }

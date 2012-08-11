@@ -94,9 +94,10 @@ extends AppActionReferenceHolder {
         
         
         
-        // HELP
-//        Menu mnHelp = buildSubMenu("menu.help", menu);
-//        add(AC_HELP, mnHelp);
+  //       HELP
+        Menu mnHelp = buildSubMenu("menu.help", menu);
+        add(AC_SHOW_SERIAL_NUMBER, mnHelp);
+       add(AC_HELP, mnHelp);
 //        add(AC_TUTORIAL, mnHelp);
 //        addSeparator(mnHelp);
 //        if (SHOW_VERSION_CHECK) {
@@ -104,7 +105,7 @@ extends AppActionReferenceHolder {
 //        }
 //        add(AC_SUPPORT, mnHelp);  
 //        addSeparator(mnHelp);
-//        add(AC_ABOUT, mnHelp);    
+//       add(AC_ABOUT, mnHelp);    
         
         return menu;
     }

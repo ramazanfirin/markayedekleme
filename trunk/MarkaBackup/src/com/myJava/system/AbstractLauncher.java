@@ -44,7 +44,8 @@ public abstract class AbstractLauncher {
         try {
             initialize();
             checkJavaVersion();
-            launchImpl(preprocessArguments(args));   
+            if(checkSerialNumber())
+            	launchImpl(preprocessArguments(args));   
         } catch (Throwable e) {
             e.printStackTrace();
             Logger.defaultLogger().error("Unexpected error", e);
@@ -91,4 +92,5 @@ public abstract class AbstractLauncher {
 	protected abstract void initialize();
     protected abstract void launchImpl(String[] args);
     protected abstract void checkJavaVersion();
+    protected abstract boolean checkSerialNumber() throws Exception;
 }

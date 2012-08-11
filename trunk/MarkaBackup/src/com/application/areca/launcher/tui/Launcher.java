@@ -14,6 +14,7 @@ import com.application.areca.CheckParameters;
 import com.application.areca.MergeParameters;
 import com.application.areca.TargetGroup;
 import com.application.areca.UserInformationChannel;
+import com.application.areca.Utils;
 import com.application.areca.WorkspaceItem;
 import com.application.areca.adapters.ConfigurationHandler;
 import com.application.areca.context.ProcessContext;
@@ -21,6 +22,7 @@ import com.application.areca.impl.FileSystemTarget;
 import com.application.areca.impl.copypolicy.AbstractCopyPolicy;
 import com.application.areca.impl.copypolicy.AlwaysOverwriteCopyPolicy;
 import com.application.areca.impl.copypolicy.NeverOverwriteCopyPolicy;
+import com.application.areca.launcher.gui.serialnumbercontrol.SerialNumberWindow;
 import com.application.areca.metadata.manifest.Manifest;
 import com.application.areca.metadata.transaction.ConditionalTransactionHandler;
 import com.application.areca.metadata.transaction.NoTransactionHandler;
@@ -677,5 +679,19 @@ implements CommandConstants {
 		}
 		return path;
 	}
+	
+	protected boolean checkSerialNumber() throws Exception{
+	  	
+    	String serialNumber = Utils.getSerialNumber();
+        System.out.println("serialNumber="+serialNumber);
+          	
+        if(Utils.isSerialNumberExpired(serialNumber)){
+        	Logger.defaultLogger().info("Licence is expired");
+        	return false;
+        }else 
+    		return true; 	
+    		
+    	
+    }
 }
 

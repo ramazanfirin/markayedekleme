@@ -1,6 +1,8 @@
 package com.application.areca;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.net.URL;
@@ -8,11 +10,16 @@ import java.net.URLDecoder;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.Properties;
+
+import org.apache.commons.codec.binary.Base64;
 
 import com.application.areca.launcher.gui.common.LocalPreferences;
 import com.application.areca.plugins.StoragePlugin;
@@ -61,6 +68,8 @@ public class Utils implements ArecaFileConstants {
 	private static final String LN_DIRECTORY = ArecaConfiguration.get().getLanguageLocationOverride();
 	private static final String EXEC_DIRECTORY = ArecaConfiguration.get().getBinLocationOverride();
 
+	static DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+	
 	static {
 		NF.setGroupingUsed(true);
 		initDateFormat(null);
@@ -381,5 +390,114 @@ public class Utils implements ArecaFileConstants {
 			sb.append(key).append(" : ").append(value).append("\n");
 		}
 		return sb.toString();
+	}
+	
+	public static Properties loadVersionProperty(){
+		Properties properties = new Properties();
+		try {
+			properties.load(new FileInputStream("./config/serial.properties"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return properties;
+	}
+	
+	public static String getSerialNumber(){
+		Properties properties = loadVersionProperty();
+		return (String)properties.get("serial.number");
+	}
+	
+	public static void updateSerialNumber(String serialNumber) throws Exception{
+		Properties properties = loadVersionProperty();
+		properties.setProperty("serial.number", serialNumber);
+		properties.store(new FileOutputStream("./config/serial.properties"), "");
+		
+	}
+	
+	public static void main(String[] args) throws Exception {
+		if(isSerialNumberExpired("1/6/2012"))
+			System.out.println("bitti");
+		
+
+	}
+	
+	public static boolean checkSerialNumber(String string) throws Exception{
+		if(string ==null || string.equals(""))
+			return false;
+		
+		if(isSerialNumberExpired(string))
+				return false;
+		if(inLast30Days(string))
+				return false;
+		
+		return true;
+		
+	}
+	
+	public static boolean isSerialNumberExpired(String string) throws Exception{
+		byte[] array = Base64.decodeBase64(string.getBytes());  
+		String stringDate = new String(array);
+		Date date=new Date();
+		date = (Date)formatter.parse(stringDate);
+		
+		if(date.after(new Date()))
+			return false;
+		else
+			return true;
+	}
+
+//	public static boolean isSerialNumberExpired(Date date){
+//		if(date.after(new Date()))
+//			return false;
+//		else
+//			return true;
+//	}
+//	
+//	public static boolean inLast30Days(Date finishDate){
+//		Calendar rightNow = Calendar.getInstance();
+//		rightNow.add(Calendar.MONTH, 1);
+//		System.out.println(rightNow.getTime());
+//		System.out.println(finishDate);
+//		if(rightNow.getTime().after(finishDate))
+//			return true;
+//		else
+//			return false;
+//	}
+	
+	public static boolean inLast30Days(String string){
+		byte[] array = Base64.decodeBase64(string.getBytes());  
+		String stringDate = new String(array);
+		Date finishDate=new Date();
+		
+		try {
+			finishDate = (Date)formatter.parse(stringDate);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return true;
+		}
+		
+		Calendar rightNow = Calendar.getInstance();
+		rightNow.add(Calendar.MONTH, 1);
+		System.out.println(rightNow.getTime());
+		System.out.println(finishDate);
+		if(rightNow.getTime().after(finishDate))
+			return true;
+		else
+			return false;
+	}
+	
+	public static Date serialNumberToDate(String string){
+		try {
+			byte[] array = Base64.decodeBase64(string.getBytes());  
+			String stringDate = new String(array);
+			DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+			Date date = (Date)formatter.parse(stringDate);
+			return date;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

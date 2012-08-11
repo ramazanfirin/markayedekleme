@@ -75,12 +75,14 @@ public class AppActionReferenceHolder implements ActionConstants{
 
     public static AppAction AC_HELP = new AppAction("app.helpaction", ArecaImages.ICO_HELP, ArecaImages.ICO_HELP_B, CMD_HELP);
     public static AppAction AC_TUTORIAL = new AppAction("app.tutorialaction", null, null, CMD_TUTORIAL);
-    public static AppAction AC_ABOUT = new AppAction("app.aboutaction", ArecaImages.ICO_SMALL, null, CMD_ABOUT);
+    public static AppAction AC_ABOUT = new AppAction("app.aboutaction", null, null, CMD_ABOUT);
     public static AppAction AC_SUPPORT = new AppAction("app.supportaction", CMD_SUPPORT);
     public static AppAction AC_CHECK_VERSION = new AppAction("app.checkversionaction", CMD_CHECK_VERSION);
 
     public static AppAction AC_DENCRYTION_FILE = new AppAction("app.encrytionFile", null, null, CMD_DENCRYTION_FILE);
     public static AppAction AC_DENCRYTION_FOLDER = new AppAction("app.encrytionFolder", null, null, CMD_DENCRYTION_FOLDER);
+    
+    public static AppAction AC_SHOW_SERIAL_NUMBER = new AppAction("app.showSerialNumber", null, null, CMD_SHOW_SERIAL_NUMBER);
     
     public static AppAction AC_VIEW_MANIFEST = new AppAction("app.archivedetailaction", ArecaImages.ICO_ARCHIVE_DETAIL, CMD_VIEW_MANIFEST);
     public static AppAction AC_CLEAR_LOG = new AppAction("app.clearlog", ACTION_CLEAR_LOG);    

@@ -304,7 +304,7 @@ public class MainWindow extends AbstractWindow {
     }
 
     public void show() {
-        setBlockOnOpen(true);
+    	setBlockOnOpen(true);
         open();
         Display.getCurrent().dispose();
     }
