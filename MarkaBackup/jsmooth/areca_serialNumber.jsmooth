@@ -8,28 +8,39 @@
 <JVMSearchPath>jview</JVMSearchPath>
 <arguments></arguments>
 <classPath>..\lib\commons-codec-1.6.jar</classPath>
+<classPath>..\lib\org.eclipse.core.commands_3.2.0.I20060605-1400.jar</classPath>
+<classPath>..\lib\org.eclipse.equinox.common_3.2.0.v20060603.jar</classPath>
+<classPath>..\lib\org.eclipse.jface_3.2.0.I20060605-1400.jar</classPath>
+<classPath>..\lib\swt.jar</classPath>
 <classPath>..\lib\robustbackup.jar</classPath>
-<classPath>..\lib\activation.jar</classPath>
-<classPath>..\lib\mail.jar</classPath>
-<classPath>..\lib\commons-net-1.4.1.jar</classPath>
-<classPath>..\lib\jakarta-oro-2.0.8.jar</classPath>
-<classPath>..\config</classPath>
-<classPath>..\translations</classPath>
+<currentDirectory>${EXECUTABLEPATH}</currentDirectory>
 <embeddedJar>false</embeddedJar>
-<executableName>..\RobustBackup_cl.exe</executableName>
+<executableName>..\CreateSerialNumber.exe</executableName>
 <iconLocation>..\icons\R-icon.png</iconLocation>
 <initialMemoryHeap>67108864</initialMemoryHeap>
-<mainClassName>com.application.areca.launcher.tui.Launcher</mainClassName>
+<mainClassName>com.application.areca.launcher.gui.serialnumbercontrol.CreateSerialNumber</mainClassName>
 <maximumMemoryHeap>268435456</maximumMemoryHeap>
 <maximumVersion></maximumVersion>
 <minimumVersion>1.4.2</minimumVersion>
-<skeletonName>Console Wrapper</skeletonName>
+<skeletonName>Windowed Wrapper</skeletonName>
 <skeletonProperties>
 <key>Message</key>
-<value>This program needs Java to run. Please download it at http://java.sun.com/javase/downloads/</value>
+<value>Java has not been found on your computer. Do you want to download it?</value>
 </skeletonProperties>
 <skeletonProperties>
-<key>PressKey</key>
+<key>URL</key>
+<value></value>
+</skeletonProperties>
+<skeletonProperties>
+<key>SingleProcess</key>
+<value>0</value>
+</skeletonProperties>
+<skeletonProperties>
+<key>SingleInstance</key>
+<value>0</value>
+</skeletonProperties>
+<skeletonProperties>
+<key>JniSmooth</key>
 <value>0</value>
 </skeletonProperties>
 <skeletonProperties>

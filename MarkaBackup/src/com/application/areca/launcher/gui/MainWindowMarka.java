@@ -37,6 +37,7 @@ import com.application.areca.launcher.gui.composites.TargetTreeComposite;
 import com.application.areca.launcher.gui.menus.AppActionReferenceHolder;
 import com.application.areca.launcher.gui.menus.MenuBuilder;
 import com.application.areca.launcher.gui.menus.ToolBarBuilder;
+import com.application.areca.launcher.gui.serialnumbercontrol.SerialNumberWindow;
 import com.application.areca.metadata.trace.TraceEntry;
 import com.myJava.util.log.Logger;
 
@@ -344,7 +345,8 @@ public class MainWindowMarka extends MainWindow {
     }
 
     public void show() {
-        setBlockOnOpen(true);
+    	
+    	setBlockOnOpen(true);
         open();
         Display.getCurrent().dispose();
     }

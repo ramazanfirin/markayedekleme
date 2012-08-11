@@ -380,5 +380,8 @@ extends AbstractWindow {
 	    };
 	}
 	
-	
+	public static void main(String[] args) {
+		DecrytionFileWindow fileWindow = new DecrytionFileWindow();
+		fileWindow.open();
+	}
 }

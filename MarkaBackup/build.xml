@@ -10,6 +10,8 @@
 
     <!-- Path to SWT libraries (download the SWT package if this file is missing on your system) -->
     <property name="swtfile" value="./lib/swt.jar"/>
+	<property name="jsmooth.dir" value="C:/Program Files (x86)/JSmooth 0.9.9-7"/>
+	<property name="advinstaller.dir" value="C:\Program Files (x86)\Caphyon\Advanced Installer 9.3\bin\x86"/>
 
     <property name="root" value="."/>
 
@@ -94,12 +96,54 @@
             </fileset>
         </chmod>
     </target>
+	
+	<target name="build-exe" depends="compilejava"> 
+			<exec executable="${jsmooth.dir}/jsmoothcmd.exe"> 
+			<arg value="${root}/jsmooth/areca_gui.jsmooth"/> 
+			</exec> 
+	</target> 
 
+	<target name="build-exe-cl" depends="compilejava"> 
+			<exec executable="${jsmooth.dir}/jsmoothcmd.exe"> 
+			<arg value="${root}/jsmooth/areca_tui.jsmooth"/> 
+			</exec> 
+	</target> 
+	
+	<target name="build-exe-serialNumber" depends="compilejava"> 
+				<exec executable="${jsmooth.dir}/jsmoothcmd.exe"> 
+				<arg value="${root}/jsmooth/areca_serialNumber.jsmooth"/> 
+				</exec> 
+	</target> 
+	
+	<target name="advinst">
+
+	<exec executable="${advinstaller.dir}/AdvancedInstaller.com">
+	    <arg line="/build ${root}/installer/installler.aip"/>
+	  </exec>
+
+	</target>
+
+	<target name="zipProgram">
+		<zip destfile="${root}/installer/RobustBackup_V.1.1_beta.zip" basedir="${root}" 
+			includes="config/**,icons/**,lib/**,tools/**,translations/**,RobustBackup.exe,,RobustBackup_cl.exe"  update="true"
+			excludesfile="CreateSerialNumber.exe">
+		</zip>
+	</target>
+	
+	<target name="zipSerialNumber">
+			<zip destfile="${root}/installer/serialNumber.zip" basedir="${root}" 
+				includes="lib/commons-codec-1.6.jar,lib/org.eclipse.core.commands_3.2.0.I20060605-1400.jar,lib/org.eclipse.equinox.common_3.2.0.v20060603.jar,lib/org.eclipse.jface_3.2.0.I20060605-1400.jar,lib/swt.jar,lib/robustbackup.jar,CreateSerialNumber.exe"  update="true">
+			</zip>
+		</target>
+	
     <target name="compileall">
         <description>Global compilation task (builds areca.jar and libarecafs.so)</description>
         <antcall target="compilejava"/>
-        <antcall target="jnicheck"/>
-        <antcall target="compilejni"/>
-        <antcall target="setpermissions"/>
+    	<antcall target="build-exe"/>
+        <antcall target="build-exe-cl"/>
+    	<antcall target="build-exe-serialNumber"/>
+    	<antcall target="zipProgram"/>
+        <antcall target="zipSerialNumber"/>
+    	
     </target>
 </project>

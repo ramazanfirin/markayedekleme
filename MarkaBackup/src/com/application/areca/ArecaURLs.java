@@ -29,7 +29,7 @@ This file is part of Areca.
 
  */
 public interface ArecaURLs {
-	public String HELP_ROOT = "http://www.robustbackuptools.org/documentation.php?fromApplication=1&currentVersion=";
+	public String HELP_ROOT = "http://www.robustbackuptools.com/help";
 	public String TUTORIAL_ROOT = "http://www.robustbackuptools.org/tutorial.php?fromApplication=1&currentVersion=";
 	public String DONATION_URL = "http://sourceforge.net/project/project_donations.php?group_id=171505";
 	public String ARECA_URL = "http://www.robustbackuptools.org";

@@ -67,6 +67,7 @@ import com.application.areca.launcher.gui.composites.LogComposite;
 import com.application.areca.launcher.gui.composites.ProgressComposite;
 import com.application.areca.launcher.gui.menus.AppActionReferenceHolder;
 import com.application.areca.launcher.gui.menus.MenuBuilder;
+import com.application.areca.launcher.gui.serialnumbercontrol.SerialNumberWindow;
 import com.application.areca.launcher.gui.wizards.BackupShortcutWizardWindow;
 import com.application.areca.launcher.gui.wizards.BackupStrategyWizardWindow;
 import com.application.areca.metadata.manifest.Manifest;
@@ -310,10 +311,17 @@ public class Application implements ActionConstants, Window.IExceptionHandler, A
 			// ABOUT
 			AboutWindow about = new AboutWindow();
 			showDialog(about);
+		}else if (command.equals(CMD_SHOW_SERIAL_NUMBER)) {
+				// ABOUT
+			String serialNumber = Utils.getSerialNumber();
+			SerialNumberWindow dialog = new SerialNumberWindow(serialNumber);
+
+			
+    		dialog.run();
+			
 		} else if (command.equals(CMD_HELP)) {
 			// HELP
-			showWebPage(HELP_ROOT
-					+ VersionInfos.getLastVersion().getVersionId());
+			showWebPage(HELP_ROOT);
 			
 			
 		}else if (command.equals(CMD_DENCRYTION_FILE)) {

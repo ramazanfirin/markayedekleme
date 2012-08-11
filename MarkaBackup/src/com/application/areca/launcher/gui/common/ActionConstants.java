@@ -65,6 +65,8 @@ public interface ActionConstants {
     
     public static final String CMD_DENCRYTION_FILE = "dencrytion file";
     public static final String CMD_DENCRYTION_FOLDER = "dencrytion folder";
+    
+    public static final String CMD_SHOW_SERIAL_NUMBER = "show serial number";
 
     public static final String CMD_NEW_TARGET = "new target";
     public static final String CMD_EDIT_TARGET = "edit target";    
