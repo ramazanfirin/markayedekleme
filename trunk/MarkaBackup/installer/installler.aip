@@ -51,10 +51,11 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
     <ROW File="README" Component_="README" FileName="README" Attributes="0" SourcePath="..\translations\README" SelfReg="false" NextFile="resources_cs.properties"/>
     <ROW File="Ricon.png" Component_="binary.png" FileName="R-icon.png" Attributes="0" SourcePath="..\icons\R-icon.png" SelfReg="false" NextFile="run.png"/>
-    <ROW File="RobustBackup.exe" Component_="RobustBackup.exe" FileName="Robust~2.exe|RobustBackup.exe" Attributes="0" SourcePath="..\RobustBackup.exe" SelfReg="false"/>
+    <ROW File="RobustBackup.exe" Component_="RobustBackup.exe" FileName="Robust~2.exe|RobustBackup.exe" Attributes="0" SourcePath="..\RobustBackup.exe" SelfReg="false" NextFile="serial.properties"/>
     <ROW File="RobustBackup_cl.exe" Component_="RobustBackup_cl.exe" FileName="Robust~1.exe|RobustBackup_cl.exe" Attributes="0" SourcePath="..\RobustBackup_cl.exe" SelfReg="false" NextFile="RobustBackup.exe"/>
     <ROW File="activation.jar" Component_="activation.jar" FileName="activa~1.jar|activation.jar" Attributes="0" SourcePath="..\lib\activation.jar" SelfReg="false" NextFile="commonsnet1.4.1.jar"/>
     <ROW File="binary.png" Component_="binary.png" FileName="binary.png" Attributes="0" SourcePath="..\icons\binary.png" SelfReg="false" NextFile="configure.png_1"/>
+    <ROW File="commonscodec1.6.jar" Component_="activation.jar" FileName="common~2.jar|commons-codec-1.6.jar" Attributes="0" SourcePath="..\lib\commons-codec-1.6.jar" SelfReg="false"/>
     <ROW File="commonsnet1.4.1.jar" Component_="activation.jar" FileName="common~1.jar|commons-net-1.4.1.jar" Attributes="0" SourcePath="..\lib\commons-net-1.4.1.jar" SelfReg="false" NextFile="jakartaoro2.0.8.jar"/>
     <ROW File="configure.png" Component_="configure.png" FileName="config~1.png|configure.png" Attributes="0" SourcePath="..\icons\big\configure.png" SelfReg="false" NextFile="db_add.png"/>
     <ROW File="configure.png_1" Component_="binary.png" FileName="config~1.png|configure.png" Attributes="0" SourcePath="..\icons\configure.png" SelfReg="false" NextFile="database.png"/>
@@ -119,11 +120,12 @@
     <ROW File="robustBackup.jpg" Component_="robustBackup.jpg" FileName="robust~1.jpg|robustBackup.jpg" Attributes="0" SourcePath="..\icons\big\Originals\robustBackup.jpg" SelfReg="false" NextFile="binary.png"/>
     <ROW File="robustbackup.jar" Component_="activation.jar" FileName="robust~1.jar|robustbackup.jar" Attributes="0" SourcePath="..\lib\robustbackup.jar" SelfReg="false" NextFile="swt.jar"/>
     <ROW File="run.png" Component_="binary.png" FileName="run.png" Attributes="0" SourcePath="..\icons\run.png" SelfReg="false" NextFile="void.png"/>
+    <ROW File="serial.properties" Component_="fwk.properties" FileName="serial~1.pro|serial.properties" Attributes="0" SourcePath="..\config\serial.properties" SelfReg="false" NextFile="commonscodec1.6.jar"/>
     <ROW File="swt.jar" Component_="activation.jar" FileName="swt.jar" Attributes="0" SourcePath="..\lib\swt.jar" SelfReg="false" NextFile="decrypt.exe"/>
     <ROW File="void.png" Component_="binary.png" FileName="void.png" Attributes="0" SourcePath="..\icons\void.png" SelfReg="false" NextFile="activation.jar"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
-    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFileName="RobustBackupTools_v1.0" Languages="en" InstallationType="4" UseLargeSchema="true"/>
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFileName="RobustBackupTools_v1.1.0.0" Languages="en" InstallationType="4" UseLargeSchema="true"/>
     <ATTRIBUTE name="CurrentBuild" value="DefaultBuild"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
