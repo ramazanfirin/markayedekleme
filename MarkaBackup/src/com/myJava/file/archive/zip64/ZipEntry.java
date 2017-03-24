@@ -8,6 +8,7 @@
 package com.myJava.file.archive.zip64;
 
 import java.io.Serializable;
+import java.security.PrivilegedAction;
 import java.util.Date;
 
 import com.myJava.object.ToStringHelper;
@@ -56,8 +57,16 @@ class ZipEntry implements ZipConstants, Cloneable, Serializable {
 
     static {
         /* load the zip library */
-	java.security.AccessController.doPrivileged(
-		  new sun.security.action.LoadLibraryAction("zip"));
+//	java.security.AccessController.doPrivileged(
+//		  new sun.security.action.LoadLibraryAction("zip"));
+
+//    	java.security.AccessController.doPrivileged(new PrivilegedAction() {
+//            public Object run() {
+//                System.loadLibrary("zip");
+//                return null;
+//            }
+//        });
+    
     }
 
 

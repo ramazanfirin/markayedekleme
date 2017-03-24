@@ -65,11 +65,12 @@ public class ProcessorRepository {
         if (preProcess) {  
             list.add(K_DELETE);  
             list.add(K_EMAIL);  
+            list.add(K_SHELL);  
         } else {
             //list.add(K_MERGE);
         	list.add(K_MAIL_REPORT);
         	list.add(K_DUMP);
-            
+        	list.add(K_SHELL); 
         }
         return list;
     }
